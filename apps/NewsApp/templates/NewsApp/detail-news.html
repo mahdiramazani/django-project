@@ -1,0 +1,736 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<section>
+
+    <div class="bg-content-show-news">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-12">
+                    <div class="mt-3">
+                        <p class="font_16" style="font-weight: bold">{{ object.title }}</p>
+                    </div>
+
+
+                    <a href="{{ object.get_absolut_url }}">
+                        <img src="{{ object.image.url }}" class=" new-content new-content-res " >
+                    </a>
+
+
+                    <div class="text-p-line-left">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="bg-white-show mt-3 mt-md-0">
+
+                                    <span class="font_12" style="color: #000">
+{{ object.body | truncatewords:30 | safe }}
+                                    </span>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <p class="font_15 mt-4">
+                            {{ object.body | safe }}
+                        </p>
+
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="text-center">
+                        <a >
+                            <img src="{{ object.image.url }}" class="img-fluid">
+                        </a>
+                    </div>
+
+                    <div class="mt-2">
+                        <div class="bg-color-box">
+                            <div class="row">
+                                <div class="col-6">
+                                    <span class="float-right">
+                                        <i class="fa fa-link"></i>
+                                        <span class="mr-2">
+                                            https://www.yjc.news/00YkQR
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="col-6">
+                                    <span class="float-left">
+                                            <div class="style-li">
+                                                <ul class="style-ul mb-0 ">
+                                                    <li>
+                                                        <a href="#" class="">
+                                                            <i class="fab fa-twitter color-media"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="">
+                                                            <i class="fab fa-instagram color-media"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="">
+                                                            <i class="fab fa-telegram color-media"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="">
+                                                            <i class="fab fa-android color-media"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <span>
+                                <ul class="style-ul style-li p-0">
+                                    <span class="style-tag">
+                                        برچسب ها :
+                                    </span>
+                                <li>
+                                    <a href="#" style="color: #000" class="mr-2">
+                                        چک برگشتی
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" style="color: #000" class="mr-2">
+                                        چک الکترونیکی
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" style="color: #000" class="mr-2">
+                                        بانک مرکزی
+                                    </a>
+                                </li>
+                            </ul>
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <section>
+                        <div class="mt-5">
+                            <div class="circle-title"></div>
+                            <span class="sab-news">اخبار مرتبط</span>
+                        </div>
+                        <div class="mt-2">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 col-12">
+                                    <div class="border-sab-news">
+                                        <p>وزیر اقتصاد مطرح کرد:</p>
+                                        <a href="show-news.html">
+                                            <div class="circle-titr"></div>
+                                            <span class="font_15 style-text-sab-news">
+                     									چک الکترونیک هزینه مبادلات را کاهش می‌دهد
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-12">
+                                    <div class="border-sab-news">
+                                        <p>وزیر اقتصاد مطرح کرد:</p>
+                                        <a href="show-news.html">
+                                            <div class="circle-titr"></div>
+                                            <span class="font_15 style-text-sab-news">
+                     									چک الکترونیکی در کدام بانک ها اجرایی می شود؟
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="mt-5">
+                            <div class="circle-title"></div>
+                            <span class="sab-news">اخبار پیشنهادی</span>
+                        </div>
+                        <div class="mt-2">
+                            <div class="row">
+                                <div class="col-md-3 col-6">
+                                    <div class="row">
+                                        <div class="col-12 mt-3">
+                                            <div class="style-text">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <a href="show-news.html" class="img-news-teldio">
+                                                            <img src="img/16843201_292.jpg" class="img-fluid">
+                                                        </a>
+
+                                                    </div>
+                                                    <div class="col-12  mt-3">
+
+                                                        <a href="show-news.html">
+                                                            <div class="circle-title"></div>
+
+                                                            <p class=" text-p font_14 mb-1 style-tittle">
+                                                                بزرگ‌ترین بازار آجری مسقف جهان + فیلم
+
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="row">
+                                        <div class="col-12 mt-3">
+                                            <div class="style-text">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <a href="show-news.html" class="img-news-teldio">
+                                                            <img src="img/16843225_628.jpg" class="img-fluid">
+                                                        </a>
+
+                                                    </div>
+                                                    <div class="col-12  mt-3">
+
+                                                        <a href="show-news.html">
+                                                            <div class="circle-title"></div>
+
+                                                            <p class=" text-p font_14 mb-1 style-tittle">
+                                                                ایندیانا جونز جدید در راه است
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="row">
+                                        <div class="col-12 mt-3">
+                                            <div class="style-text">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <a href="show-news.html" class="img-news-teldio">
+                                                            <img src="img/16851498_745.jpg" class="img-fluid">
+                                                        </a>
+
+                                                    </div>
+                                                    <div class="col-12  mt-3">
+
+                                                        <a href="show-news.html">
+                                                            <div class="circle-title"></div>
+
+                                                            <p class=" text-p font_14 mb-1 style-tittle">
+                                                                روش پخت خوراک مرغ با خرما + فیلم
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="row">
+                                        <div class="col-12 mt-3">
+                                            <div class="style-text">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <a href="show-news.html" class="img-news-teldio">
+                                                            <img src="img/16851501_994.png" class="img-fluid">
+                                                        </a>
+
+                                                    </div>
+                                                    <div class="col-12  mt-3">
+
+                                                        <a href="show-news.html">
+                                                            <div class="circle-title"></div>
+
+                                                            <p class=" text-p font_14 mb-1 style-tittle">
+                                                                ۷ اختراع علمی تخیلی که تبدیل به واقعیت شدند
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="row">
+                                        <div class="col-12 mt-3">
+                                            <div class="style-text">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <a href="show-news.html" class="img-news-teldio">
+                                                            <img src="img/16854835_378.jpg" class="img-fluid">
+                                                        </a>
+
+                                                    </div>
+                                                    <div class="col-12  mt-3">
+
+                                                        <a href="show-news.html">
+                                                            <div class="circle-title"></div>
+
+                                                            <p class=" text-p font_14 mb-1 style-tittle">
+                                                                موشک هایپرسونیک چیست و چه ویژگی‌هایی دارد؟
+
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="row">
+                                        <div class="col-12 mt-3">
+                                            <div class="style-text">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <a href="show-news.html" class="img-news-teldio">
+                                                            <img src="img/16851493_483.jpg" class="img-fluid">
+                                                        </a>
+
+                                                    </div>
+                                                    <div class="col-12  mt-3">
+
+                                                        <a href="show-news.html">
+                                                            <div class="circle-title"></div>
+
+                                                            <p class=" text-p font_14 mb-1 style-tittle">
+                                                        ضرب المثل شدن برنامه تلویزیونی دهه شصت                                                                                       </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="row">
+                                        <div class="col-12 mt-3">
+                                            <div class="style-text">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <a href="show-news.html" class="img-news-teldio">
+                                                            <img src="img/16851503_725.jpg" class="img-fluid">
+                                                        </a>
+
+                                                    </div>
+                                                    <div class="col-12  mt-3">
+
+                                                        <a href="show-news.html">
+                                                            <div class="circle-title"></div>
+
+                                                            <p class=" text-p font_14 mb-1 style-tittle">
+                                                                بتمن ساکت شد
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="row">
+                                        <div class="col-12 mt-3">
+                                            <div class="style-text">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <a href="show-news.html" class="img-news-teldio">
+                                                            <img src="img/16851492_337.jpg" class="img-fluid">
+                                                        </a>
+
+                                                    </div>
+                                                    <div class="col-12  mt-3">
+
+                                                        <a href="show-news.html">
+                                                            <div class="circle-title"></div>
+
+                                                            <p class=" text-p font_14 mb-1 style-tittle">
+                                                                موشک هایپرسونیک چیست و چه ویژگی‌هایی دارد؟
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <section>
+                        <div class="mt-5">
+                            <div class="circle-title"></div>
+                            <span class="style-text-comment">تبادل نظر</span>
+                        </div>
+                        <div class="mt-2">
+                            <form action="https://netpen.ir/" method="post">
+                                <div class="border-sab-news">
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <div class="py-2">
+                                                    <span class="frm-name">نام:</span>
+                                                </div>
+                                                <div>
+                                                    <input class="form-control" type="text" name="name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <div class="py-2">
+                                                    <span class="frm-name">ایمیل:</span>
+                                                    <span class="font_12" style="float: left">ایمیل خود را با فرمت مناسب وارد کنید</span>
+                                                </div>
+                                                <div>
+                                                    <input class="form-control" type="email" name="email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <div class="py-2">
+                                                    <span class="frm-name">نظر:</span>
+                                                </div>
+
+                                                <div >
+                                                    <textarea class="form-control w-100" type="text" name="comment com-message" ></textarea>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-default font_12" name="submitbutt" style="color: #fff">
+                                                ارسال نظر
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </section>
+                </div>
+
+
+                <div class="col-lg-3 d-lg-inline-block d-none">
+
+                    <div class="bg-content-whit border mt-3">
+                        <ul class="nav nav-tabs aaa">
+                            <li class="nav-item">
+                                <a class="nav-link active color-btn" data-toggle="tab" href="#home1" style="text-align: center">پربیننده ترین ها</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link color-btn" data-toggle="tab" href="#menu11" style="text-align: center">پر بحث ترین ها </a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane  active " id="home1">
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                    بازداشت یکی از عوامل اصلی شبکه تروریستی سعودی اینترنشنال در ایران
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                    یارانه نقدی آبان یک روز زودتر واریز شد
+                                                </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        اکتشافات مهم تاریخی که جهان را در حیرت فرو برد + تصاویر
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        شوخی کی روش با وزیر ورزش
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        پاسخ امیرعبداللهیان به اظهارات مداخله جویانه وزیر خارجه آلمان
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        آیا شما دنبال راضی نگه داشتن دیگران هستید؟
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        علت فوت نسرین قادری مسمومیت ناشی از مصرف متانول است
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        شوخی کی روش با وزیر ورزش
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        پاسخ امیرعبداللهیان به اظهارات مداخله جویانه وزیر خارجه آلمان
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        آیا شما دنبال راضی نگه داشتن دیگران هستید؟
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane fade" id="menu11">
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        اکتشافات مهم تاریخی که جهان را در حیرت فرو برد + تصاویر
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        شوخی کی روش با وزیر ورزش
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        پاسخ امیرعبداللهیان به اظهارات مداخله جویانه وزیر خارجه آلمان
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        آیا شما دنبال راضی نگه داشتن دیگران هستید؟
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        علت فوت نسرین قادری مسمومیت ناشی از مصرف متانول است
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        آیا شما دنبال راضی نگه داشتن دیگران هستید؟
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        علت فوت نسرین قادری مسمومیت ناشی از مصرف متانول است
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        شوخی کی روش با وزیر ورزش
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        پاسخ امیرعبداللهیان به اظهارات مداخله جویانه وزیر خارجه آلمان
+                                            </span>
+                                    </a>
+                                </div>
+                                <div class="px-3 pt-2 pb-1">
+                                    <a href="show-news.html">
+                                        <div class="circle-titr"></div>
+                                        <span class="font_12 color-text">
+                                        آیا شما دنبال راضی نگه داشتن دیگران هستید؟
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                        <div class="mt-3">
+                            <div class="bg-white">
+                                <div class="px-3">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col-12 mt-3 ">
+                                                <div class="bg-style-soozhe ">
+                                                    <div class="circle-end-news"></div>
+
+                                                    <span class="end-news">آخرین اخبار</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="py-2">
+                                                <a href="show-news.html">
+                                                <span class="font_13 color-text">
+                    بازداشت یکی از عوامل اصلی شبکه تروریستی سعودی اینترنشنال در ایران
+                                            </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="py-2">
+                                                <a href="show-news.html">
+                                                <span class="font_13 color-text">
+                    بازداشت یکی از عوامل اصلی شبکه تروریستی سعودی اینترنشنال در ایران
+                                            </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="py-2">
+                                                <a href="show-news.html">
+                                                <span class="font_13 color-text">
+                    بازداشت یکی از عوامل اصلی شبکه تروریستی سعودی اینترنشنال در ایران
+                                            </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="py-2">
+                                                <a href="show-news.html">
+                                                <span class="font_13 color-text">
+                    بازداشت یکی از عوامل اصلی شبکه تروریستی سعودی اینترنشنال در ایران
+                                            </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="py-2">
+                                                <a href="show-news.html">
+                                                <span class="font_13 color-text">
+                    بازداشت یکی از عوامل اصلی شبکه تروریستی سعودی اینترنشنال در ایران
+                                            </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="py-2">
+                                                <a href="show-news.html">
+                                                <span class="font_13 color-text">
+                    بازداشت یکی از عوامل اصلی شبکه تروریستی سعودی اینترنشنال در ایران
+                                            </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="py-2">
+                                                <a href="show-news.html">
+                                                <span class="font_13 color-text">
+                    بازداشت یکی از عوامل اصلی شبکه تروریستی سعودی اینترنشنال در ایران
+                                            </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="py-2">
+                                                <a href="show-news.html">
+                                                <span class="font_13 color-text">
+                    بازداشت یکی از عوامل اصلی شبکه تروریستی سعودی اینترنشنال در ایران
+                                            </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="py-2">
+                                                <a href="show-news.html">
+                                                <span class="font_13 color-text">
+                    بازداشت یکی از عوامل اصلی شبکه تروریستی سعودی اینترنشنال در ایران
+                                            </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!--begin content-->
+
+    <section>
+        <div class="mt-2">
+            <div class="table-responsive">
+                <table class="table table-striped">
+
+                    <thead>
+                    <tr>
+                        <th scope="col">شماره</th>
+                        <th scope="col">نام اتحادیه</th>
+                        <th scope="col">جزئیات</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in object_list %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ item.name }}</td>
+                        <td><a href="{{ item.get_absolut_url }}"> مشاهده</a></td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+            </div>
+
+
+        </div>
+        </div>
+        </div>
+    </section>
+
+
+    <!--end content-->
+
+
+
+    <div class="scrolltop" onclick="scroll_top()">
+        <i class="fa fa-chevron-up arrow_icon" style="color: #333"></i>
+    </div>
+
+{% endblock %}
+
+
+
+

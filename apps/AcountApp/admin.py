@@ -4,7 +4,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
-
+from . import formsM
 from . models import User
 
 
@@ -64,7 +64,7 @@ class UserAdmin(BaseUserAdmin):
     fieldsets = [
         (None, {"fields": ["phone", "password"]}),
         ("Personal info", {"fields": ["email"]}),
-        ("Permissions", {"fields": ["is_admin","is_publishing_news","guild_member","image","fullname"]}),
+        ("Permissions", {"fields": ["is_admin","is_publishing_news","guild_member","image","fullname","post","commissions_member","board_of_directors"]}),
     ]
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
     # overrides get_fieldsets to use this attribute when creating a user.
@@ -73,13 +73,36 @@ class UserAdmin(BaseUserAdmin):
             None,
             {
                 "classes": ["wide"],
-                "fields": ["phone", "fullname","password1", "password2","is_publishing_news","guild_member",],
+                "fields": ["phone", "fullname","password1", "password2","is_publishing_news","guild_member","post","commissions_member","board_of_directors","image"],
             },
         ),
     ]
     search_fields = ["phone"]
     ordering = ["phone"]
     filter_horizontal = []
+
+
+
+
+
+
+    # Staff can't add site announcements
+    def has_add_permission(self, request):
+        if not request.user.is_admin:
+            return False
+        return True
+
+    # Staff can't edit site announcements
+    def has_change_permission(self, request, obj=None):
+        if not request.user.is_admin:
+            return False
+        return True
+
+    # Staff can't delete site announcements
+    def has_delete_permission(self, request, obj=None):
+        if not request.user.is_admin:
+            return False
+        return True
 
 
 # Now register the new UserAdmin...

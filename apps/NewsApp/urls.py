@@ -3,5 +3,6 @@ from . import views
 
 app_name="NewsApp"
 urlpatterns=[
-        path("detail/<str:slug>/",views.DetailNewsView.as_view(),name="detail_news")
+        path("detail/<int:pk>/",views.DetailNewsView.as_view(),name="detail_news"),
+        path("image_gallery/<int:pk>/",views.ImageGalleryView.as_view(),name="image_gallery"),
 ]

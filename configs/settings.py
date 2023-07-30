@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-f#i+rmuui1xyn!or9+hj!2v+-9g_pb#s#ksmxsyy!c=9)ib#(c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     "apps.AcountApp.apps.AcountappConfig",
     "apps.GuildRoomApp.apps.GuildroomappConfig",
     "apps.NewsApp.apps.NewsappConfig",
-    "ckeditor"
+    "ckeditor",
+    "django_jalali",
+    "storages",
 ]
 
 MIDDLEWARE = [
@@ -70,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'context_proccesor.context_proccesor.get_time'
             ],
         },
     },
@@ -110,10 +113,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
+LANGUAGE_CODE = 'fa-ir'
+import locale
+locale.setlocale(locale.LC_ALL, "fa_IR.UTF-8")
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
 
@@ -125,7 +129,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[path.join(BASE_DIR,"assets")]
-
+# STATIC_ROOT=[path.join(BASE_DIR,"static")]
 MEDIA_URL="/media/"
 MEDIA_ROOT=path.join(BASE_DIR,"media")
 CKEDITOR_UPLOAD_PATH = "uploads/"
@@ -145,3 +149,12 @@ CKEDITOR_CONFIGS = {
 
     },
 }
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = '3eaeed4f-d47a-4ee0-b649-672e1a004ddd'
+AWS_SECRET_ACCESS_KEY = '833a78c8372f1d3458f5a6d8e5857ab4ebb7abae1e8315807db7f2b6900165f6'
+AWS_STORAGE_BUCKET_NAME = 'asnaf-sirjan'
+AWS_SERVICE_NAME = 's3'
+AWS_S3_ENDPOINT_URL = 'https://s3.ir-tbz-sh1.arvanstorage.ir'
+AWS_S3_FILE_OVERWRITE = False

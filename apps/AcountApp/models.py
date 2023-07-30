@@ -9,6 +9,7 @@ POST_CHOICES = (
     ("مدیراجرایی", "مدیر اجرایی"),
     ("خزانه دار", "خزانه دار"),
     ("کاربر عادی", "کاربر عادی"),
+    ("عضو", "عضو"),
 )
 class UserManager(BaseUserManager):
     def create_user(self,phone, password=None):
@@ -42,7 +43,7 @@ class User(AbstractBaseUser):
                            verbose_name="شماره تلفن",
                            unique=True)
 
-    fullname=models.CharField(max_length=50,null=True,blank=True)
+    fullname=models.CharField(max_length=50,null=True,blank=True,verbose_name="نام و نام خانوادگی")
     email = models.EmailField(
         verbose_name="آدرس ایمیل",
         max_length=255,
@@ -52,28 +53,32 @@ class User(AbstractBaseUser):
     )
 
 
-    image=models.FileField(upload_to="users/images",null=True,blank=True)
-    is_publishing_news=models.BooleanField(default=False)
-    guild_member=models.BooleanField(default=False)
+    image=models.FileField(upload_to="users/images",null=True,blank=True,
+                           verbose_name="عکس")
+    is_publishing_news=models.BooleanField(default=False,verbose_name="اجازه ارسال اخبار دارد؟")
+    guild_member=models.BooleanField(default=False,verbose_name="عضو هیئت رئیسه اصناف است؟")
     post = models.CharField(choices=POST_CHOICES,
                             null=True, blank=True,
                             max_length=50,
                             default="کاربر عادی",
-                            verbose_name="سمت")
-    is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
+                            verbose_name="سمت-مقام")
+    is_active = models.BooleanField(default=True,verbose_name="کاربر فعال است؟")
+    is_admin = models.BooleanField(default=False,verbose_name="ادمین وبسایت(به همه چیز دسترسی دارد!!)")
+    commissions_member=models.BooleanField(default=False,
+                                           verbose_name="عضو کمیسیون می باشد؟")
+    board_of_directors=models.BooleanField(default=False,
+                                           verbose_name="عضو هیئت رئیسه می باشد؟")
 
-    def __str__(self):
-
-        return self.fullname
 
     objects = UserManager()
 
     USERNAME_FIELD = "phone"
 
 
-    def __str__(self):
-        return self.phone
+    class Meta:
+        verbose_name="کاربر"
+        verbose_name_plural="کاربرها"
+
 
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"
@@ -91,4 +96,4 @@ class User(AbstractBaseUser):
     def is_staff(self):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
-        return self.is_admin
+        return self.is_admin,self.is_publishing_news

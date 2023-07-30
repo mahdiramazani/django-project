@@ -27,9 +27,9 @@
         <div class="col-12">
             <span class="header-border-top p-1" style="color: #5e5e5e">
 
-                 1401 / 08/18
+                 {{ date }}
                 <span class="mx-2 ">
-                    08 : 18
+                    {{ time }}
                 </span>
 
             </span>
@@ -61,7 +61,7 @@
 
         <div class="col-lg-7 col-md-12 col-12 order-md-3 order-lg-2">
             <div class="  ">
-                <img src="{% static "img/o" %}" class="img-fluid mb-3">
+                <img src="{% static "img/0110.jpg" %}" class="img-fluid mb-3">
             </div>
         </div>
 
@@ -89,119 +89,89 @@
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav pr-lg-0">
                 <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="#" >صفحات</a>
+                    <a class="nav-link nav-text-color pb-3" href="{% url "HomeApp:HomeApp" %}" >صفحه اصلی</a>
+
+                </li>
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}" >اتحادیه ها و کمیسیون ها</a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="index-2.html"> صفحه اصلی</a></li>
-                        <li><a class="dropdown-item" href="category.html">دسته بندی ها </a></li>
-                        <li><a class="dropdown-item" href="show-news.html"> نمایش خبر  </a></li>
-                        <li><a class="dropdown-item" href="contact.html"> ارتباط با ما  </a></li>
-                        <li><a class="dropdown-item" href="about-us.html"> درباره ی ما  </a></li>
+                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:List" %}"> اتحادیه ها</a></li>
+                        <li><a class="dropdown-item" >لیست کمیسیون ها </a></li>
+                        <li><a class="dropdown-item" >اشیاء گم شده </a></li>
+						 <li><a class="dropdown-item" >نیروکار </a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link  nav-text-color pb-3" href="category.html" >بین الملل</a>
+                    <a class="nav-link  nav-text-color pb-3">هیئت رئیسه </a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#">ایران</a></li>
-                        <li><a class="dropdown-item" href="#"> کافه بین الملل </a></li>
-                        <li><a class="dropdown-item" href="#"> عناوین کل اخبار بین الملل </a></li>
+
+                        <li><a class="dropdown-item" >اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
+                        <li><a class="dropdown-item" >چارت سازمانی اتاق اصناف سیرجان </a></li>
+
+                    </ul>
+                </li>
+
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link  nav-text-color pb-3">رویداد </a>
+                    <ul class="dropdown-menu fade-up">
+
+                        <li><a class="dropdown-item" >دوره آموزشی</a></li>
+                        <li><a class="dropdown-item" >همایش </a></li>
+						 <li><a class="dropdown-item" >سمینار</a></li>
+						 <li><a class="dropdown-item" >جشنواره</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link  nav-text-color pb-3" href="category.html" >ورزشی</a>
+                    <a class="nav-link nav-text-color pb-3"> قوانین و مقررات  </a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#">توپ و تور</a></li>
-                        <li><a class="dropdown-item" href="#">پایه آبی </a></li>
-                        <li><a class="dropdown-item" href="#">فوتبال و فوتسال</a></li>
-                        <li><a class="dropdown-item" href="#">کشتی و رزمی </a></li>
-                        <li><a class="dropdown-item" href="#">عناوین کل اخبار ورزشی </a></li>
+                        <li><a class="dropdown-item" >اخبار قوانین و مقررات</a></li>
+                        <li><a class="dropdown-item" >قوانین نظام صنفی</a></li>
+                        <li><a class="dropdown-item" >دستورالعمل ها</a></li>
+						<li><a class="dropdown-item" >دریافت فایل</a></li>
+                        <li><a class="dropdown-item" >آیین نامه های اجرائی</a></li>
+                        <li><a class="dropdown-item" >بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و اصناف</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-item dropdown ">
-                    <a class="nav-link  nav-text-color pb-3" href="category.html"> اجتماعی </a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#">محیط زیست</a></li>
-                        <li><a class="dropdown-item" href="#">رفاه و تعاون</a></li>
-                        <li><a class="dropdown-item" href="#">عناوین کل اخبار اجتماعی</a></li>
-                    </ul>
-                </li>
+
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="category.html"> اقتصادی  </a>
+                    <a class="nav-link nav-text-color pb-3" > درباره ما </a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#">بانک و بیمه</a></li>
-                        <li><a class="dropdown-item" href="#">بورس</a></li>
-                        <li><a class="dropdown-item" href="#">راه و شهرسازی</a></li>
-                        <li><a class="dropdown-item" href="#">عناوین کل اخبار اقتصادی</a></li>
+                        <li><a class="dropdown-item" >تاریخچه</a></li>
+                        <li><a class="dropdown-item" >گالری </a></li>
+						  <li><a class="dropdown-item" >تماس با ما</a></li>
+
                     </ul>
+                </li>
+				  <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3" >درگاه ملی مجوزها  </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item" href="https://mojavez.ir">  ورود به درگاه ملی مجوزها</a></li>
+                        <li><a class="dropdown-item">اموزش درگاه ملی مجوزها </a></li>
+
+                    </ul>
+
+
+                </li>
+				   <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3" >سامانه چارسو </a>
+<!--
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item" href="#">تاریخچه</a></li>
+                        <li><a class="dropdown-item" href="#">تماس با ما </a></li>
+
+                    </ul>
+-->
                 </li>
 
-                <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="category.html">فرهنگی هنری  </a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#"> رادیو و تلویزیون</a></li>
-                        <li><a class="dropdown-item" href="#">سینما و تئاتر  </a></li>
-                        <li><a class="dropdown-item" href="#">عناوین کل اخبار فرهنگی و هنری </a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="category.html"> علمی و پزشکی  </a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#">دانلود نرم افزار</a></li>
-                        <li><a class="dropdown-item" href="#"> کلینیک </a></li>
-                        <li><a class="dropdown-item" href="#">عناوین کل اخبار علمی و پزشکی </a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="category.html"> فیلم و صوت  </a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#"> آموزشی </a></li>
-                        <li><a class="dropdown-item" href="#">گزارش استان ها </a></li>
-                        <li><a class="dropdown-item" href="#"> عناوین کل اخبار فیلم و صوت </a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="category.html"> عکس  </a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#">خبری</a></li>
-                        <li><a class="dropdown-item" href="#">مستند</a></li>
-                        <li><a class="dropdown-item" href="#"> عناوین کل اخبار عکس  </a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="category.html"> استان ها  </a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#">گلستان</a></li>
-                        <li><a class="dropdown-item" href="#"> تهران </a></li>
-                        <li><a class="dropdown-item" href="#">عناوین کل اخبار استان ها</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="category.html">شهروند خبر نگار</a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#"> شهروند خبرنگار</a></li>
-                        <li><a class="dropdown-item" href="#"> عناوین کل اخبار شهروند خبر نگار</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="category.html">وب گردی  </a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#"> خواندنی ها</a></li>
-                        <li><a class="dropdown-item" href="#"> مجله سرگرمی </a></li>
-                        <li><a class="dropdown-item" href="#">اخبار داغ</a></li>
-                    </ul>
-                </li>
             </ul>
         </div> <!-- navbar-collapse.// -->
-    </div> <!-- container-fluid.// -->
+    </div>
 </nav>
 
 <!--end menu-->
@@ -228,41 +198,7 @@
                     </div>
 
                     <div class="collapse navbar-collapse" >
-                        <ul class="footer_menu navbar-nav font_13 pr-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#" style="color: #000">پخش زنده</a>
-                            </li>
-                            <li class="nav-item color-menu-footer">
-                                <a class="nav-link " href="#" style="color: #000">آرشیو</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#" style="color: #000">پیوند ها</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#" style="color: #000">خبرنامه</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#" style="color: #000">آب و هوا</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#" style="color: #000">اوقات شرعی</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#" style="color: #000">نظرسنجی </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="about-us.html" style="color: #000">درباره ما </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="contact.html" style="color: #000">تماس با ما </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#" style="color: #000">نقشه سایت </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#" style="color: #000">RSS </a>
-                            </li>
-                        </ul>
+
                     </div>
 
                     <div class="navbar-brand d-none d-lg-inline-block ">
@@ -289,260 +225,138 @@
             <div class="col-md-12 d-md-inline-block d-none ">
                 <div class="row">
                     <div class="col-2 mt-5">
-                        <a href="category.html" class="style-title-footer">
-                            خبرگزاری اردیبهشت خبر
+                        <a  class="style-title-footer">
+                            اتاق اصناف سیرجان
                         </a>
                         <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     عناوین کل خبر
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     آرشیو
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     صدای مردم
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-2 mt-5">
-                        <a href="category.html" class="style-title-footer">
+                        <a  class="style-title-footer">
                             بین الملل
                         </a>
                         <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     بین الملل
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     ایران
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     خاور میانه
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-2 mt-5">
-                        <a href="category.html" class="style-title-footer">
+                        <a  class="style-title-footer">
                             سیاسی
                         </a>
                         <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     ورزشی
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     فوتبال و فوتسال
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     توپ و تور
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-2 mt-5">
-                        <a href="category.html" class="style-title-footer">
+                        <a  class="style-title-footer">
                             اجتماعی
                         </a>
                         <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     شهری
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     حوادث و انتظامی
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     رفاه و تعاون
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-2 mt-5">
-                        <a href="category.html" class="style-title-footer">
+                        <a  class="style-title-footer">
                             اقتصادی
                         </a>
                         <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     بانک و بیمه
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     بورس
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     صنعت، تجارتو کشاورزس
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-2 mt-5">
-                        <a href="category.html" class="style-title-footer">
+                        <a  class="style-title-footer">
                             فرهنگی هنری
                         </a>
                         <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     رادیو تلویزیون
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     سینما و تئاتر
                                 </a>
                             </li>
                             <li class="">
-                                <a href="#" class="hover-txt-footer">
+                                <a  class="hover-txt-footer">
                                     موسیقی و هنر های تجسمی
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-2 mt-5">
-                        <a href="category.html" class="style-title-footer">
-                            علمی و پزشکی
-                        </a>
-                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    دانشگاه و کنکور
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    آموزش و پرورش
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    بهداشت و درمان
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-2 mt-5">
-                        <a href="category.html" class="style-title-footer">
-                            فیلم و صوت
-                        </a>
-                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    فیلم و صوت
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    گزارش استان ها
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    10:10
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-2 mt-5">
-                        <a href="category.html" class="style-title-footer">
-                            عکس
-                        </a>
-                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    خبری
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    استان ها
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    مستند
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-2 mt-5">
-                        <a href="category.html" class="style-title-footer">
-                            استان ها
-                        </a>
-                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    استان ها
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    عناوین کل استان ها
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-2 mt-5">
-                        <a href="category.html" class="style-title-footer">
-                            شهروند خبر نگار
-                        </a>
-                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    شهروند خبرنگار
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    عناوین کل شهروند خبر نگار
-                                </a>
-                            </li>
 
-                        </ul>
-                    </div>
-                    <div class="col-2 mt-5">
-                        <a href="category.html" class="style-title-footer">
-                            وب گردی
-                        </a>
-                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    وب گردی
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    خواندنی ها
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#" class="hover-txt-footer">
-                                    مجله سرگرمی
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -551,57 +365,11 @@
             <div class="row">
 
                 <div class="col-md-6 col-12 text-md-right text-center">
-                    <div class="style-li">
-                        <ul style="list-style: none" class="p-0">
-                            <li>
-                                <a href="#" class="">
-                                    <i class="fab fa-twitter color-media"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="">
-                                    <i class="fab fa-instagram color-media"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="">
-                                    <i class="fab fa-telegram color-media"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="">
-                                    <i class="fab fa-android color-media"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="">
-                                    <i class="fa fa-search-plus color-media"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="">
-                                    <i class="fab fa-whatsapp color-media"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="">
-                                    <i class="fa fa-wifi color-media"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
                 </div>
 
                 <div class="col-md-6 col-12 text-center ">
-                    <div style="text-align: left" class="mt-1">
-                        <span class="font_12">
-                            THE WORLD'S LARGEST
-                            <span style="color: #e00000">
-                                PERSIAN
-                            </span>
-                            LANGUAGE NEWS AGENCY
-                        </span>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -616,7 +384,7 @@
                 <div class="col-12  col-md-6">
                     <div class="text-center text-md-right font_13 font-weight-bold">
 
-                        کلیه حقوق این سایت متعلق به خبرگزاری اردیبهشت خبر بوده و استفاده از مطالب آن با ذکر منبع بلامانع است.
+                        کلیه حقوق این سایت متعلق به اتاق اصناف سیرجان بوده و استفاده از مطالب آن با ذکر منبع بلامانع است.
 
                     </div>
                 </div>
@@ -624,8 +392,7 @@
                 <div class="col-12  col-md-6">
                     <div class="text-center text-md-left font_13 font-weight-bold mt-2 mt-md-0">
 
-                        طراحی وتولید توسط
-                        <a href="https://hircana.com/">هیرکانا</a>
+
 
                     </div>
                 </div>

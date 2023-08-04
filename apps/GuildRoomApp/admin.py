@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import GuildRoomModel
+from .models import GuildRoomModel,CommissionsModel
 from . import forms
 
 
 admin.site.register(GuildRoomModel)
+admin.site.register(CommissionsModel)
 # @admin.register(GuildRoomModel)
 # class CommentAdmin(admin.ModelAdmin):
 #     list_display = ["name","slug"]

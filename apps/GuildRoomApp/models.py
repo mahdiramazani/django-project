@@ -44,9 +44,9 @@ class CommissionsModel(models.Model):
 
         super().save(**kwargs)
 
-    # def get_absolut_url(self):
-    #
-    #     return reverse("GuildRoomApp:DetailGuild",args=[self.slug])
+    def get_absolut_url(self):
+
+        return reverse("GuildRoomApp:DetailGuild",args=[self.id])
 
     def __str__(self):
 

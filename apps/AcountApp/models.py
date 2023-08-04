@@ -68,7 +68,9 @@ class User(AbstractBaseUser):
                                            verbose_name="عضو کمیسیون می باشد؟")
     board_of_directors=models.BooleanField(default=False,
                                            verbose_name="عضو هیئت رئیسه می باشد؟")
+    def __str__(self):
 
+        return self.fullname
 
     objects = UserManager()
 

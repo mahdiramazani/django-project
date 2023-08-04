@@ -5,6 +5,7 @@ from ckeditor.fields import RichTextField
 from django.utils.text import slugify
 from django.urls import reverse
 from django_jalali.db import models as jmodels
+
 class Category(models.Model):
     name=models.CharField(max_length=50,
                           verbose_name="نام دسته بندی")

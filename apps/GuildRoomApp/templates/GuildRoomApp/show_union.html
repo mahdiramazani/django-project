@@ -1,86 +1,45 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+    <!--begin content-->
+    <link href="{% static "css/style.css" %}" type="text/css" rel="stylesheet">
 
-<!--begin content-->
-<h3 style="text-align: center"><strong>اتحادیه {{ object.name }}</strong></h3>
-<section>
-    <div class="mt-2">
-        <div class="table-responsive">
-            <table class="table table-hover text-center">
-                <thead>
-                <tr style="background: #4924C5 ; color: aliceblue;" class="style-td">
+    <div class="container">
 
-                    <th> اعضاء</th>
-                    <th>سمت</th>
-                    <th>شماره تماس</th>
+        <div class="row">
+            <section class="my-5 container bg-white py-5">
+            <h3 class="our-team-title">اعضای اتحادیه {{ object.name }}</h3>
+            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                <!-- item -->
+                    {% for item in object.user.all %}
+                    <div class="member">
+                        <div class="member-img-box">
 
+                                {% if item.image %}
+                                    <img alt="{{ item.fullname }}" class="ui circular image"
+                                     src="{{ item.image.url }}">
+                            {% else %}
+                                    <img alt="{{ item.fullname }}" class="ui circular image"
+                                     src="{% static "img/user.png" %}">
+                            {% endif %}
 
-                </tr>
-                </thead>
-
-                <tbody style="background: #209DDB; color: aliceblue">
-                {% for item in object.user.all %}
-                <tr class="style-td">
-                    <td>{{ item.fullname }}</td>
-                    <td>{{ item.post }}</td>
-                    <td>{{ item.phone }}</td>
-                </tr>
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>{{ item.fullname }}-{{ item.post }}</p>
+                        <p>شماره تماس:{{ item.phone }}</p>
+                    </div>
                 {% endfor %}
 
 
-                <!--
-                                                        <tr class="style-td">
-                                                            <td>گروه سیاسی</td>
-                                                            <td>political@yjc.ir</td>
-                                                        </tr>
-                                                        <tr class="style-td">
-                                                            <td>گروه اقتصادی</td>
-                                                            <td>Commercial@yjc.ir</td>
-                                                        </tr>
-                                                        <tr class="style-td">
-                                                            <td>گروه علمی و پزشکی</td>
-                                                            <td>science@yjc.ir</td>
-                                                        </tr>
-                                                        <tr class="style-td">
-                                                            <td>گروه فرهنگی هنری</td>
-                                                            <td>art@yjc.ir</td>
-                                                        </tr>
-                                                        <tr class="style-td">
-                                                            <td>گروه ورزشی</td>
-                                                            <td>sports@yjc.ir</td>
-                                                        </tr>
-                                                        <tr class="style-td">
-                                                            <td>گروه اجتماعی</td>
-                                                            <td>social@yjc.ir</td>
-                                                        </tr>
-                                                        <tr class="style-td">
-                                                            <td>گروه بین الملل</td>
-                                                            <td>world@yjc.ir</td>
-                                                        </tr>
-                                                        <tr class="style-td">
-                                                            <td>گروه فضای مجازی</td>
-                                                            <td>cyberspace@yjc.ir</td>
-                                                        </tr>
-                                                        <tr class="style-td">
-                                                            <td>گروه ششهروند خبر نگار</td>
-                                                            <td>freereporter@yjc.ir</td>
-                                                        </tr>
-                                                        <tr class="style-td">
-                                                            <td>دور نگار خبر نگار</td>
-                                                            <td class="date_en">22012642</td>
-                                                        </tr>
-                                                        <tr class="style-td">
-                                                            <td>امور آموزش</td>
-                                                            <td class="date_en">22012654 - 22012653</td>
-                                                        </tr>
-                -->
 
-
-                </tbody>
-            </table>
+            </div>
+        </section>
         </div>
     </div>
-</section>
+
+    <div class="scrolltop" onclick="scroll_top()">
+        <i class="fa fa-chevron-up arrow_icon" style="color: #333"></i>
+    </div>
+
 
 {% endblock %}

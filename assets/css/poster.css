@@ -1,0 +1,55 @@
+.total{
+    border: 1px solid rgb(0, 0, 0);
+    width: 60em;
+    height: 30em;
+    position: relative;
+    top: 0em;
+    left: -5em;
+}
+.img{
+    width: 100%;
+    height: 100%;
+}
+.img-opacity{
+    width: 100%;
+    height: 101%;
+    background-color: rgba(0, 0, 0, 0.458)!important;
+    position: relative;
+    top: -30em;
+}
+.icon{
+    background-color: #F4F6F9;
+    width: 36em;
+    height: 7em;
+    border-radius: 10px ;
+    position: relative;
+    top: -57em;
+    left: -27em;
+}
+.icon-image{
+    width: 6em;
+    height: 6em;
+    position: relative;
+    top:0.5em;
+    left: -1em;
+}
+.discription{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    height: 5em;
+    text-align: right;
+    position: relative;
+    top: -26em;
+}
+.name{
+    position: relative;
+    top: 0em;
+    right: 1em;
+}
+.content{
+    position: relative;
+    right: 1em;
+    top: 0.5em;
+}

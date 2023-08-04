@@ -79,7 +79,7 @@
 
                                     <div class="col-6">
                                         <div style="text-align: left">
-                                            <a href="{% url "GuildRoomApp:List" %}">
+                                            <a href="{% url "GuildRoomApp:MemberOfUnionList" %}">
                                                 <span class="color-pic font_15">مشاهده همه </span>
                                             </a>
                                         </div>
@@ -99,9 +99,10 @@
                                                     <div class="col-12">
                                                         <a href="#" class="img-news-teldio">
                                                             {% if item.image %}
-                                                            <img src="{{ item.image.url }}" class="img-fluid w-100">
+                                                                <img src="{{ item.image.url }}" class="img-fluid w-100">
                                                             {% else %}
-                                                               <img src="{% static "img/user.png" %}" class="img-fluid w-100">
+                                                                <img src="{% static "img/user.png" %}"
+                                                                     class="img-fluid w-100">
                                                             {% endif %}
                                                         </a>
 
@@ -121,8 +122,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                <br>
-                                <br>
+                                    <br>
+                                    <br>
                                 </div>
 
 
@@ -184,14 +185,14 @@
                                         <div class="tab-content">
                                             <div class="tab-pane  active " id="home">
                                                 {% for item in must_view_news %}
-                                                <div class="px-3 pt-2 pb-1">
-                                                    <a href="{{ item.get_absolut_url }}">
-                                                        <div class="circle-titr"></div>
-                                                        <span class="font_12 color-text">
+                                                    <div class="px-3 pt-2 pb-1">
+                                                        <a href="{{ item.get_absolut_url }}">
+                                                            <div class="circle-titr"></div>
+                                                            <span class="font_12 color-text">
                     {{ item.title }}
                                             </span>
-                                                    </a>
-                                                </div>
+                                                        </a>
+                                                    </div>
                                                 {% endfor %}
 
                                                 <hr>
@@ -375,7 +376,7 @@
                                                         </a>
                                                         <p class="text-p font_13 mt-3">
 
-                                                            {{item.pub_date|jformat:"%Y/%m/%d"}}
+                                                            {{ item.pub_date|jformat:"%Y/%m/%d" }}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -485,7 +486,7 @@
                                                         </p>
                                                     </a>
                                                     <p class="text-p font_13 mt-3">
-                                                        {{ item.created |jformat:"%Y/%m/%d"  }}
+                                                        {{ item.created |jformat:"%Y/%m/%d" }}
                                                     </p>
                                                 </div>
                                             </div>

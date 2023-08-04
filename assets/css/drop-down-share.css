@@ -1,0 +1,106 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color: black !important;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: -9.5em;
+    background-color: #f9f9f9;
+    min-width: 260px;
+    height: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    text-align: left;
+}
+
+.dropdown-filter {
+    display: none;
+    position: absolute;
+    right: -5.5em;
+    background-color: white;
+    border-radius: 10px;
+    min-width:150px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    text-align: center;
+}
+
+.dropdown-filter a {
+    color: inherit;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.dropdown-filter a:hover {
+    color: white;
+    background-color: #343a40;
+    z-index: 2;
+}
+
+.dropdown:hover .dropdown-filter {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#style-share {
+    color: black !important;
+}
+
+.title-share-video {
+    text-align: center;
+}
+
+.fa-whatsapp {
+    color: rgb(0, 235, 31) !important;
+    font-size: 2em !important;
+    margin-top: -0.3em;
+}
+
+.fa-facebook {
+    color: rgb(0, 94, 235) !important;
+    font-size: 2em !important;
+    position: relative;
+    top: -1em;
+    left: 1.4em;
+}
+
+.fa-telegram {
+    color: rgb(0, 94, 235) !important;
+    font-size: 2em !important;
+    position: relative;
+    top: -2em;
+    left: 2.6em;
+}
+
+.linkedin-1 {
+    color: rgba(255, 255, 255, 0) !important;
+    font-size: 3em !important;
+    position: relative;
+    top: -2.5em;
+    left: 4.8em;
+}
+
+.fa-reddit {
+    color: rgb(0, 94, 235) !important;
+    font-size: 2em !important;
+    position: relative;
+    top: -3em;
+    left: 4.3em;
+}
+
+#twitter {
+    color: rgb(0, 94, 235) !important;
+    font-size: 2em !important;
+    position: relative;
+    margin-top: -4em;
+    margin-left: 5.9em;
+}

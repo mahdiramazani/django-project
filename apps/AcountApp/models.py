@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
-
+from django_jalali.db import models as jmodels
 
 POST_CHOICES = (
     ("رئیس", "رئیس"),
@@ -68,6 +68,8 @@ class User(AbstractBaseUser):
                                            verbose_name="عضو کمیسیون می باشد؟")
     board_of_directors=models.BooleanField(default=False,
                                            verbose_name="عضو هیئت رئیسه می باشد؟")
+    created=jmodels.jDateTimeField(auto_now_add=True)
+
     def __str__(self):
 
         return f"{self.fullname}"

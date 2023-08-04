@@ -1,4 +1,5 @@
 {% load static %}
+{% load jformat %}
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -166,11 +167,6 @@
 				   <li class="nav-item dropdown ">
                     <a class="nav-link nav-text-color pb-3" >سامانه چارسو </a>
 <!--
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#">تاریخچه</a></li>
-                        <li><a class="dropdown-item" href="#">تماس با ما </a></li>
-
-                    </ul>
 -->
                 </li>
 
@@ -248,27 +244,27 @@
                                             <tr>
                                                 <td class="w-50">
                                                     <div class="title">نام و نام خانوادگی:</div>
-                                                    <div class="value">حسن شجاعی</div>
+                                                    <div class="value">{{ request.user.fullname }}</div>
                                                 </td>
                                                 <td>
                                                     <div class="title">پست الکترونیک :</div>
-                                                    <div class="value">info@digismart.com</div>
+                                                    <div class="value">{{ request.user.email }}</div>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <div class="title">شماره تلفن همراه:</div>
-                                                    <div class="value">*******0991</div>
+                                                    <div class="value">{{ request.user.phone }}</div>
                                                 </td>
                                                 <td>
                                                     <div class="title">تاریخ عضویت:</div>
-                                                    <div class="value">۱۳۹۹/۰۱/۱۲</div>
+                                                    <div class="value">{{ request.user.created |jformat:"%Y/%m/%d" }}</div>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <div class="title"> دریافت خبرنامه :</div>
-                                                    <div class="value">بله</div>
+                                                    <div class="title"> سمت/نقش :</div>
+                                                    <div class="value">{{ request.user.post }}</div>
                                                 </td>
                                                 <td>
                                                     <div class="title"> کد ملی :</div>
@@ -281,23 +277,27 @@
                                         <ul class="mb-0">
                                             <li class="profile-item">
                                                 <div class="title">نام و نام خانوادگی:</div>
-                                                <div class="value">حسن شجاعی</div>
+                                                <div class="value">{{ request.user.fullname }}</div>
                                             </li>
                                             <li class="profile-item">
                                                 <div class="title">پست الکترونیک :</div>
-                                                <div class="value">info@digismart.com</div>
+                                                {% if request.user.email %}
+                                                <div class="value">{{ request.user.email }}</div>
+                                                    {% else %}
+                                                    <div class="value">-</div>
+                                                {% endif %}
                                             </li>
                                             <li class="profile-item">
                                                 <div class="title">شماره تلفن همراه:</div>
-                                                <div class="value">*******0991</div>
+                                                <div class="value">{{ request.user.phone }}</div>
                                             </li>
                                             <li class="profile-item">
                                                 <div class="title">تاریخ عضویت:</div>
-                                                <div class="value">۱۳۹۹/۰۱/۱۲</div>
+                                                <div class="value">{{ request.user.created |jformat:"%Y/%m/%d" }}</div>
                                             </li>
                                             <li class="profile-item">
-                                                <div class="title"> دریافت خبرنامه :</div>
-                                                <div class="value">بله</div>
+                                                <div class="title"> سمت/نقش :</div>
+                                                <div class="value">{{ request.user.post }}</div>
                                             </li>
                                             <li class="profile-item">
                                                 <div class="title"> کد ملی :</div>
@@ -306,7 +306,7 @@
                                         </ul>
                                     </div>
                                     <div class="profile-edit-action">
-                                        <a href="#" class="link-spoiler-edit btn btn-secondary">ویرایش اطلاعات</a>
+                                        <a href="{% url "UserPanelApp:edit-panel" %}" class="link-spoiler-edit btn btn-secondary">ویرایش اطلاعات</a>
                                     </div>
                                 </div>
                             </div>

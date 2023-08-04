@@ -246,41 +246,25 @@
                                 <div class="profile-stats">
                                     <div class="profile-address">
                                         <div class="middle-container">
-                                            <form action="#" class="form-checkout">
+                                            <form method="post" class="form-checkout" enctype="multipart/form-data">
                                                 <div class="form-checkout-row">
-                                                    <label for="namefirst">نام <abbr class="required" title="ضروری"
-                                                            style="color:red;">*</abbr></label>
-                                                    <input type="text" id="namefirst"
-                                                        class="input-namefirst-checkout form-control">
+                                                    {% csrf_token %}
 
-                                                    <label for="namelast">نام خانوادگی <abbr class="required"
+
+
+                                                    <label for="namelast">نام و نام خانوادگی <abbr class="required"
                                                             title="ضروری" style="color:red;">*</abbr></label>
-                                                    <input type="text" id="namelast"
-                                                        class="input-namelast-checkout form-control">
+                                                    {{ form.fullname }}
 
-                                                    <label for="email">ایمیل <abbr class="required" title="ضروری"
-                                                            style="color:red;">*</abbr></label>
-                                                    <input type="text" id="email"
-                                                        class="input-email-checkout form-control">
-
-                                                    <label for="password">رمز عبور قبلی <abbr class="required"
+                                                    <label>تصویر <abbr class="required"
                                                             title="ضروری" style="color:red;">*</abbr></label>
-                                                    <input type="text" id="password"
-                                                        class="input-password-checkout form-control">
+                                                    {{ form.image }}
 
-                                                    <label for="password">رمز عبور جدید <abbr class="required"
-                                                            title="ضروری" style="color:red;">*</abbr></label>
-                                                    <input type="text" id="password"
-                                                        class="input-password-checkout form-control">
 
-                                                    <label for="password">تکرار رمز عبور جدید <abbr class="required"
-                                                            title="ضروری" style="color:red;">*</abbr></label>
-                                                    <input type="text" id="password"
-                                                        class="input-password-checkout form-control">
 
                                                     <div class="AR-CR">
-                                                        <button class="btn-registrar"> ثبت تغییرات </button>
-                                                        <a href="#" class="cancel-edit-address" data-dismiss="modal"
+                                                        <button class="btn-registrar" type="submit"> ثبت تغییرات </button>
+                                                        <a href="{% url "UserPanelApp:userpanel" %}" class="cancel-edit-address" data-dismiss="modal"
                                                             aria-label="Close">بازگشت</a>
                                                     </div>
                                                 </div>

@@ -56,14 +56,14 @@ class User(AbstractBaseUser):
     image=models.FileField(upload_to="users/images",null=True,blank=True,
                            verbose_name="عکس")
     is_publishing_news=models.BooleanField(default=False,verbose_name="اجازه ارسال اخبار دارد؟")
-    guild_member=models.BooleanField(default=False,verbose_name="عضو هیئت رئیسه اصناف است؟")
+    guild_member=models.BooleanField(default=False,verbose_name="عضو اتاق اصناف است؟")
     post = models.CharField(choices=POST_CHOICES,
                             null=True, blank=True,
                             max_length=50,
                             default="کاربر عادی",
                             verbose_name="سمت-مقام")
     is_active = models.BooleanField(default=True,verbose_name="کاربر فعال است؟")
-    is_admin = models.BooleanField(default=False,verbose_name="ادمین وبسایت(به همه چیز دسترسی دارد!!)")
+    is_admin = models.BooleanField(default=False,verbose_name="ادمین وبسایت(به همه چیز دسترسی دارد)")
     commissions_member=models.BooleanField(default=False,
                                            verbose_name="عضو کمیسیون می باشد؟")
     board_of_directors=models.BooleanField(default=False,

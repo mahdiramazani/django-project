@@ -29,7 +29,7 @@ class NewsModels(models.Model):
                                    on_delete=models.CASCADE,
                                    null=True,
                                    blank=True,
-                                   verbose_name="اتحادیه نویسنده")
+                                   verbose_name="اتحادیه مربوطه")
     title=models.CharField(max_length=50,
                            verbose_name="مقدمه")
     body=RichTextField(verbose_name="متن خبر")

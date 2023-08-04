@@ -98,7 +98,11 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <a href="#" class="img-news-teldio">
+                                                            {% if item.image %}
                                                             <img src="{{ item.image.url }}" class="img-fluid w-100">
+                                                            {% else %}
+                                                               <img src="{% static "img/user.png" %}" class="img-fluid w-100">
+                                                            {% endif %}
                                                         </a>
 
                                                     </div>

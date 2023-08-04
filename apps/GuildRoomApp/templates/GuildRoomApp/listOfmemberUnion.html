@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <!--begin content-->
+    <link href="{% static "css/style.css" %}" type="text/css" rel="stylesheet">
+
+    <div class="container">
+
+        <div class="row">
+            <section class="my-5 container bg-white py-5">
+            <h3 class="our-team-title">هیئت رئیسه اتاق اصناف سیرجان</h3>
+            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                <!-- item -->
+                    {% for item in object_list %}
+                    <div class="member">
+                        <div class="member-img-box">
+
+                                {% if item.image %}
+                                    <img alt="{{ item.fullname }}" class="ui circular image"
+                                     src="{{ item.image.url }}">
+                            {% else %}
+                                    <img alt="{{ item.fullname }}" class="ui circular image"
+                                     src="{% static "img/user.png" %}">
+                            {% endif %}
+
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>{{ item.fullname }}-{{ item.post }}</p>
+                    </div>
+                {% endfor %}
+
+
+
+            </div>
+        </section>
+        </div>
+    </div>
+
+    <div class="scrolltop" onclick="scroll_top()">
+        <i class="fa fa-chevron-up arrow_icon" style="color: #333"></i>
+    </div>
+
+
+{% endblock %}

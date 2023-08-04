@@ -70,7 +70,7 @@ class User(AbstractBaseUser):
                                            verbose_name="عضو هیئت رئیسه می باشد؟")
     def __str__(self):
 
-        return self.fullname
+        return f"{self.fullname}"
 
     objects = UserManager()
 

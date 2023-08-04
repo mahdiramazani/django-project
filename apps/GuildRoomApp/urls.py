@@ -5,4 +5,5 @@ app_name="GuildRoomApp"
 urlpatterns=[
         path("list/",views.UnionListView.as_view(),name="List"),
         path("detail/<int:pk>",views.UnionDetailVew.as_view(),name="DetailGuild"),
+        path("member-of-guildroom",views.MemberOfUnionList.as_view(),name="MemberOfUnionList"),
 ]

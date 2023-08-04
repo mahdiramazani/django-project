@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView,ListView,DetailView
 from .models import GuildRoomModel
-
+from apps.AcountApp.models import User
 
 class UnionListView(ListView):
 
@@ -11,3 +11,13 @@ class UnionListView(ListView):
 class UnionDetailVew(DetailView):
     model = GuildRoomModel
     template_name = "GuildRoomApp/show_union.html"
+
+
+class MemberOfUnionList(ListView):
+    model = User
+    template_name = "GuildRoomApp/listOfmemberUnion.html"
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+
+        return qs.filter(board_of_directors=True)

@@ -1,42 +1,147 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
     <!--begin content-->
+    <link href="{% static "css/style.css" %}" type="text/css" rel="stylesheet">
 
-    <section>
-        <div class="mt-2">
-            <div class="table-responsive">
-                <table class="table table-striped">
+    <div class="container">
 
-                    <thead>
-                    <tr>
-                        <th scope="col">شماره</th>
-                        <th scope="col">نام اتحادیه</th>
-                        <th scope="col">جزئیات</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for item in object_list %}
-                    <tr>
-                        <th scope="row">{{ forloop.counter }}</th>
-                        <td>{{ item.name }}</td>
-                        <td><a href="{{ item.get_absolut_url }}"> مشاهده</a></td>
+        <div class="row">
+            <section class="my-5 container bg-white py-5">
+            <h3 class="our-team-title">هیئت رئیسه اتاق اصناف سیرجان</h3>
+            <div class="d-flex align-items-center justify-content-center flex-wrap">
+                <!-- item -->
 
-                    </tr>
+                    <div class="member">
+                        <div class="member-img-box">
 
-                    {% endfor %}
+                                <img alt="سامان الیا" class="ui circular image"
+                                     src="https://s3.ir-thr-at1.arvanstorage.ir/tiphubnet/images/users/IMG_20230330_013638_817.jpg?AWSAccessKeyId=daf9c1f9-3ecf-4619-8d28-265bd356f6bd&amp;Signature=ovr%2F4E%2Bi438r88%2BGCA7TkP1B8Pk%3D&amp;Expires=1691156152">
 
-                    </tbody>
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>سامان الیا</p>
+                    </div>
 
-                </table>
+                    <div class="member">
+                        <div class="member-img-box">
+
+                                <img alt="" class="ui circular image"
+                                     src="/static/image/User_Default.jpg">
+
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>امیرحسین امیری</p>
+                    </div>
+
+                    <div class="member">
+                        <div class="member-img-box">
+
+                                <img alt="محمد پاگرد" class="ui circular image"
+                                     src="https://s3.ir-thr-at1.arvanstorage.ir/tiphubnet/images/users/InShot_20230326_172933515.jpg?AWSAccessKeyId=daf9c1f9-3ecf-4619-8d28-265bd356f6bd&amp;Signature=81GGzR4vkJYLVUsC4HkQu3hJnX4%3D&amp;Expires=1691156152">
+
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>محمد پاگرد</p>
+                    </div>
+
+                    <div class="member">
+                        <div class="member-img-box">
+
+                                <img alt="مبینا ستاری" class="ui circular image"
+                                     src="https://s3.ir-thr-at1.arvanstorage.ir/tiphubnet/images/users/20230607_200417.jpg?AWSAccessKeyId=daf9c1f9-3ecf-4619-8d28-265bd356f6bd&amp;Signature=VefGzM89HmZqO9Y5SGBtMpfoMME%3D&amp;Expires=1691156152">
+
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>مبینا ستاری</p>
+                    </div>
+
+                    <div class="member">
+                        <div class="member-img-box">
+
+                                <img alt="مرتضی عرب بنابچی" class="ui circular image"
+                                     src="https://s3.ir-thr-at1.arvanstorage.ir/tiphubnet/images/users/photo_1402-02-15_13.08.47.jpeg?AWSAccessKeyId=daf9c1f9-3ecf-4619-8d28-265bd356f6bd&amp;Signature=D4s9XU07DX02NxTHk1fYxQ0TNYI%3D&amp;Expires=1691156152">
+
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>مرتضی عرب بنابچی</p>
+                    </div>
+
+                    <div class="member">
+                        <div class="member-img-box">
+
+                                <img alt="شبیر سیفی" class="ui circular image"
+                                     src="/static/image/User_Default.jpg">
+
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>شبیر سیفی</p>
+                    </div>
+
+                    <div class="member">
+                        <div class="member-img-box">
+
+                                <img alt="امیرمحمد غضنفری" class="ui circular image"
+                                     src="https://s3.ir-thr-at1.arvanstorage.ir/tiphubnet/images/users/IMG_20230318_161750_712.jpg?AWSAccessKeyId=daf9c1f9-3ecf-4619-8d28-265bd356f6bd&amp;Signature=eQH1eVaPvCNKKP8xgLhf3VxvYos%3D&amp;Expires=1691156152">
+
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>امیرمحمد غضنفری</p>
+                    </div>
+
+                    <div class="member">
+                        <div class="member-img-box">
+
+                                <img alt="مهدی رمضانی" class="ui circular image"
+                                     src="https://s3.ir-thr-at1.arvanstorage.ir/tiphubnet/images/users/81604996_sLCcQPZ.jpeg?AWSAccessKeyId=daf9c1f9-3ecf-4619-8d28-265bd356f6bd&amp;Signature=fUXEy9QVAS45GsYRYxqxT51SbQ0%3D&amp;Expires=1691156152">
+
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>مهدی رمضانی</p>
+                    </div>
+
+                    <div class="member">
+                        <div class="member-img-box">
+
+                                <img alt="یاسین سموعی" class="ui circular image"
+                                     src="https://s3.ir-thr-at1.arvanstorage.ir/tiphubnet/images/users/1000030692.jpg?AWSAccessKeyId=daf9c1f9-3ecf-4619-8d28-265bd356f6bd&amp;Signature=SGDvvN1z2TvrCRqfm1rETC0hxlc%3D&amp;Expires=1691156152">
+
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>یاسین سموعی</p>
+                    </div>
+
+                    <div class="member">
+                        <div class="member-img-box">
+
+                                <img alt="علی تیموری" class="ui circular image"
+                                     src="https://s3.ir-thr-at1.arvanstorage.ir/tiphubnet/images/users/download.png?AWSAccessKeyId=daf9c1f9-3ecf-4619-8d28-265bd356f6bd&amp;Signature=GgOWJeCrTzC6uTIFaBmbQbpjnYQ%3D&amp;Expires=1691156152">
+
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>علی تیموری</p>
+                    </div>
+
+                    <div class="member">
+                        <div class="member-img-box">
+
+                                <img alt="دانیال آذرپناه" class="ui circular image"
+                                     src="https://s3.ir-thr-at1.arvanstorage.ir/tiphubnet/images/users/profile_f9m96D5.jpg?AWSAccessKeyId=daf9c1f9-3ecf-4619-8d28-265bd356f6bd&amp;Signature=A4pe%2Ba20E0c5ulZs%2FahbMZdNYiQ%3D&amp;Expires=1691156152">
+
+                            <div class="member-overlay"></div>
+                        </div>
+                        <p>دانیال آذرپناه</p>
+                    </div>
+
             </div>
+        </section>
+        </div>
+    </div>
 
 
-        </div>
-        </div>
-        </div>
-    </section>
+
+
+
 
 
     <!--end content-->
@@ -47,8 +152,5 @@
         <i class="fa fa-chevron-up arrow_icon" style="color: #333"></i>
     </div>
 
+
 {% endblock %}
-
-
-
-

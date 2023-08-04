@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "apps.AcountApp.apps.AcountappConfig",
     "apps.GuildRoomApp.apps.GuildroomappConfig",
     "apps.NewsApp.apps.NewsappConfig",
+    "apps.UserPanelApp.apps.UserpanelappConfig",
     "ckeditor",
     "django_jalali",
     "storages",

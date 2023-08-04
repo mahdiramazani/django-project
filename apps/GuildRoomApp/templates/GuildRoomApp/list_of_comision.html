@@ -9,11 +9,11 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{% url "HomeApp:HomeApp" %}">خانه</a></li>
-                        <li class="breadcrumb-item"><a href="{% url "GuildRoomApp:List" %}"> اتحادیه ها</a></li>
+                        <li class="breadcrumb-item"><a href="{% url "GuildRoomApp:List" %}"> کمیسیون ها</a></li>
                     </ol>
                 </nav>
 
-            <h3 class="my-4 text-center title-section"> اتحادیه ها </h3>
+            <h3 class="my-4 text-center title-section"> کمیسیون ها </h3>
 
             <div class="row">
 
@@ -23,7 +23,7 @@
                             <div class="teachers-item custom-bg p-2 ">
                                 <div class="d-flex align-items-center pb-5 border-bottom">
                                     <div class="px-2 position-relative w-100  ">
-                                        <p class="font-weight-bold text-center">اتحادیه {{ item.name }}</p>
+                                        <p class="font-weight-bold text-center">کمیسیون {{ item.name }}</p>
                                         <p class="teacher-email position-absolute pt-2 text-center" style="width: inherit;">
 
                                                 تعداد اعضا:{{ item.user.all.count }}
@@ -34,18 +34,12 @@
 
                                 <div class=" d-flex align-items-center justify-content-center p-2">
                                     <a href="{{ item.get_absolut_url }}" class="btn w-75 custom-btn">
-                                        مشاهده اتحادیه</a>
+                                        مشاهده کمیسیون</a>
                                 </div>
                             </div>
                         </div>
                         <!-- end item -->
                 {% endfor %}
-
-
-
-
-
-
 
 
             </div>

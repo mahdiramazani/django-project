@@ -2,7 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% include "include/head.html" %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>اتاق اصناف سیرجان</title>
+
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "css/all.min.css" %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}">
+    <link href="{% static "css/style001.css" %}" type="text/css" rel="stylesheet">
+
+    <link href="{% static "css/hircana.css" %}" type="text/css" rel="stylesheet">
+</head>
 <body >
 
 <!--begin header -->
@@ -81,7 +92,7 @@
                     <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}" >اتحادیه ها و کمیسیون ها</a>
                     <ul class="dropdown-menu fade-up">
                         <li><a class="dropdown-item" href="{% url "GuildRoomApp:List" %}"> اتحادیه ها</a></li>
-                        <li><a class="dropdown-item" >لیست کمیسیون ها </a></li>
+                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">لیست کمیسیون ها </a></li>
                         <li><a class="dropdown-item" >اشیاء گم شده </a></li>
 						 <li><a class="dropdown-item" >نیروکار </a></li>
                     </ul>

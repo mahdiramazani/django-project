@@ -46,7 +46,7 @@ class CommissionsModel(models.Model):
 
     def get_absolut_url(self):
 
-        return reverse("GuildRoomApp:DetailGuild",args=[self.id])
+        return reverse("GuildRoomApp:comision-detail",args=[self.id])
 
     def __str__(self):
 

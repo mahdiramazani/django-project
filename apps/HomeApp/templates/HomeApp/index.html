@@ -8,59 +8,9 @@
         <div class="container">
 
 
-{#            <div class="row pb-5">#}
-{#                <div class="col-md-6 col-12 mt-3">#}
-{#                    <div class="img-relative img-hover">#}
-{#                        <a href="{{ last_news.get_absolut_url }}" class="img-top-news-1">#}
-{#                            <img src="{{ last_news.image.url }}" class="img-fluid">#}
-{#                            <div class="text-box-top-news-1">#}
-{#                                <div class="circle-title"></div>#}
-{#                                <p class="font_15 p-0 style-top-tittle line-height-text">#}
-{#                                    {{ last_news.title }}#}
-{#                                </p>#}
-{#                            </div>#}
-{#                        </a>#}
-{#                    </div>#}
-{##}
-{#                </div>#}
-{##}
-{##}
-{#                <div class="col-md-6 col-12">#}
-{#                    <div class="row">#}
-{##}
-{#                        {% for item in head_news %}#}
-{#                            <div class="col-12">#}
-{#                                <div class="style-text mt-3">#}
-{#                                    <div class="row">#}
-{#                                        <div class="col-md-6 col-5">#}
-{#                                            <a href="{{ item.get_absolut_url }}" class="img-top-news-2">#}
-{#                                                <img src="{{ item.image.url }}" class="img-fluid">#}
-{#                                            </a>#}
-{#                                        </div>#}
-{#                                        <div class="col-md-6 col-7 py-2">#}
-{#                                            <a href="{{ item.get_absolut_url }}" class="text-p">#}
-{#                                                <div class="circle-title"></div>#}
-{#                                                <p class="font_13 style-tittle line-height-text">#}
-{#                                                    {{ item.title }}#}
-{#                                                </p>#}
-{#                                            </a>#}
-{#                                            <p class="font_13 text-p line-height-text">#}
-{#                                                {{ item.show_title | safe }}#}
-{#                                            </p>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{##}
-{#                        {% endfor %}#}
-{##}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-
-
-            <!-- slider-main--------------------------->
-    <div class="container-main">
+            <div class="row pb-5">
+                <div class="col-md-6 col-12 mt-3">
+                    <div class="container-main">
         <div class="d-block">
             <div class="col-lg-12 col-xs-12 pr mb-4">
                 <div class="slider-main-container d-block">
@@ -114,6 +64,46 @@
             </div>
         </div>
     </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-12">
+                    <div class="row">
+
+                        {% for item in head_news %}
+                            <div class="col-12">
+                                <div class="style-text mt-3" >
+                                    <div class="row">
+                                        <div class="col-md-6 col-5">
+                                            <a href="{{ item.get_absolut_url }}" class="img-top-news-2 slider-main-container">
+                                                <img src="{{ item.image.url }}" class="img-fluid">
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6 col-7 py-2">
+                                            <a href="{{ item.get_absolut_url }}" class="text-p">
+                                                <div class="circle-title"></div>
+                                                <p class="font_13 style-tittle line-height-text">
+                                                    {{ item.title }}
+                                                </p>
+                                            </a>
+                                            <p class="font_13 text-p line-height-text">
+                                                {{ item.show_title | safe }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- slider-main--------------------------->
+
         </div>
     </section>
 

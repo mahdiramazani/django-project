@@ -27,13 +27,11 @@
                         <a href="#" class="account-box-logo">digismart</a>
                         <div class="account-box">
                             <div class="account-box-headline">
-
-                                <a href="{% url "AcountApp:login" %}" class="login-ds">
+                                <a href="{% url "AcountApp:login" %}" class="login-ds active">
                                     <span class="title">ورود</span>
                                     <span class="sub-title">به اتاق اصناف سیرجان</span>
-
-
-                                <a href="{% url "AcountApp:register" %}" class="register-ds active">
+                                </a>
+                                <a href="{% url "AcountApp:register" %}" class="register-ds">
                                     <span class="title">ثبت نام</span>
                                     <span class="sub-title">در اتاق اصناف سیرجان</span>
                                 </a>
@@ -56,10 +54,10 @@
                                                 <input type="checkbox" value="1" name="login" id="remember">
                                                 <span class="ui-checkbox-check"></span>
                                             </label>
-
+                                            <label for="remember" class="remember-me mr-0">مرا به خاطر بسپار</label>
                                         </div>
                                         <div class="form-row-account">
-                                            <button class="btn btn-primary btn-login">ثبت نام در اتاق اصناف سیرجان</button>
+                                            <button class="btn btn-primary btn-login">ورود به اتاق اصناف سیرجان</button>
                                         </div>
                                     </form>
                                 </div>

@@ -8,55 +8,112 @@
         <div class="container">
 
 
-            <div class="row pb-5">
-                <div class="col-md-6 col-12 mt-3">
-                    <div class="img-relative img-hover">
-                        <a href="{{ last_news.get_absolut_url }}" class="img-top-news-1">
-                            <img src="{{ last_news.image.url }}" class="img-fluid">
-                            <div class="text-box-top-news-1">
-                                <div class="circle-title"></div>
-                                <p class="font_15 p-0 style-top-tittle line-height-text">
-                                    {{ last_news.title }}
-                                </p>
-                            </div>
-                        </a>
-                    </div>
+{#            <div class="row pb-5">#}
+{#                <div class="col-md-6 col-12 mt-3">#}
+{#                    <div class="img-relative img-hover">#}
+{#                        <a href="{{ last_news.get_absolut_url }}" class="img-top-news-1">#}
+{#                            <img src="{{ last_news.image.url }}" class="img-fluid">#}
+{#                            <div class="text-box-top-news-1">#}
+{#                                <div class="circle-title"></div>#}
+{#                                <p class="font_15 p-0 style-top-tittle line-height-text">#}
+{#                                    {{ last_news.title }}#}
+{#                                </p>#}
+{#                            </div>#}
+{#                        </a>#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+{##}
+{##}
+{#                <div class="col-md-6 col-12">#}
+{#                    <div class="row">#}
+{##}
+{#                        {% for item in head_news %}#}
+{#                            <div class="col-12">#}
+{#                                <div class="style-text mt-3">#}
+{#                                    <div class="row">#}
+{#                                        <div class="col-md-6 col-5">#}
+{#                                            <a href="{{ item.get_absolut_url }}" class="img-top-news-2">#}
+{#                                                <img src="{{ item.image.url }}" class="img-fluid">#}
+{#                                            </a>#}
+{#                                        </div>#}
+{#                                        <div class="col-md-6 col-7 py-2">#}
+{#                                            <a href="{{ item.get_absolut_url }}" class="text-p">#}
+{#                                                <div class="circle-title"></div>#}
+{#                                                <p class="font_13 style-tittle line-height-text">#}
+{#                                                    {{ item.title }}#}
+{#                                                </p>#}
+{#                                            </a>#}
+{#                                            <p class="font_13 text-p line-height-text">#}
+{#                                                {{ item.show_title | safe }}#}
+{#                                            </p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{##}
+{#                        {% endfor %}#}
+{##}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
 
-                </div>
 
-
-                <div class="col-md-6 col-12">
-                    <div class="row">
-
-                        {% for item in head_news %}
-                            <div class="col-12">
-                                <div class="style-text mt-3">
-                                    <div class="row">
-                                        <div class="col-md-6 col-5">
-                                            <a href="{{ item.get_absolut_url }}" class="img-top-news-2">
-                                                <img src="{{ item.image.url }}" class="img-fluid">
-                                            </a>
-                                        </div>
-                                        <div class="col-md-6 col-7 py-2">
-                                            <a href="{{ item.get_absolut_url }}" class="text-p">
-                                                <div class="circle-title"></div>
-                                                <p class="font_13 style-tittle line-height-text">
-                                                    {{ item.title }}
-                                                </p>
-                                            </a>
-                                            <p class="font_13 text-p line-height-text">
-                                                {{ item.show_title | safe }}
-                                            </p>
-                                        </div>
-                                    </div>
+            <!-- slider-main--------------------------->
+    <div class="container-main">
+        <div class="d-block">
+            <div class="col-lg-12 col-xs-12 pr mb-4">
+                <div class="slider-main-container d-block">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item carousel-item-h4 active">
+                                <img src="{% static "assets/images/slider-main/h-4/iphone-12.png" %}" class="d-block w-100 h-four-img"
+                                    alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>اپل آیفون پرو مکس 12 - 256 گیگابایت</h3>
+                                    <p>Apple iPhone Pro Max 12 - 256GB - Dual SIM</p>
+                                    <button type="submit" class="btn btn-warning btn-buy mt-4">خرید کنید</button>
                                 </div>
                             </div>
-
-                        {% endfor %}
-
+                            <div class="carousel-item carousel-item-h4">
+                                <img src="{% static "assets/images/slider-main/h-4/samsung_galaxy_note_20-ultra.jpg" %}"
+                                    class="d-block w-100 h-four-img" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>سامسونگ گلگسی نوت 20 آلترا - 512 گیگابایت</h3>
+                                    <p>Sumsung Galaxy Note 20 Ultra - 512GB - Dual SIM</p>
+                                    <button type="submit" class="btn btn-warning btn-buy mt-4">خرید کنید</button>
+                                </div>
+                            </div>
+                            <div class="carousel-item carousel-item-h4">
+                                <img src="{% static "assets/images/slider-main/h-4/Huawei-P20-Pro.jpg" %}"
+                                    class="d-block w-100 h-four-img" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>هواوی پی 20 پرو 128 گیگابایت – دو سیم کارت</h3>
+                                    <p>Huawei P20 Pro Smartphone - Dual SIM - 128GB</p>
+                                    <button type="submit" class="btn btn-warning btn-buy mt-4">خرید کنید</button>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="fa fa-angle-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="fa fa-angle-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
         </div>
     </section>
 

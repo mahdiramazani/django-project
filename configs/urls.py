@@ -24,7 +24,8 @@ urlpatterns = [
                   path("", include("apps.HomeApp.urls")),
                   path("acount/", include("apps.AcountApp.urls")),
                   path("news/", include("apps.NewsApp.urls")),
-                  path("unions/",include("apps.GuildRoomApp.urls")),
+                  path("unions/", include("apps.GuildRoomApp.urls")),
                   path('ckeditor/', include('ckeditor_uploader.urls')),
-                  path("userpanel/",include("apps.UserPanelApp.urls"))
+                  path("userpanel/", include("apps.UserPanelApp.urls")),
+                  path("events/", include("apps.EventsApp.urls"))
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

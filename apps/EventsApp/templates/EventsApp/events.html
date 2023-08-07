@@ -88,110 +88,104 @@
 </div>
 
 
-<header class="header container-fluid">
-    <div class="header__content">
-
-
-        <nav class="header__nav">
-            <nav class="navbar navbar-expand-lg bg-nav-color sticky-top   mt-2 ">
-                <div class="container">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
-                            aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg bg-nav-color sticky-top header  mt-2 ">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
                 <i class="fa fa-bars"></i>
             </span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="main_nav">
-                        <ul class="navbar-nav pr-lg-0">
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link nav-text-color pb-3" href="{% url "HomeApp:HomeApp" %}">صفحه اصلی</a>
+        </button>
+        <div class="collapse navbar-collapse" id="main_nav">
+            <ul class="navbar-nav pr-lg-0">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3" href="{% url "HomeApp:HomeApp" %}">صفحه اصلی</a>
 
-                            </li>
+                </li>
 
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}">اتحادیه ها
-                                    و کمیسیون ها</a>
-                                <ul class="dropdown-menu fade-up">
-                                    <li><a class="dropdown-item" href="{% url "GuildRoomApp:List" %}"> اتحادیه ها</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">لیست
-                                        کمیسیون ها </a></li>
-                                    <li><a class="dropdown-item">اشیاء گم شده </a></li>
-                                    <li><a class="dropdown-item">نیروکار </a></li>
-                                </ul>
-                            </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}">اتحادیه ها و کمیسیون
+                        ها</a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:List" %}"> اتحادیه ها</a></li>
+                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">لیست کمیسیون ها </a>
+                        </li>
+                        <li><a class="dropdown-item">اشیاء گم شده </a></li>
+                        <li><a class="dropdown-item">نیروکار </a></li>
+                    </ul>
+                </li>
 
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link  nav-text-color pb-3">هیئت رئیسه </a>
-                                <ul class="dropdown-menu fade-up">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link  nav-text-color pb-3">هیئت رئیسه </a>
+                    <ul class="dropdown-menu fade-up">
 
-                                    <li><a class="dropdown-item">اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
-                                    <li><a class="dropdown-item">چارت سازمانی اتاق اصناف سیرجان </a></li>
+                        <li><a class="dropdown-item">اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
+                        <li><a class="dropdown-item">چارت سازمانی اتاق اصناف سیرجان </a></li>
 
-                                </ul>
-                            </li>
-
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link  nav-text-color pb-3">رویداد </a>
-                                <ul class="dropdown-menu fade-up">
-
-                                    <li><a class="dropdown-item">دوره آموزشی</a></li>
-                                    <li><a class="dropdown-item">همایش </a></li>
-                                    <li><a class="dropdown-item">سمینار</a></li>
-                                    <li><a class="dropdown-item">جشنواره</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link nav-text-color pb-3"> قوانین و مقررات </a>
-                                <ul class="dropdown-menu fade-up">
-                                    <li><a class="dropdown-item">اخبار قوانین و مقررات</a></li>
-                                    <li><a class="dropdown-item">قوانین نظام صنفی</a></li>
-                                    <li><a class="dropdown-item">دستورالعمل ها</a></li>
-                                    <li><a class="dropdown-item">دریافت فایل</a></li>
-                                    <li><a class="dropdown-item">آیین نامه های اجرائی</a></li>
-                                    <li><a class="dropdown-item">بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و
-                                        خدماتی و اصناف</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link nav-text-color pb-3"> درباره ما </a>
-                                <ul class="dropdown-menu fade-up">
-                                    <li><a class="dropdown-item">تاریخچه</a></li>
-                                    <li><a class="dropdown-item">گالری </a></li>
-                                    <li><a class="dropdown-item">تماس با ما</a></li>
-
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link nav-text-color pb-3">درگاه ملی مجوزها </a>
-                                <ul class="dropdown-menu fade-up">
-                                    <li><a class="dropdown-item" href="https://mojavez.ir"> ورود به درگاه ملی مجوزها</a>
-                                    </li>
-                                    <li><a class="dropdown-item">اموزش درگاه ملی مجوزها </a></li>
-
-                                </ul>
+                    </ul>
+                </li>
 
 
-                            </li>
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link nav-text-color pb-3">سامانه چارسو </a>
-                                <!--
+                <li class="nav-item dropdown ">
+                    <a class="nav-link  nav-text-color pb-3">رویداد </a>
+                    <ul class="dropdown-menu fade-up">
 
-                                -->
-                            </li>
+                        <li><a class="dropdown-item">دوره آموزشی</a></li>
+                        <li><a class="dropdown-item">همایش </a></li>
+                        <li><a class="dropdown-item">سمینار</a></li>
+                        <li><a class="dropdown-item">جشنواره</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3"> قوانین و مقررات </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item">اخبار قوانین و مقررات</a></li>
+                        <li><a class="dropdown-item">قوانین نظام صنفی</a></li>
+                        <li><a class="dropdown-item">دستورالعمل ها</a></li>
+                        <li><a class="dropdown-item">دریافت فایل</a></li>
+                        <li><a class="dropdown-item">آیین نامه های اجرائی</a></li>
+                        <li><a class="dropdown-item">بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و
+                            اصناف</a></li>
+                    </ul>
+                </li>
 
 
-                        </ul>
-                    </div> <!-- navbar-collapse.// -->
-                </div>
-            </nav>
-        </nav>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3"> درباره ما </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item">تاریخچه</a></li>
+                        <li><a class="dropdown-item">گالری </a></li>
+                        <li><a class="dropdown-item">تماس با ما</a></li>
+
+                    </ul>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3">درگاه ملی مجوزها </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item" href="https://mojavez.ir"> ورود به درگاه ملی مجوزها</a></li>
+                        <li><a class="dropdown-item">اموزش درگاه ملی مجوزها </a></li>
+
+                    </ul>
 
 
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3">سامانه چارسو </a>
+                    <!--
+                                        <ul class="dropdown-menu fade-up">
+                                            <li><a class="dropdown-item" href="#">تاریخچه</a></li>
+                                            <li><a class="dropdown-item" href="#">تماس با ما </a></li>
+
+                                        </ul>
+                    -->
+                </li>
+
+
+            </ul>
+        </div> <!-- navbar-collapse.// -->
     </div>
-</header>
+</nav>
 
 
 <div class="container-fluid">

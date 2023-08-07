@@ -3,30 +3,21 @@
 <html lang="fa">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="{% static "events/css/owl.carousel.min.css" %}">
-	<link rel="stylesheet" href="{% static "events/css/magnific-popup.css" %}">
-	<link rel="stylesheet" href="{% static "events/css/select2.min.css" %}">
-	<link rel="stylesheet" href="{% static "events/css/paymentfont.min.css" %}">
-	<link rel="stylesheet" href="{% static "events/css/slider-radio.css" %}">
-	<link rel="stylesheet" href="{% static "events/css/plyr.css" %}">
-	<link rel="stylesheet" href="{% static "events/css/main.css" %}">
+    <!-- CSS -->
 
-	<!-- Favicons -->
-	<link rel="icon" type="image/png" href="{% static "events/icon/favicon-32x32.png" %}" sizes="32x32">
-	<link rel="apple-touch-icon" href="{% static "events/icon/favicon-32x32.png" %}">
+    <link rel="stylesheet" href="{% static "events/css/maindetail.css" %}">
 
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta name="author" content="Dmitry Volkov">
-	<title>بلاست - قالب HTML پخش موسیقی و موسیقی آنلاین</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="{% static "events/icon/favicon-32x32.png" %}" sizes="32x32">
+    <link rel="apple-touch-icon" href="{% static "events/icon/favicon-32x32.png" %}">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Dmitry Volkov">
+
 
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css">
     <link href="{% static "css/all.min.css" %}" rel="stylesheet" type="text/css">
@@ -34,7 +25,7 @@
     <link href="{% static "css/style001.css" %}" type="text/css" rel="stylesheet">
 
 </head>
-<body >
+<body>
 
 <!--begin header -->
 <div class="container">
@@ -61,8 +52,6 @@
 <!--end header -->
 
 
-
-
 <!--begin menu -->
 <div class="container">
 
@@ -71,7 +60,7 @@
         <div class="col-lg-2 col-md-4 col-12 mt-sm-2 order-md-1 order-lg-1">
             <div class="text-center">
                 <a href="{% url "HomeApp:HomeApp" %}">
-                    <img src="{% static "img/logoheder.png" %}" class="img-fluid "  >
+                    <img src="{% static "img/logoheder.png" %}" class="img-fluid ">
                 </a>
             </div>
         </div>
@@ -98,9 +87,11 @@
 
 </div>
 
+
 <nav class="navbar navbar-expand-lg bg-nav-color sticky-top header  mt-2 ">
     <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
                 <i class="fa fa-bars"></i>
             </span>
@@ -108,17 +99,19 @@
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav pr-lg-0">
                 <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="{% url "HomeApp:HomeApp" %}" >صفحه اصلی</a>
+                    <a class="nav-link nav-text-color pb-3" href="{% url "HomeApp:HomeApp" %}">صفحه اصلی</a>
 
                 </li>
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}" >اتحادیه ها و کمیسیون ها</a>
+                    <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}">اتحادیه ها و کمیسیون
+                        ها</a>
                     <ul class="dropdown-menu fade-up">
                         <li><a class="dropdown-item" href="{% url "GuildRoomApp:List" %}"> اتحادیه ها</a></li>
-                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">لیست کمیسیون ها </a></li>
-                        <li><a class="dropdown-item" >اشیاء گم شده </a></li>
-						 <li><a class="dropdown-item" >نیروکار </a></li>
+                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">لیست کمیسیون ها </a>
+                        </li>
+                        <li><a class="dropdown-item">اشیاء گم شده </a></li>
+                        <li><a class="dropdown-item">نیروکار </a></li>
                     </ul>
                 </li>
 
@@ -126,8 +119,8 @@
                     <a class="nav-link  nav-text-color pb-3">هیئت رئیسه </a>
                     <ul class="dropdown-menu fade-up">
 
-                        <li><a class="dropdown-item" >اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
-                        <li><a class="dropdown-item" >چارت سازمانی اتاق اصناف سیرجان </a></li>
+                        <li><a class="dropdown-item">اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
+                        <li><a class="dropdown-item">چارت سازمانی اتاق اصناف سیرجان </a></li>
 
                     </ul>
                 </li>
@@ -137,61 +130,56 @@
                     <a class="nav-link  nav-text-color pb-3">رویداد </a>
                     <ul class="dropdown-menu fade-up">
 
-                        <li><a class="dropdown-item" >دوره آموزشی</a></li>
-                        <li><a class="dropdown-item" >همایش </a></li>
-						 <li><a class="dropdown-item" >سمینار</a></li>
-						 <li><a class="dropdown-item" >جشنواره</a></li>
+                        <li><a class="dropdown-item">دوره آموزشی</a></li>
+                        <li><a class="dropdown-item">همایش </a></li>
+                        <li><a class="dropdown-item">سمینار</a></li>
+                        <li><a class="dropdown-item">جشنواره</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3"> قوانین و مقررات  </a>
+                    <a class="nav-link nav-text-color pb-3"> قوانین و مقررات </a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" >اخبار قوانین و مقررات</a></li>
-                        <li><a class="dropdown-item" >قوانین نظام صنفی</a></li>
-                        <li><a class="dropdown-item" >دستورالعمل ها</a></li>
-						<li><a class="dropdown-item" >دریافت فایل</a></li>
-                        <li><a class="dropdown-item" >آیین نامه های اجرائی</a></li>
-                        <li><a class="dropdown-item" >بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و اصناف</a></li>
+                        <li><a class="dropdown-item">اخبار قوانین و مقررات</a></li>
+                        <li><a class="dropdown-item">قوانین نظام صنفی</a></li>
+                        <li><a class="dropdown-item">دستورالعمل ها</a></li>
+                        <li><a class="dropdown-item">دریافت فایل</a></li>
+                        <li><a class="dropdown-item">آیین نامه های اجرائی</a></li>
+                        <li><a class="dropdown-item">بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و
+                            اصناف</a></li>
                     </ul>
                 </li>
-
 
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" > درباره ما </a>
+                    <a class="nav-link nav-text-color pb-3"> درباره ما </a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" >تاریخچه</a></li>
-                        <li><a class="dropdown-item" >گالری </a></li>
-						  <li><a class="dropdown-item" >تماس با ما</a></li>
+                        <li><a class="dropdown-item">تاریخچه</a></li>
+                        <li><a class="dropdown-item">گالری </a></li>
+                        <li><a class="dropdown-item">تماس با ما</a></li>
 
                     </ul>
                 </li>
-				  <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" >درگاه ملی مجوزها  </a>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3">درگاه ملی مجوزها </a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="https://mojavez.ir">  ورود به درگاه ملی مجوزها</a></li>
+                        <li><a class="dropdown-item" href="https://mojavez.ir"> ورود به درگاه ملی مجوزها</a></li>
                         <li><a class="dropdown-item">اموزش درگاه ملی مجوزها </a></li>
 
                     </ul>
 
 
                 </li>
-				   <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" >سامانه چارسو </a>
-<!--
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#">تاریخچه</a></li>
-                        <li><a class="dropdown-item" href="#">تماس با ما </a></li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3">سامانه چارسو </a>
+                    <!--
+                                        <ul class="dropdown-menu fade-up">
+                                            <li><a class="dropdown-item" href="#">تاریخچه</a></li>
+                                            <li><a class="dropdown-item" href="#">تماس با ما </a></li>
 
-                    </ul>
--->
+                                        </ul>
+                    -->
                 </li>
-
-
-
-
-
 
 
             </ul>
@@ -199,13 +187,12 @@
     </div>
 </nav>
 
-
-    <div class="container-fluid">
+<div class="container-fluid">
 			<!-- slider -->
 			<section class="row">
 				<div class="col-12">
 					<div class="hero owl-carousel" id="hero">
-						<div class="hero__slide" data-bg="img/home/slide1.jpg">
+						<div class="hero__slide" data-bg="{% static "events/img/home/slide1.jpg" %}">
 							<h1 class="hero__title">لورم ایپسوم</h1>
 							<p class="hero__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
 							<div class="hero__btns">
@@ -306,7 +293,7 @@
 								<p class="event__address">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
 							</div>
 
-							<div class="event" data-bg="img/events/event4.jpg">
+							<div class="event" data-bg="{% static "events/img/events/event4.jpg" %}">
 								<a href="#modal-ticket" class="event__ticket open-modal"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9,10a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V11A1,1,0,0,0,9,10Zm12,1a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H3A1,1,0,0,0,2,6v4a1,1,0,0,0,1,1,1,1,0,0,1,0,2,1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V14a1,1,0,0,0-1-1,1,1,0,0,1,0-2ZM20,9.18a3,3,0,0,0,0,5.64V17H10a1,1,0,0,0-2,0H4V14.82A3,3,0,0,0,4,9.18V7H8a1,1,0,0,0,2,0H20Z"/></svg>خرید بلیط</a>
 								<span class="event__date">07 بهمن 1400</span>
 								<span class="event__time">6:00 بعد از ظهر</span>

@@ -38,3 +38,8 @@ class ImageGalleryView(DetailView):
     template_name = "NewsApp/detail-news.html"
     model=ImageGallery
 
+
+
+class AllNewsView(TemplateView):
+
+    template_name = "NewsApp/allNews.html"

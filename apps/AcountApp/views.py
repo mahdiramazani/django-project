@@ -8,3 +8,7 @@ class LoginView(TemplateView):
 class RegisterView(TemplateView):
 
     template_name = "AcountApp/register.html"
+
+
+class UserDetailView(TemplateView):
+    template_name = "AcountApp/userdetail.html"

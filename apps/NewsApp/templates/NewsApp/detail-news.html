@@ -16,24 +16,13 @@
 
 
                         <a href="{{ object.get_absolut_url }}">
-                            <img src="{{ object.image.url }}" class=" new-content new-content-res ">
+                            <img src="{{ object.image.url }}" class="img-fluid ">
                         </a>
 
 
                         <div class="text-p-line-left">
 
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="bg-white-show mt-3 mt-md-0">
 
-                                    <span class="font_12" style="color: #000">
-{{ object.body | truncatewords:30 | safe }}
-                                    </span>
-
-
-                                    </div>
-                                </div>
-                            </div>
 
 
                             <p class="font_15 mt-4">
@@ -46,9 +35,9 @@
                         <div class="clearfix"></div>
 
                         <div class="text-center">
-                        <hr>
-                        <br>
-                        <br>
+                            <hr>
+                            <br>
+                            <br>
                             <a>
                                 {% if object.video %}
 

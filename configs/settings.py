@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "apps.NewsApp.apps.NewsappConfig",
     "apps.UserPanelApp.apps.UserpanelappConfig",
     "apps.EventsApp.apps.EventsappConfig",
+    "apps.contactByMeapp.apps.ContactbymeappConfig",
     "ckeditor",
     "django_jalali",
     "storages",

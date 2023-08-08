@@ -3,12 +3,12 @@
 <html lang="fa">
 
 <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSS -->
 
-    <link rel="stylesheet" href="{% static "events/css/maindetail.css" %}">
+    <link rel="stylesheet" href="{% static "events/css/main.css" %}">
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="{% static "events/icon/favicon-32x32.png" %}" sizes="32x32">
@@ -27,7 +27,7 @@
 </head>
 <body>
 
-<!--begin header -->
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -49,10 +49,6 @@
         </div>
     </div>
 </div>
-<!--end header -->
-
-
-<!--begin menu -->
 <div class="container">
 
     <div class="row ">
@@ -187,12 +183,16 @@
     </div>
 </nav>
 
-<div class="container-fluid">
+
+
+	<!-- main content -->
+
+		<div class="container-fluid">
 			<!-- slider -->
 			<section class="row">
 				<div class="col-12">
 					<div class="hero owl-carousel" id="hero">
-						<div class="hero__slide" data-bg="{% static "events/img/home/slide1.jpg" %}">
+						<div class="hero__slide" data-bg="img/home/slide1.jpg">
 							<h1 class="hero__title">لورم ایپسوم</h1>
 							<p class="hero__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
 							<div class="hero__btns">
@@ -293,7 +293,7 @@
 								<p class="event__address">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
 							</div>
 
-							<div class="event" data-bg="{% static "events/img/events/event4.jpg" %}">
+							<div class="event" data-bg="img/events/event4.jpg">
 								<a href="#modal-ticket" class="event__ticket open-modal"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9,10a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V11A1,1,0,0,0,9,10Zm12,1a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H3A1,1,0,0,0,2,6v4a1,1,0,0,0,1,1,1,1,0,0,1,0,2,1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V14a1,1,0,0,0-1-1,1,1,0,0,1,0-2ZM20,9.18a3,3,0,0,0,0,5.64V17H10a1,1,0,0,0-2,0H4V14.82A3,3,0,0,0,4,9.18V7H8a1,1,0,0,0,2,0H20Z"/></svg>خرید بلیط</a>
 								<span class="event__date">07 بهمن 1400</span>
 								<span class="event__time">6:00 بعد از ظهر</span>
@@ -326,15 +326,255 @@
 			<!-- end events -->
 		</div>
 
+	<!-- end main content -->
+<section class="bg-color-gray ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-md-inline-block d-none">
+                <nav class="navbar navbar-expand-md navbar-dark ">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon d-none"></span>
+                    </button>
 
-	<script src="{% static "events/js/owl.carousel.min.js" %}"></script>
-	<script src="{% static "events/js/jquery.magnific-popup.min.js" %}"></script>
-	<script src="{% static "events/js/smooth-scrollbar.js" %}"></script>
-	<script src="{% static "events/js/select2.min.js" %}"></script>
-	<script src="{% static "events/js/slider-radio.js" %}"></script>
-	<script src="{% static "events/js/jquery.inputmask.min.js" %}"></script>
-	<script src="{% static "events/js/plyr.min.js" %}"></script>
-	<script src="{% static "events/js/main.js" %}"></script>
+                    <div class="navbar-brand d-none " href="#">
+                        <i class="fa fa-search mt-2 ml-2 red_social"></i>
+                    </div>
+
+                    <div class="collapse navbar-collapse">
+
+                    </div>
+
+                    <div class="navbar-brand d-none d-lg-inline-block ">
+
+                        <div class="top-search-footer ">
+                            <form method="get" action="https://netpen.ir/ordibehesht/search">
+                                <input name="serch" type="text" class="form-control" placeholder="جستجو">
+                                <button type="button" name="button" class="bg-search">
+                                    <i class="fa fa-search icon-header-color "></i>
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-md-inline-block d-none ">
+                <div class="row">
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            اتاق اصناف سیرجان
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    عناوین کل خبر
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    آرشیو
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    صدای مردم
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            بین الملل
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    بین الملل
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    ایران
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    خاور میانه
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            سیاسی
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    ورزشی
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    فوتبال و فوتسال
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    توپ و تور
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            اجتماعی
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    شهری
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    حوادث و انتظامی
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    رفاه و تعاون
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            اقتصادی
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    بانک و بیمه
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    بورس
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    صنعت، تجارتو کشاورزس
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            فرهنگی هنری
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    رادیو تلویزیون
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    سینما و تئاتر
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    موسیقی و هنر های تجسمی
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="border-top-footer">
+            <div class="row">
+
+                <div class="col-md-6 col-12 text-md-right text-center">
+
+                </div>
+
+                <div class="col-md-6 col-12 text-center ">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="bg-footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12  col-md-6">
+                    <div class="text-center text-md-right font_13 font-weight-bold">
+
+                        کلیه حقوق این سایت متعلق به اتاق اصناف سیرجان بوده و استفاده از مطالب آن با ذکر منبع بلامانع
+                        است.
+
+                    </div>
+                </div>
+
+                <div class="col-12  col-md-6">
+                    <div class="text-center text-md-left font_13 font-weight-bold mt-2 mt-md-0">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="scrolltop" onclick="scroll_top()">
+    <i class="fa fa-chevron-up arrow_icon" style="color: #333"></i>
+</div>
+
+
+<script src="{% static "js/jquery.2.1.0.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/popper.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/bootstrap.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/bootstrap.bundle.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/owl.carousel.js" %}"></script>
+<script src="{% static "js/js.js" %}" type="text/javascript"></script>
+
+
+<script src="{% static "assets/js/vendor/jquery-3.2.1.min.js" %}"></script>
+<script src="{% static "assets/js/vendor/bootstrap.js" %}"></script>
+<!-- plugin----------------------------------------------------->
+<script src="{% static "assets/js/vendor/owl.carousel.min.js" %}"></script>
+<script src="{% static "assets/js/vendor/jquery.countdown.js" %}"></script>
+<script src="{% static "assets/js/vendor/jquery.nice-select.min.js" %}"></script>
+<script src="{% static "assets/js/vendor/jquery.jqZoom.js" %}"></script>
+<!-- main js---------------------------------------------------->
+<script src="{% static "assets/js/main.js" %}"></script>
+<script src="{% static "events/js/owl.carousel.min.js" %}"></script>
+<script src="{% static "events/js/jquery.magnific-popup.min.js" %}"></script>
+<script src="{% static "events/js/smooth-scrollbar.js" %}"></script>
+<script src="{% static "events/js/select2.min.js" %}"></script>
+<script src="{% static "events/js/slider-radio.js" %}"></script>
+<script src="{% static "events/js/jquery.inputmask.min.js" %}"></script>
+<script src="{% static "events/js/plyr.min.js" %}"></script>
+<script src="{% static "events/js/main.js" %}"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 from django_jalali.db import models as jmodels
-
+from ckeditor.fields import RichTextField
 POST_CHOICES = (
     ("رئیس", "رئیس"),
     ("نائب رئیس اول", "نائب رئیس اول"),
@@ -69,6 +69,8 @@ class User(AbstractBaseUser):
     board_of_directors=models.BooleanField(default=False,
                                            verbose_name="عضو هیئت رئیسه می باشد؟")
     created=jmodels.jDateTimeField(auto_now_add=True)
+    bio=RichTextField(null=True,blank=True,
+                      verbose_name="بیوگرافی")
 
     def __str__(self):
 

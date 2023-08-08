@@ -6,7 +6,7 @@ class EditProfileForm(forms.ModelForm):
     class Meta:
         model=User
 
-        fields=("fullname","image")
+        fields=("fullname","image","bio")
 
         widgets={
             "fullname":forms.TextInput(
@@ -16,5 +16,8 @@ class EditProfileForm(forms.ModelForm):
             ),
             "image":forms.FileInput(attrs={
                 "class":"input-namefirst-checkout form-control"
+            }),
+            "bio":forms.Textarea(attrs={
+                "class":"input-namefirst-checkout form-control summernote"
             })
         }

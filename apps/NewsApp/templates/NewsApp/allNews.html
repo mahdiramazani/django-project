@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="{% static "events/css/main.css" %}">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="{% static "events/icon/favicon-32x32.png" %}" sizes="32x32">
+    <link rel="apple-touch-icon" href="{% static "events/icon/favicon-32x32.png" %}">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Dmitry Volkov">
+
+
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "css/all.min.css" %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}">
+    <link href="{% static "css/style001.css" %}" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <span class="header-border-top p-1" style="color: #5e5e5e">
+
+                 {{ date }}
+                <span class="mx-2 ">
+                    {{ time }}
+                </span>
+
+            </span>
+            <span>
+                <a class="header-btn-border">
+                    سیرجان
+                </a>
+            </span>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+
+    <div class="row ">
+
+        <div class="col-lg-2 col-md-4 col-12 mt-sm-2 order-md-1 order-lg-1">
+            <div class="text-center">
+                <a href="{% url "HomeApp:HomeApp" %}">
+                    <img src="{% static "img/logoheder.png" %}" class="img-fluid ">
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-7 col-md-12 col-12 order-md-3 order-lg-2">
+            <div class="  ">
+                <img src="{% static "img/0110.jpg" %}" class="img-fluid mb-3">
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-8 col-12 order-md-2 order-lg-3">
+            <div class="top-search margin-search mt-md-5 mt-lg-4">
+                <form method="get" action="https://netpen.ir/ordibehesht/search">
+                    <input name="serch" type="text" class="form-control" placeholder="جستو جو در همه اخبار">
+                    <button type="button" name="button" class="bg-search">
+                        <i class="fa fa-search icon-header-color "></i>
+                    </button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<nav class="navbar navbar-expand-lg bg-nav-color sticky-top header  mt-2 ">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                <i class="fa fa-bars"></i>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="main_nav">
+            <ul class="navbar-nav pr-lg-0">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3" href="{% url "HomeApp:HomeApp" %}">صفحه اصلی</a>
+
+                </li>
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}">اتحادیه ها و کمیسیون
+                        ها</a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:List" %}"> اتحادیه ها</a></li>
+                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">لیست کمیسیون ها </a>
+                        </li>
+                        <li><a class="dropdown-item">اشیاء گم شده </a></li>
+                        <li><a class="dropdown-item">نیروکار </a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link  nav-text-color pb-3">هیئت رئیسه </a>
+                    <ul class="dropdown-menu fade-up">
+
+                        <li><a class="dropdown-item">اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
+                        <li><a class="dropdown-item">چارت سازمانی اتاق اصناف سیرجان </a></li>
+
+                    </ul>
+                </li>
+
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link  nav-text-color pb-3">رویداد </a>
+                    <ul class="dropdown-menu fade-up">
+
+                        <li><a class="dropdown-item">دوره آموزشی</a></li>
+                        <li><a class="dropdown-item">همایش </a></li>
+                        <li><a class="dropdown-item">سمینار</a></li>
+                        <li><a class="dropdown-item">جشنواره</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3"> قوانین و مقررات </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item">اخبار قوانین و مقررات</a></li>
+                        <li><a class="dropdown-item">قوانین نظام صنفی</a></li>
+                        <li><a class="dropdown-item">دستورالعمل ها</a></li>
+                        <li><a class="dropdown-item">دریافت فایل</a></li>
+                        <li><a class="dropdown-item">آیین نامه های اجرائی</a></li>
+                        <li><a class="dropdown-item">بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و
+                            اصناف</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3"> درباره ما </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item">تاریخچه</a></li>
+                        <li><a class="dropdown-item">گالری </a></li>
+                        <li><a class="dropdown-item">تماس با ما</a></li>
+
+                    </ul>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3">درگاه ملی مجوزها </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item" href="https://mojavez.ir"> ورود به درگاه ملی مجوزها</a></li>
+                        <li><a class="dropdown-item">اموزش درگاه ملی مجوزها </a></li>
+
+                    </ul>
+
+
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3">سامانه چارسو </a>
+                    <!--
+                                        <ul class="dropdown-menu fade-up">
+                                            <li><a class="dropdown-item" href="#">تاریخچه</a></li>
+                                            <li><a class="dropdown-item" href="#">تماس با ما </a></li>
+
+                                        </ul>
+                    -->
+                </li>
+
+
+            </ul>
+        </div> <!-- navbar-collapse.// -->
+    </div>
+</nav>
+
+
+
+
+
+		<div class="container-fluid">
+			<div class="row row--grid">
+				<!-- breadcrumb -->
+				<div class="col-12">
+					<ul class="breadcrumb">
+						<li class="breadcrumb__item"><a href="index.html">صفحه اصلی</a></li>
+						<li class="breadcrumb__item breadcrumb__item--active">اخبار</li>
+					</ul>
+				</div>
+				<!-- end breadcrumb -->
+
+				<!-- title -->
+				<div class="col-12">
+					<div class="main__title main__title--page">
+						<h1>اخبار</h1>
+					</div>
+				</div>
+				<!-- end title -->
+
+				<div class="col-12">
+					<ul class="nav nav-tabs main__tabs" id="main__tabs" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><span>#</span> &nbsp; همه</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><span>#</span> &nbsp; آهنگ</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false"><span>#</span> &nbsp; نظرات</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false"><span>#</span> &nbsp; مصاحبه ها</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="tab-content">
+				<div class="tab-pane fade show active" id="tab-1" role="tabpanel">
+					<div class="row row--grid">
+						<!-- post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/2.jpg" alt="">
+								</a>
+
+								<div class="post__content">
+									<a href="#" class="post__category">آهنگ</a>
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 3 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 18</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end post -->
+
+						<!-- post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/3.jpg" alt="">
+								</a>
+
+								<div class="post__content">
+									<a href="#" class="post__category">امکانات</a>
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 9 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 54</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end post -->
+
+						<!-- video post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/1.jpg" alt="">
+								</a>
+
+								<a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" class="post__video open-video">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,10.27,11,7.38A2,2,0,0,0,8,9.11v5.78a2,2,0,0,0,1,1.73,2,2,0,0,0,2,0l5-2.89a2,2,0,0,0,0-3.46ZM15,12l-5,2.89V9.11L15,12ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>موزیک ویدیو
+								</a>
+
+								<div class="post__content">
+									<a href="#" class="post__category">آهنگ</a>
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 2 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 61</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end video post -->
+
+						<!-- post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/4.jpg" alt="">
+								</a>
+
+								<div class="post__content">
+									<a href="#" class="post__category">آهنگ</a>
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 2 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 61</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end post -->
+
+						<!-- post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/5.jpg" alt="">
+								</a>
+
+								<div class="post__content">
+									<a href="#" class="post__category">آهنگ</a>
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 3 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 18</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end post -->
+
+						<!-- post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/6.jpg" alt="">
+								</a>
+
+								<div class="post__content">
+									<a href="#" class="post__category">امکانات</a>
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 9 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 54</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end post -->
+					</div>
+
+					<div class="row row--grid">
+						<div class="col-12">
+							<button class="main__load" type="button">بیشتر ببین</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane fade" id="tab-2" role="tabpanel">
+					<div class="row row--grid">
+						<!-- post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/9.jpg" alt="">
+								</a>
+
+								<div class="post__content">
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 3 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 18</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end post -->
+
+						<!-- video post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/8.jpg" alt="">
+								</a>
+
+								<a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" class="post__video open-video">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,10.27,11,7.38A2,2,0,0,0,8,9.11v5.78a2,2,0,0,0,1,1.73,2,2,0,0,0,2,0l5-2.89a2,2,0,0,0,0-3.46ZM15,12l-5,2.89V9.11L15,12ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>تماشای فیلم
+								</a>
+
+								<div class="post__content">
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 2 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 61</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end video post -->
+
+						<!-- post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/7.jpg" alt="">
+								</a>
+
+								<div class="post__content">
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 9 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 54</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end post -->
+
+						<!-- post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/6.jpg" alt="">
+								</a>
+
+								<div class="post__content">
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 3 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 18</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end post -->
+					</div>
+				</div>
+
+				<div class="tab-pane fade" id="tab-3" role="tabpanel">
+					<div class="row row--grid">
+						<!-- post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/2.jpg" alt="">
+								</a>
+
+								<div class="post__content">
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 3 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 18</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end post -->
+
+						<!-- video post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/3.jpg" alt="">
+								</a>
+
+								<div class="post__content">
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 2 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 61</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end video post -->
+
+						<!-- post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/5.jpg" alt="">
+								</a>
+
+								<div class="post__content">
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 9 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 54</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end post -->
+
+						<!-- post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/8.jpg" alt="">
+								</a>
+
+								<div class="post__content">
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 3 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 18</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end post -->
+					</div>
+				</div>
+
+				<div class="tab-pane fade" id="tab-4" role="tabpanel">
+					<div class="row row--grid">
+						<!-- video post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/9.jpg" alt="">
+								</a>
+
+								<a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" class="post__video open-video">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,10.27,11,7.38A2,2,0,0,0,8,9.11v5.78a2,2,0,0,0,1,1.73,2,2,0,0,0,2,0l5-2.89a2,2,0,0,0,0-3.46ZM15,12l-5,2.89V9.11L15,12ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>تماشای مصاحبه
+								</a>
+
+								<div class="post__content">
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 3 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 18</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end video post -->
+
+						<!-- video post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/1.jpg" alt="">
+								</a>
+
+								<a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" class="post__video open-video">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,10.27,11,7.38A2,2,0,0,0,8,9.11v5.78a2,2,0,0,0,1,1.73,2,2,0,0,0,2,0l5-2.89a2,2,0,0,0,0-3.46ZM15,12l-5,2.89V9.11L15,12ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>تماشای مصاحبه
+								</a>
+
+								<div class="post__content">
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 2 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 61</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end video post -->
+
+						<!-- video post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/7.jpg" alt="">
+								</a>
+
+								<a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" class="post__video open-video">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,10.27,11,7.38A2,2,0,0,0,8,9.11v5.78a2,2,0,0,0,1,1.73,2,2,0,0,0,2,0l5-2.89a2,2,0,0,0,0-3.46ZM15,12l-5,2.89V9.11L15,12ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>تماشای مصاحبه
+								</a>
+
+								<div class="post__content">
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 9 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 54</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end video post -->
+
+						<!-- video post -->
+						<div class="col-12 col-sm-6 col-lg-4">
+							<div class="post">
+								<a href="article.html" class="post__img">
+									<img src="img/posts/4.jpg" alt="">
+								</a>
+
+								<a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" class="post__video open-video">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,10.27,11,7.38A2,2,0,0,0,8,9.11v5.78a2,2,0,0,0,1,1.73,2,2,0,0,0,2,0l5-2.89a2,2,0,0,0,0-3.46ZM15,12l-5,2.89V9.11L15,12ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>تماشای مصاحبه
+								</a>
+
+								<div class="post__content">
+									<h3 class="post__title"><a href="article.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است</a></h3>
+									<div class="post__meta">
+										<span class="post__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> 3 ساعت پیش</span>
+										<span class="post__comments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm-4,4H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.26,6.33l-2,2a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,22h9A10,10,0,0,0,12,2Zm0,18H5.41l.93-.93a1,1,0,0,0,0-1.41A8,8,0,1,1,12,20Z"/></svg> 18</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end video post -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+<section class="bg-color-gray ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-md-inline-block d-none">
+                <nav class="navbar navbar-expand-md navbar-dark ">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon d-none"></span>
+                    </button>
+
+                    <div class="navbar-brand d-none " href="#">
+                        <i class="fa fa-search mt-2 ml-2 red_social"></i>
+                    </div>
+
+                    <div class="collapse navbar-collapse">
+
+                    </div>
+
+                    <div class="navbar-brand d-none d-lg-inline-block ">
+
+                        <div class="top-search-footer ">
+                            <form method="get" action="https://netpen.ir/ordibehesht/search">
+                                <input name="serch" type="text" class="form-control" placeholder="جستجو">
+                                <button type="button" name="button" class="bg-search">
+                                    <i class="fa fa-search icon-header-color "></i>
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-md-inline-block d-none ">
+                <div class="row">
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            اتاق اصناف سیرجان
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    عناوین کل خبر
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    آرشیو
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    صدای مردم
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            بین الملل
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    بین الملل
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    ایران
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    خاور میانه
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            سیاسی
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    ورزشی
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    فوتبال و فوتسال
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    توپ و تور
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            اجتماعی
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    شهری
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    حوادث و انتظامی
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    رفاه و تعاون
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            اقتصادی
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    بانک و بیمه
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    بورس
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    صنعت، تجارتو کشاورزس
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            فرهنگی هنری
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    رادیو تلویزیون
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    سینما و تئاتر
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    موسیقی و هنر های تجسمی
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="border-top-footer">
+            <div class="row">
+
+                <div class="col-md-6 col-12 text-md-right text-center">
+
+                </div>
+
+                <div class="col-md-6 col-12 text-center ">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="bg-footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12  col-md-6">
+                    <div class="text-center text-md-right font_13 font-weight-bold">
+
+                        کلیه حقوق این سایت متعلق به اتاق اصناف سیرجان بوده و استفاده از مطالب آن با ذکر منبع بلامانع
+                        است.
+
+                    </div>
+                </div>
+
+                <div class="col-12  col-md-6">
+                    <div class="text-center text-md-left font_13 font-weight-bold mt-2 mt-md-0">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="scrolltop" onclick="scroll_top()">
+    <i class="fa fa-chevron-up arrow_icon" style="color: #333"></i>
+</div>
+
+
+<script src="{% static "js/jquery.2.1.0.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/popper.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/bootstrap.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/bootstrap.bundle.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/owl.carousel.js" %}"></script>
+<script src="{% static "js/js.js" %}" type="text/javascript"></script>
+
+
+<script src="{% static "assets/js/vendor/jquery-3.2.1.min.js" %}"></script>
+<script src="{% static "assets/js/vendor/bootstrap.js" %}"></script>
+<!-- plugin----------------------------------------------------->
+<script src="{% static "assets/js/vendor/owl.carousel.min.js" %}"></script>
+<script src="{% static "assets/js/vendor/jquery.countdown.js" %}"></script>
+<script src="{% static "assets/js/vendor/jquery.nice-select.min.js" %}"></script>
+<script src="{% static "assets/js/vendor/jquery.jqZoom.js" %}"></script>
+<!-- main js---------------------------------------------------->
+<script src="{% static "assets/js/main.js" %}"></script>
+<script src="{% static "events/js/owl.carousel.min.js" %}"></script>
+<script src="{% static "events/js/jquery.magnific-popup.min.js" %}"></script>
+<script src="{% static "events/js/smooth-scrollbar.js" %}"></script>
+<script src="{% static "events/js/select2.min.js" %}"></script>
+<script src="{% static "events/js/slider-radio.js" %}"></script>
+<script src="{% static "events/js/jquery.inputmask.min.js" %}"></script>
+<script src="{% static "events/js/plyr.min.js" %}"></script>
+<script src="{% static "events/js/main.js" %}"></script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.views.generic import TemplateView,View
-from apps.AcountApp.models import User,OtpClass
+from apps.AcountApp.models import User,OtpClass,PasswordResetTokenOtp
 from django.contrib.auth import login,logout,authenticate
 import random
 import requests
@@ -82,10 +82,129 @@ class LogOutView(View):
         logout(request)
         return redirect('/')
 
+class ForgetPassView(View):
+
+    def post(self,request):
+        phone=request.POST.get("phone")
+        print(phone)
+
+        if User.objects.filter(phone=phone).exists():
+
+            code=random.randint(1000,9999)
+            OtpClass.objects.create(phone=phone,code=code)
+
+            request.session["phone_forget"]=phone
+            request.session["code_forget"]=code
+
+            sms.verification(
+                {'receptor': phone,
+                 'type': '1', 'template': 'TipHub',
+                 'param1': code})
+
+            return redirect("AcountApp:check-otc-forget-pass")
+
+        return render(request,"AcountApp/forgetpass.html")
+
+    def get(self,request):
+
+        return render(request,"AcountApp/forgetpass.html")
+
+
+class PassForgetOtp(View):
+
+    def get(self,request):
+        phone = request.session.get("phone_forget")
+
+        return render(request,"AcountApp/otpforgetpass.html",{"phone":phone})
+
+    def post(self,request):
+        context={
+            "error":[]
+        }
+        phone = request.session.get("phone_forget")
+        code = request.session.get("code_forget")
+
+        del request.session['phone_forget']
+        del request.session['code_forget']
+
+        c_1 = request.POST.get("c_1")
+        c_2 = request.POST.get("c_2")
+        c_3 = request.POST.get("c_3")
+        c_4 = request.POST.get("c_4")
+
+        if c_1 and c_2 and c_3 and c_4:
+            otpcode = c_1 + c_2 + c_3 + c_4
+
+            if OtpClass.objects.filter(phone=phone, code=code).exists():
+                otp = OtpClass.objects.get(phone=phone, code=code)
+
+                if otp.code == otpcode:
+
+                    if otp.is_expiration_date():
+                        code=random.randint(1000,9999)
+                        OtpClass.objects.create(phone=otp.phone,code=code)
+                        request.session["chnage_pass_code"]=code
+                        request.session["chnage_pass_phone"]=otp.phone
+                        otp.delete()
+
+                        return redirect("AcountApp:change-pass")
+
+                    else:
+                        otp.delete()
+                        context["error"].append("کد وارد شده فاقد اعتبار است")
+                        return render(request, "AcountApp/otpforgetpass.html", context)
+                else:
+                    otp.delete()
+                    context["error"].append("کد وارد شده فاقد اعتبار است")
+                    return render(request, "AcountApp/otpforgetpass.html", context)
+
+            else:
+                context["error"].append("کد وارد شده فاقد اعتبار است")
+                return render(request, "AcountApp/otpforgetpass.html",context)
+
+        return render(request, "AcountApp/otpforgetpass.html")
+
+
+class ChangePassView(View):
+    def get(self,request):
+
+        return render(request,"AcountApp/changePass.html")
+
+    def post(self,request):
+        pass1=request.POST.get("pass1")
+        pass2=request.POST.get("pass2")
+
+        if pass1 == pass2:
+            code=request.session.get("chnage_pass_code")
+            phone=request.session.get("chnage_pass_phone")
+
+            del request.session['chnage_pass_code']
+            del request.session['chnage_pass_phone']
+
+            if OtpClass.objects.filter(phone=phone,code=code).exists():
+                otc=OtpClass.objects.get(phone=phone,code=code)
+                user=User.objects.get(phone=otc.phone)
+                user.set_password(pass2)
+                user.save()
+                otc.delete()
+
+                return redirect("AcountApp:complate-pass-cjange")
+
+
+        else:
+            pass
+
+        return render(request,"AcountApp/changePass.html")
+
+
+class PassChangeComplateView(TemplateView):
+    template_name = "AcountApp/complate_pass_change.html"
+
 class OtpView(View):
 
     def get(self,request):
         phone = request.session.get("phone")
+
 
         return render(request,"AcountApp/otp.html",{"phone":phone})
 
@@ -96,6 +215,10 @@ class OtpView(View):
 
         phone = request.session.get("phone")
         code = str(request.session.get("code"))
+
+        del request.session['phone']
+        del request.session['code']
+
         c_1=request.POST.get("c_1")
         c_2=request.POST.get("c_2")
         c_3=request.POST.get("c_3")

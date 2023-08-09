@@ -108,8 +108,8 @@ class User(AbstractBaseUser):
 
 class OtpClass(models.Model):
     phone=models.CharField(max_length=14)
-    fullname=models.CharField(max_length=50)
-    password=models.CharField(max_length=60)
+    fullname=models.CharField(max_length=50,null=True)
+    password=models.CharField(max_length=60,blank=True)
     code=models.CharField(max_length=15)
     expiration_date=models.DateTimeField(default=timezone.now()+timezone.timedelta(minutes=5))
 
@@ -124,3 +124,19 @@ class OtpClass(models.Model):
     def __str__(self):
 
         return f"{self.phone}-{self.code}"
+
+
+class PasswordResetTokenOtp(models.Model):
+    phone=models.CharField(max_length=15)
+    token=models.CharField(max_length=50)
+    expiration_date = models.DateTimeField(default=timezone.now() + timezone.timedelta(minutes=5))
+
+
+    def is_expiration_date(self):
+
+        if self.expiration_date >= timezone.now():
+
+            return True
+        else:
+            return False
+

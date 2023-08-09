@@ -1,14 +1,38 @@
 from django.shortcuts import render,redirect
 from django.views.generic import TemplateView,View
 from apps.AcountApp.models import User,OtpClass
+from django.contrib.auth import login,logout,authenticate
 import random
 import requests
 import ghasedakpack
 sms = ghasedakpack.Ghasedak("8c1451922c0369b92a8da38aeb7d7b1e75db540b751dc9e30aa5abf61ad9dce7")
 
 
-class LoginView(TemplateView):
-    template_name = "AcountApp/login.html"
+class LoginView(View):
+
+    def get(self,request):
+
+        return render(request,"AcountApp/login.html")
+
+    def post(self,request):
+        phone=request.POST.get("phone")
+        password=request.POST.get("pass")
+
+        if phone and password:
+            if User.objects.filter(phone=phone).exists():
+                user=authenticate(phone=phone,password=password)
+                if user is not None:
+                    login(request,user)
+
+                    return redirect("/")
+                else:
+                    return render(request, "AcountApp/login.html",
+                                  {"error": "کاربری با این مشخصات در سایت وجود ندارد"})
+            else:
+                return render(request,"AcountApp/login.html",
+                              {"error":"کاربری با این مشخصات در سایت وجود ندارد"})
+
+        return render(request,"AcountApp/login.html")
 
 class RegisterView(View):
 
@@ -71,15 +95,9 @@ class OtpView(View):
         c_3=request.POST.get("c_3")
         c_4=request.POST.get("c_4")
 
-
-
-
         if c_1 and c_2 and c_3 and c_4:
             otpcode=c_1+c_2+c_3+c_4
 
-            print(otpcode)
-            print(code)
-            print(code==otpcode)
 
             if OtpClass.objects.filter(phone=phone, code=code).exists():
 
@@ -99,10 +117,12 @@ class OtpView(View):
                         return redirect("/")
 
                     else:
+                        otp.delete()
                         context["error"].append("کد وارد شده صحیح نمی باشد!")
 
                         return render(request, "AcountApp/otp.html", context)
                 else:
+                    otp.delete()
                     context["error"].append("کد وارد شده منقضی شده است!")
                     return render(request, "AcountApp/otp.html",context)
             else:

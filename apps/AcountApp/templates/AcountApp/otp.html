@@ -190,33 +190,53 @@
                         <div class="account-box">
                             <div class="Login-to-account mt-4">
                                 <div class="account-box-content">
+                                    {% if error %}
+                                        {% for e in error %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ e }}
+                                    </div>
+                                        {% endfor %}
+                                    {% endif %}
+
                                     <div class="message-light">
-                                        <div class="massege-light-send">
-                                            برای شماره همراه 09999999999 کد تایید ارسال گردید
+                                        <div class="alert alert-primary">
+                                            برای شماره همراه {{ phone }} کد تایید ارسال گردید
                                             <div class="form-edit-number">
-                                                <a href="#" class="edit-number-link">ویرایش شماره</a>
+                                                <a href="{% url "AcountApp:register" %}" class="edit-number-link">ویرایش
+                                                    شماره</a>
                                             </div>
                                         </div>
                                         <div class="account-box-verify-content">
                                             <div class="form-account">
-                                                <div class="form-account-title">کد فعال سازی پیامک شده را وارد کنید</div>
-                                                <div class="form-account-row">
-                                                   <div class="lines-number-input">
-                                                       <form method="post">
-                                                           {% csrf_token %}
-                                                           <input type="text" name="code">
-
-
-                                                           <div class="account-footer">
-                                            <div class="account-footer">
-                                                <div class="form-row-account">
-                                                    <button class="btn btn-primary btn-login">ثبت‌نام در اتاق اصناف سیرجان</button>
+                                                <div class="form-account-title">کد فعال سازی پیامک شده را وارد کنید
                                                 </div>
-                                            </div>
-                                        </div>
-                                                       </form>
-                                                   </div>
-                                               </div>
+                                                <div class="form-account-row">
+                                                    <div class="lines-number-input">
+                                                        <form method="post">
+                                                            {% csrf_token %}
+                                                            <input type="text" required class="line-number-account"
+                                                                   maxlength="1" name="c_1">
+                                                            <input type="text" required class="line-number-account"
+                                                                   maxlength="1" name="c_2">
+                                                            <input type="text" required class="line-number-account"
+                                                                   maxlength="1" name="c_3">
+
+                                                            <input type="text" required class="line-number-account"
+                                                                   maxlength="1" name="c_4">
+
+
+                                                            <div class="account-footer">
+                                                                <div class="account-footer">
+                                                                    <div class="form-row-account">
+                                                                        <button class="btn btn-primary btn-login">
+                                                                            ثبت‌ نام در اتاق اصناف سیرجان
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 

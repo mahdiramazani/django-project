@@ -203,6 +203,13 @@
                             </div>
                             <div class="Login-to-account mt-4">
                                 <div class="account-box-content">
+                                    {% if error %}
+
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ error }}
+                                    </div>
+
+                                    {% endif %}
                                     <h4>ثبت نام</h4>
                                     <form  class="form-account text-right" method="post">
                                         {% csrf_token %}

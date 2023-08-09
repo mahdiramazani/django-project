@@ -111,7 +111,15 @@ class OtpClass(models.Model):
     fullname=models.CharField(max_length=50)
     password=models.CharField(max_length=60)
     code=models.CharField(max_length=15)
-    expiration_date=models.DateTimeField(default=timezone.now()+timezone.timedelta(seconds=120))
+    expiration_date=models.DateTimeField(default=timezone.now()+timezone.timedelta(minutes=5))
+
+    def is_expiration_date(self):
+
+        if self.expiration_date >= timezone.now():
+
+            return True
+        else:
+            return False
 
     def __str__(self):
 

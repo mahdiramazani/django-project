@@ -36,7 +36,7 @@ class RegisterView(View):
 
                     return render(request,"AcountApp/register.html",{"error":"پسوردها با هم شباهت ندارند!"})
                 else:
-                    code=random.randint(9,9999)
+                    code=random.randint(1000,9999)
                     OtpClass.objects.create(phone=phone,code=code,
                                             fullname=fullname,password=pass2)
 
@@ -55,35 +55,60 @@ class RegisterView(View):
 class OtpView(View):
 
     def get(self,request):
+        phone = request.session.get("phone")
 
-        return render(request,"AcountApp/otp.html")
+        return render(request,"AcountApp/otp.html",{"phone":phone})
 
     def post(self,request):
+        context={
+            "error":[]
+        }
+
         phone = request.session.get("phone")
         code = str(request.session.get("code"))
-        otpcode=request.POST.get("code")
+        c_1=request.POST.get("c_1")
+        c_2=request.POST.get("c_2")
+        c_3=request.POST.get("c_3")
+        c_4=request.POST.get("c_4")
 
-        print("code: ",code)
-        print("code: ",phone)
-        print("code: ",otpcode)
-        print(code==code)
 
-        if OtpClass.objects.filter(phone=phone, code=code).exists():
-            print("test1")
-            otp = OtpClass.objects.get(phone=phone)
-            if code == otpcode:
-                print("test2")
 
-                user=User.objects.create(fullname=otp.fullname,
-                                    phone=otp.phone,
-                                         password=otp.password)
 
-                user.set_password(otp.password)
-                user.save()
-                otp.delete()
-                return redirect("/")
-            return render(request, "AcountApp/otp.html")
-        return render(request, "AcountApp/otp.html")
+        if c_1 and c_2 and c_3 and c_4:
+            otpcode=c_1+c_2+c_3+c_4
+
+            print(otpcode)
+            print(code)
+            print(code==otpcode)
+
+            if OtpClass.objects.filter(phone=phone, code=code).exists():
+
+                otp = OtpClass.objects.get(phone=phone)
+
+                #check otp experition_date
+                if otp.is_expiration_date():
+                    if code == otpcode:
+
+                        user=User.objects.create(fullname=otp.fullname,
+                                                phone=otp.phone,
+                                                password=otp.password)
+
+                        user.set_password(otp.password)
+                        user.save()
+                        otp.delete()
+                        return redirect("/")
+
+                    else:
+                        context["error"].append("کد وارد شده صحیح نمی باشد!")
+
+                        return render(request, "AcountApp/otp.html", context)
+                else:
+                    context["error"].append("کد وارد شده منقضی شده است!")
+                    return render(request, "AcountApp/otp.html",context)
+            else:
+                context["error"].append("کد وارد شده صحیح نمی باشد!")
+
+                return render(request, "AcountApp/otp.html",context)
 
 class UserDetailView(TemplateView):
     template_name = "AcountApp/userdetail.html"

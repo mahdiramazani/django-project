@@ -12,3 +12,7 @@ class RegisterView(TemplateView):
 
 class UserDetailView(TemplateView):
     template_name = "AcountApp/userdetail.html"
+
+class OtpView(TemplateView):
+
+    template_name = "AcountApp/otp.html"

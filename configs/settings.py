@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "apps.UserPanelApp.apps.UserpanelappConfig",
     "apps.EventsApp.apps.EventsappConfig",
     "apps.contactByMeapp.apps.ContactbymeappConfig",
+    "apps.PaymentsApps.apps.PaymentsappsConfig",
     "ckeditor",
     "django_jalali",
     "storages",

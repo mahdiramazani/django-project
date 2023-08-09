@@ -76,6 +76,12 @@ class RegisterView(View):
 
         return render(request,"AcountApp/register.html")
 
+
+class LogOutView(View):
+    def get(self,request):
+        logout(request)
+        return redirect('/')
+
 class OtpView(View):
 
     def get(self,request):

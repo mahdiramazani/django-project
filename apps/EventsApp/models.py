@@ -23,6 +23,7 @@ class EventsModel(models.Model):
         verbose_name="خلاصه توضیحات رویداد"
     )
     body=RichTextField(verbose_name="توضیحات کلی رویداد")
+    image=models.FileField(upload_to="images/events/")
     categoryevent=models.CharField(max_length=100,
                                    choices=CATEGORYEvent,
                                    verbose_name="دسته بندی رویداد"),
@@ -41,3 +42,9 @@ class EventsModel(models.Model):
     end_of_register=jmodels.jDateTimeField("تاریخ پایان ثبت نام در رویداد")
     users=models.ManyToManyField(User,related_name="event_user",
                                  verbose_name="کاربران رودیداد")
+    user_of_count=models.IntegerField(null=True,blank=True,
+                                      verbose_name="تعداد کاربران ثبت نام شده")
+
+    def save(self,*args,**kwargs):
+        self.user_of_count+=1
+        return super(EventsModel,self).save(*args,**kwargs)

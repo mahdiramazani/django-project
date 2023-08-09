@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ورود</title>
+    <title>ثبت نام</title>
     <!-- font---------------------------------------->
     <link rel="stylesheet" href="{% static "assets/css/vendor/font-awesome.min.css" %}">
 
@@ -204,23 +204,25 @@
                             <div class="Login-to-account mt-4">
                                 <div class="account-box-content">
                                     <h4>ثبت نام</h4>
-                                    <form action="#" class="form-account text-right">
+                                    <form  class="form-account text-right" method="post">
+                                        {% csrf_token %}
                                         <div class="form-account-title">
-                                            <label for="email-phone">ایمیل / شماره موبایل</label>
-                                            <input type="text" class="number-email-input" id="email-phone" name="email-account">
+                                            <label for="email-phone">نام و نام خانوادگی</label>
+                                            <input type="text" class="number-email-input" id="email-phone" name="fullname">
+                                        </div>
+                                        <div class="form-account-title">
+                                            <label for="email-phone">شماره موبایل</label>
+                                            <input type="text" class="number-email-input" id="email-phone" name="phone">
                                         </div>
                                         <div class="form-account-title">
                                             <label for="password">رمز عبور</label>
-                                            <a href="#" class="account-link-password">رمز خود را فراموش کرده ام</a>
-                                            <input type="password" class="password-input" name="password-account">
+                                            <input type="password" class="password-input" name="password1">
                                         </div>
-                                        <div class="form-auth-row">
-                                            <label for="#" class="ui-checkbox mt-1">
-                                                <input type="checkbox" value="1" name="login" id="remember">
-                                                <span class="ui-checkbox-check"></span>
-                                            </label>
+                                        <div class="form-account-title">
+                                            <label for="password">تکرار رمز عبور</label>
+                                            <input type="password" class="password-input" name="password2">
+                                        </div>
 
-                                        </div>
                                         <div class="form-row-account">
                                             <button class="btn btn-primary btn-login">ثبت نام در اتاق اصناف سیرجان</button>
                                         </div>

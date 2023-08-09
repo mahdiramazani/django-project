@@ -202,23 +202,25 @@
                                                 <div class="form-account-title">کد فعال سازی پیامک شده را وارد کنید</div>
                                                 <div class="form-account-row">
                                                    <div class="lines-number-input">
-                                                       <input type="text" class="line-number-account" maxlength="1">
-                                                       <input type="text" class="line-number-account" maxlength="1">
-                                                       <input type="text" class="line-number-account" maxlength="1">
-                                                       <input type="text" class="line-number-account" maxlength="1">
-                                                       <input type="text" class="line-number-account" maxlength="1">
-                                                   </div>
-                                               </div>
-                                            </div>
-                                        </div>
+                                                       <form method="post">
+                                                           {% csrf_token %}
+                                                           <input type="text" name="code">
 
-                                        <div class="account-footer">
+
+                                                           <div class="account-footer">
                                             <div class="account-footer">
                                                 <div class="form-row-account">
                                                     <button class="btn btn-primary btn-login">ثبت‌نام در اتاق اصناف سیرجان</button>
                                                 </div>
                                             </div>
                                         </div>
+                                                       </form>
+                                                   </div>
+                                               </div>
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 from django_jalali.db import models as jmodels
 from ckeditor.fields import RichTextField
+from django.utils import timezone
 POST_CHOICES = (
     ("رئیس", "رئیس"),
     ("نائب رئیس اول", "نائب رئیس اول"),
@@ -103,3 +104,15 @@ class User(AbstractBaseUser):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin,self.is_publishing_news
+
+
+class OtpClass(models.Model):
+    phone=models.CharField(max_length=14)
+    fullname=models.CharField(max_length=50)
+    password=models.CharField(max_length=60)
+    code=models.CharField(max_length=15)
+    expiration_date=models.DateTimeField(default=timezone.now()+timezone.timedelta(seconds=120))
+
+    def __str__(self):
+
+        return f"{self.phone}-{self.code}"

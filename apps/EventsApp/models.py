@@ -41,10 +41,25 @@ class EventsModel(models.Model):
     start_register=jmodels.jDateTimeField("تاریخ شروع ثبت نام در رویداد")
     end_of_register=jmodels.jDateTimeField("تاریخ پایان ثبت نام در رویداد")
     users=models.ManyToManyField(User,related_name="event_user",
-                                 verbose_name="کاربران رودیداد")
-    user_of_count=models.IntegerField(null=True,blank=True,
-                                      verbose_name="تعداد کاربران ثبت نام شده")
+                                 verbose_name="کاربران رویداد")
+
+    def is_can_register(self):
+        if (self.end_of_register > self.start_register):
+
+            if (self.capacity==0):
+                return True
+            elif (self.users.count()<self.capacity):
+                return True
+            else:
+                return False
+
+        return False
 
     def save(self,*args,**kwargs):
-        self.user_of_count+=1
+
         return super(EventsModel,self).save(*args,**kwargs)
+
+    class Meta:
+        verbose_name="رویداد"
+        verbose_name_plural="رویداد ها"
+

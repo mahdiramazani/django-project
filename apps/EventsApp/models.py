@@ -23,10 +23,10 @@ class EventsModel(models.Model):
         verbose_name="خلاصه توضیحات رویداد"
     )
     body=RichTextField(verbose_name="توضیحات کلی رویداد")
-    image=models.FileField(upload_to="images/events/")
+    image=models.FileField(upload_to="images/events/",verbose_name="تصویر")
     categoryevent=models.CharField(max_length=100,
                                    choices=CATEGORYEvent,
-                                   verbose_name="دسته بندی رویداد"),
+                                   verbose_name="دسته بندی رویداد")
     price_event=models.IntegerField(default=0,
                                     verbose_name="هزینه رویداد(صفر به معنی رایگان بودن رویداد است)")
     how_to_hold=models.CharField(max_length=50,

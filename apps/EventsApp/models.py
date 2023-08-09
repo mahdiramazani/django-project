@@ -55,6 +55,8 @@ class EventsModel(models.Model):
 
         return False
 
+
+
     def save(self,*args,**kwargs):
 
         return super(EventsModel,self).save(*args,**kwargs)

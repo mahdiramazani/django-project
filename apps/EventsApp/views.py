@@ -21,7 +21,7 @@ class EventsView(View):
 class EventListView(ListView):
     template_name = "EventsApp/events-all.html"
     model = EventsModel
-    paginate_by = 1
+    paginate_by = 6
 
 class DetailEventView(TemplateView):
     template_name = "EventsApp/eventDetail.html"

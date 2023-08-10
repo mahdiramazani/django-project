@@ -56,6 +56,11 @@ class EventsModel(models.Model):
 
         return False
 
+    def get_absolut_url(self):
+
+
+        return reverse("EventsApp:EventDetail",kwargs={"id":self.id})
+
 
 
     def save(self,*args,**kwargs):

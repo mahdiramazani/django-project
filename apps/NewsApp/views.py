@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.views.generic import TemplateView,DetailView
+from django.views.generic import TemplateView,DetailView,ListView
 from .models import NewsModels,Comment,ImageGallery
 from django.urls import reverse
 
@@ -40,6 +40,7 @@ class ImageGalleryView(DetailView):
 
 
 
-class AllNewsView(TemplateView):
+class AllNewsView(ListView):
 
     template_name = "NewsApp/allNews.html"
+    model = NewsModels

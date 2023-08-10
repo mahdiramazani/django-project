@@ -4518,16 +4518,16 @@ span.shipping-destination {
 }
 
 .page-account-box .ds-userlogin a.account-box-logo {
-    width: 156px;
-    height: 60px;
-    margin-bottom: 18px;
-    background: url(../images/logo.png) no-repeat;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px;
+    background: url(../images/logoheder.png) no-repeat;
     background-size: contain;
     text-indent: -1000em;
     position: absolute;
     right: 0;
     left: 0;
-    margin: 15px auto 0;
+    margin: -30px auto 0;
     outline: none;
 }
 

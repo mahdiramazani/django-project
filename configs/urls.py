@@ -29,5 +29,5 @@ urlpatterns = [
                   path("userpanel/", include("apps.UserPanelApp.urls")),
                   path("events/", include("apps.EventsApp.urls")),
                   path("contact-us/",include("apps.contactByMeapp.urls")),
-                  path("pay/",include("apps.PaymentsApps.urls"))
+                  path("cart/",include("apps.PaymentsApps.urls"))
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

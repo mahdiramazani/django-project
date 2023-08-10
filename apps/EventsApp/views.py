@@ -1,8 +1,22 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,View
+from .models import  EventsModel
+from django.utils import timezone
 
-class EventsView(TemplateView):
-    template_name = "EventsApp/events.html"
+class EventsView(View):
+    def get(self,request):
+        context={
+            "slider_page":EventsModel.objects.filter(end_of_register__gt=timezone.now()),
+            "last_events":EventsModel.objects.filter(the_date_of_the_event__lt=timezone.now()),
+            "future_events":EventsModel.objects.filter(the_date_of_the_event__gt= timezone.now())
+        }
+
+        return render(request,"EventsApp/events.html",context)
+
+
+    def post(self,request):
+
+        return render(request,"EventsApp/events.html")
 
 
 class DetailEventView(TemplateView):

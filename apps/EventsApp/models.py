@@ -36,11 +36,12 @@ class EventsModel(models.Model):
     capacity=models.IntegerField(default=0,
                                  verbose_name="ظرفیت رودیداد(صفر به یعنی بدون محدودیت ظرفیت)")
 
-    the_date_of_the_event=jmodels.jDateTimeField(verbose_name="تاریخ برگذاری رویداد")
+    the_date_of_the_event=models.DateTimeField(verbose_name="تاریخ برگذاری رویداد")
 
-    start_register=jmodels.jDateTimeField("تاریخ شروع ثبت نام در رویداد")
-    end_of_register=jmodels.jDateTimeField("تاریخ پایان ثبت نام در رویداد")
+    start_register=models.DateTimeField("تاریخ شروع ثبت نام در رویداد")
+    end_of_register=models.DateTimeField("تاریخ پایان ثبت نام در رویداد")
     users=models.ManyToManyField(User,related_name="event_user",
+                                 null=True,blank=True,
                                  verbose_name="کاربران رویداد")
 
     def is_can_register(self):

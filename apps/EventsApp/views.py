@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,View,ListView
+from django.views.generic import TemplateView,View,ListView,DetailView
 from .models import  EventsModel
 from django.utils import timezone
 
@@ -23,5 +23,6 @@ class EventListView(ListView):
     model = EventsModel
     paginate_by = 6
 
-class DetailEventView(TemplateView):
+class DetailEventView(DetailView):
     template_name = "EventsApp/eventDetail.html"
+    model = EventsModel

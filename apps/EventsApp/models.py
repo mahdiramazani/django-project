@@ -59,7 +59,7 @@ class EventsModel(models.Model):
     def get_absolut_url(self):
 
 
-        return reverse("EventsApp:EventDetail",kwargs={"id":self.id})
+        return reverse("EventsApp:EventDetail",kwargs={"pk":self.id})
 
 
 

@@ -11,17 +11,33 @@ class Cart:
             cart = self.session["cart"] = {}
         self.cart = cart
 
+    def __iter__(self):
 
-    def add(self,event):
+        cart=self.cart.copy()
+
+        for item in cart.values():
+
+            item["events"]=EventsModel.objects.get(id=int(item["id"]))
+            item["total_price"]=int(item["count"]) * int(item["price"])
+
+            yield item
+
+    def add(self,event,count):
 
         if event.id not in self.cart:
             self.cart[event.id]={
+                "id":event.id,
                 "title":event.title,
-                "count":0,
-                "price":event.pice,
+                "count":count,
+                "price":event.price_event,
             }
+            self.save()
         else:
-            
+            self.cart[event.id]["count"]+=count
+            self.save()
+
+    def save(self):
+        self.session.modified = True
 
 
 

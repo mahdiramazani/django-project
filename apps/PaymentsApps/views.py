@@ -1,9 +1,14 @@
 from django.shortcuts import render,redirect
 from django.views.generic import TemplateView,View
 from apps.EventsApp.models import EventsModel
-class CartView(TemplateView):
+from apps.PaymentsApps.sesion_cart import Cart
 
-    template_name = "PaymentsApps/cart.html"
+class CartView(View):
+
+    def get(self,request):
+        cart = Cart(request)
+
+        return render(request,"PaymentsApps/cart.html",{"cart":cart})
 
 
 class AddToCartView(View):
@@ -11,7 +16,10 @@ class AddToCartView(View):
     def post(self,request,pk):
         event=EventsModel.objects.get(id=pk)
 
-        print(event.title)
+        cart=Cart(request)
+        cart.add(event,0)
+
+
 
         return redirect("PaymentsApp:Cart")
 

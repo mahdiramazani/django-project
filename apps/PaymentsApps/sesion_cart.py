@@ -22,6 +22,14 @@ class Cart:
 
             yield item
 
+    def total(self):
+        cart=self.cart.copy()
+        total=0
+        for item in cart.values():
+            total += item["price"]
+
+        return total
+
     def add(self,event,count):
 
         if event.id not in self.cart:
@@ -32,9 +40,9 @@ class Cart:
                 "price":event.price_event,
             }
             self.save()
-        else:
-            self.cart[event.id]["count"]+=count
-            self.save()
+        # else:
+        #     self.cart[event.id]["count"]+=count
+        #     self.save()
 
     def save(self):
         self.session.modified = True

@@ -9,18 +9,27 @@ class OrderShop(models.Model):
                            on_delete=models.CASCADE,
                            related_name="orderShop",
                            verbose_name="کاربر")
-    event=models.ManyToManyField(EventsModel,
-                            related_name="ordershop",
-                            verbose_name="رویداد مربوطه")
     create=jmodels.jDateTimeField(auto_now_add=True)
     is_pay=models.BooleanField(default=False,
                                verbose_name="پرداخت شده؟")
-    price=models.IntegerField(verbose_name="قیمت")
-    pay_date=jmodels.jDateTimeField(verbose_name="تاریخ پرداخت")
+    total_price=models.IntegerField(verbose_name="قیمت")
+    pay_date=models.DateTimeField(null=True,blank=True
+    ,verbose_name="تاریخ پرداخت")
 
     class Meta:
         verbose_name="سبد خرید"
         verbose_name_plural="سبد های خرید"
+
+
+class OrderItem(models.Model):
+    order=models.ForeignKey(OrderShop,on_delete=models.CASCADE,related_name="items",
+                            verbose_name="سبد خرید")
+    event=models.ForeignKey(EventsModel,on_delete=models.CASCADE,related_name="orderItem",
+                            verbose_name="رویداد")
+    price=models.PositiveIntegerField(verbose_name="قیمت")
+
+
+
 
 
 

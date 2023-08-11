@@ -251,11 +251,11 @@
                                                 <div class=" align-items-center">
 
                                                     <div class="col-md-2 pl mt-5">
-                                                        <div class="proceed-to-checkout">
+                                                        <div>
 
                                                             <form method="post" action="{% url "PaymentsApp:add-cart-to-order" %}">
                                                                 {% csrf_token %}
-                                                                <button type="submit" class="checkout-button d-block">تسویه
+                                                                <button type="submit" class="btn btn-primary btn-lg">تسویه
                                                                 حساب</button>
                                                             </form>
                                                         </div>

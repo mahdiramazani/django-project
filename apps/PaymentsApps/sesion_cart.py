@@ -44,6 +44,10 @@ class Cart:
         #     self.cart[event.id]["count"]+=count
         #     self.save()
 
+    def remove(self,request):
+
+        del request.session["cart"]
+
     def save(self):
         self.session.modified = True
 

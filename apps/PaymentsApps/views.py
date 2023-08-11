@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from django.views.generic import TemplateView,View
 from apps.EventsApp.models import EventsModel
 from apps.PaymentsApps.sesion_cart import Cart
-from apps.PaymentsApps.models import OrderShop,OrderItem
+from apps.PaymentsApps.models import OrderShop
 from django.urls import reverse
 class CartView(View):
 
@@ -24,20 +24,17 @@ class AddCartTOOrder(View):
     def post(self,request):
         cart=Cart(request)
         user=request.user
-        if OrderShop.objects.filter(user=user,is_pay=False):
+        if OrderShop.objects.filter(user=user,is_pay=False).exists():
             order=OrderShop.objects.get(user=user,is_pay=False)
             for item in cart:
-                OrderItem.objects.create(order=order,
-                                         event=EventsModel.objects.get(id=item["id"]),
-                                         price=item["price"])
+                order.event.add(EventsModel.objects.get(id=item["id"]))
+            cart.remove(self.request)
             return redirect(reverse("PaymentsApp:send-to-zarin", kwargs={"pk": order.id}))
         else:
             order = OrderShop.objects.create(user=user,total_price=cart.total())
             for item in cart:
-                OrderItem.objects.create(order=order,
-                                         event=EventsModel.objects.get(id=item["id"]),
-                                         price=item["price"])
-
+                order.event.add(EventsModel.objects.get(id=item["id"]))
+            cart.remove(self.request)
             return redirect(reverse("PaymentsApp:send-to-zarin", kwargs={"pk":order.id}))
 
 
@@ -62,19 +59,27 @@ amount = 1000
 description = "توضیحات مربوط به تراکنش را در این قسمت وارد کنید"  # Required
 phone = '09011612090'
 
-CallbackURL = 'http://127.0.0.1:8080/verify/'
+CallbackURL = 'http://127.0.0.1:8000/cart/verify/'
 
 
 class PayZarinPallView(View):
 
     def post(self,request,pk):
+        order=OrderShop.objects.get(id=pk,user=request.user)
+        request.session["order_id"]=order.id
+
+        cart=Cart(request)
+
+
+        for item in cart:
+            print(item)
 
         req_data = {
             "merchant_id": MERCHANT,
-            "amount": 500000,
+            "amount": order.total_price,
             "callback_url": CallbackURL,
             "description": description,
-            "metadata": {"mobile": "09910765749"}
+            "metadata": {"mobile": order.user.phone}
         }
         req_header = {"accept": "application/json",
                       "content-type": "application/json'"}
@@ -89,4 +94,50 @@ class PayZarinPallView(View):
             return HttpResponse(f"Error code: {e_code}, Error Message: {e_message}")
 
 
+
+class VerifyView(View):
+
+    def get(self, request):
+        t_status = request.GET.get('Status')
+        order_id = request.session.get("order_id")
+        order=OrderShop.objects.get(id=order_id)
+        del request.session["order_id"]
+
+        t_authority = request.GET['Authority']
+        if request.GET.get('Status') == 'OK':
+            req_header = {"accept": "application/json",
+                          "content-type": "application/json'"}
+            req_data = {
+                "merchant_id": MERCHANT,
+                "amount": order.total_price,
+                "authority": t_authority
+            }
+            req = requests.post(url=ZP_API_VERIFY, data=json.dumps(req_data), headers=req_header)
+            if len(req.json()['errors']) == 0:
+                t_status = req.json()['data']['code']
+                if t_status == 100:
+
+                    for item in order.event.all():
+                        event=item
+                        event.users.add(request.user)
+                        event.save()
+
+                    return redirect("/")
+
+                #=============================================================
+
+                elif t_status == 101:
+
+                    return redirect("/")
+
+                else:
+                    return HttpResponse('Transaction failed.\nStatus: ' + str(
+                        req.json()['data']['message']
+                    ))
+            else:
+                e_code = req.json()['errors']['code']
+                e_message = req.json()['errors']['message']
+                return HttpResponse(f"Error code: {e_code}, Error Message: {e_message}")
+        else:
+            return redirect("/")
 

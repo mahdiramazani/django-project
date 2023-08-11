@@ -64,9 +64,10 @@ class SendToZarinpallView(View):
 class DelFromOrder(View):
 
     def get(self,request,pk):
+
         cart=Cart(request)
         event=EventsModel.objects.get(id=pk)
-        order=event.orderItem.get(is_pay=False)
+        order=event.orderItem.get(is_pay=False,user=request.user)
         order.event.remove(event)
         cart.del_item(event)
 

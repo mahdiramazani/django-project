@@ -257,7 +257,7 @@
 
                                                         <div class="col-md-2 pl mt-5">
                                                             <div>
-
+                                                                {% if request.user.is_authenticated %}
                                                                 <form method="post"
                                                                       action="{% url "PaymentsApp:add-cart-to-order" %}">
                                                                     {% csrf_token %}
@@ -265,6 +265,17 @@
                                                                             class="btn btn-primary btn-lg">ادامه خرید
                                                                     </button>
                                                                 </form>
+                                                                    {% else %}
+
+                                                                    <form method="post"
+                                                                      action="{% url "AcountApp:register" %}?next_page={% url "PaymentsApp:add-cart-to-order" %}">
+                                                                    {% csrf_token %}
+                                                                    <button type="submit"
+                                                                            class="btn btn-primary btn-lg">ادامه خرید
+                                                                    </button>
+                                                                </form>
+
+                                                                {% endif %}
                                                             </div>
                                                         </div>
                                                     </div>

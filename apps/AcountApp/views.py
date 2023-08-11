@@ -86,7 +86,7 @@ class ForgetPassView(View):
 
     def post(self,request):
         phone=request.POST.get("phone")
-        print(phone)
+
 
         if User.objects.filter(phone=phone).exists():
 

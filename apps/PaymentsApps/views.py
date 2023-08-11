@@ -56,16 +56,22 @@ class SendToZarinpallView(View):
     def get(self,request,pk):
         order=OrderShop.objects.get(id=pk)
 
-        return render(request,"PaymentsApps/cartPay.html",{"order":order,"cart":order})
+        if order.event.count()>0:
+            return render(request, "PaymentsApps/cartPay.html", {"order": order, "cart": order})
+        else:
+            return render(request, "PaymentsApps/cartPay.html")
 
 class DelFromOrder(View):
 
     def get(self,request,pk):
         cart=Cart(request)
         event=EventsModel.objects.get(id=pk)
-        order=event.orderItem.get()
+        order=event.orderItem.get(is_pay=False)
         order.event.remove(event)
         cart.del_item(event)
+
+        order.total_price=cart.total()
+        order.save()
         return redirect("PaymentsApp:send-to-zarin",order.id)
 
 import requests

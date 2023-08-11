@@ -186,6 +186,8 @@
 
             <section class="cart-home">
                 <div class="post-item-cart d-block order-2">
+
+                {% if order %}
                     <div class="content-page">
                         <div class="cart-form">
                             <form action="#" class="c-form">
@@ -268,6 +270,32 @@
                             </div>
                         </div>
                     </div>
+                    {% else %}
+                      <div class="container-main">
+        <div class="d-block">
+            <div class="main-row">
+                <section class="cart-home">
+                    <div class="post-item-cart d-block order-2">
+                        <div class="content-page">
+                            <div class="cart-form">
+                                <div class="cart-empty text-center d-block">
+                                    <div class="cart-empty-img mb-4 mt-4">
+                                        <img src="{% static "assets/images/shopping-cart.png" %}">
+                                    </div>
+                                    <p class="cart-empty-title">سبد خرید شما در حال حاضر خالی است.</p>
+                                    <a href="{% url "UserPanelApp:userpanel" %}" class="btn account-btn btn-primary">ورود به حساب کاربری</a>
+                                    <div class="return-to-shop">
+                                        <a href="{% url "HomeApp:HomeApp" %}" class="backward btn btn-secondary">بازگشت به صفحه اصلی</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+                {% endif %}
                 </div>
             </section>
         </div>

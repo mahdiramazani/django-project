@@ -188,7 +188,51 @@
                 <div class="post-item-cart d-block order-2">
                     <div class="content-page">
                         <div class="cart-form">
+                            <form action="#" class="c-form">
+                                <table class="table-cart cart table table-borderless">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" class="product-cart-name">نام رویداد</th>
+                                        <th scope="col" class="product-cart-price">قیمت</th>
 
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for item in cart.event.all %}
+                                        <tr>
+
+                                            <th scope="row" class="product-cart-name">
+                                                <div class="product-thumbnail-img">
+                                                    <a href="{{ item.get_absolut_url }}">
+                                                        <img src="{{ item.image.url }}">
+                                                    </a>
+                                                    <div class="product-remove">
+                                                        <a href="{% url "PaymentsApp:del-from-order" item.id %}" class="remove">
+                                                            <i class="mdi mdi-close"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-title">
+                                                    <a href="{{ item.get_absolut_url }}">
+                                                        {{ item.title }}
+                                                    </a>
+
+                                                </div>
+                                            </th>
+                                            <td class="product-cart-price">
+                                                    <span class="amount">{{ item.price_event }}
+                                                        <span>تومان</span>
+                                                    </span>
+                                            </td>
+
+
+
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </form>
                             <div class="cart-collaterals">
                                 <div class="totals d-block">
                                     <h3 class="Total-cart-total">مجموع کل سبد خرید</h3>
@@ -196,7 +240,7 @@
                                         <ul class="checkout-summary-summary">
                                             <li class="cart-subtotal">
                                                 <span class="amount">قیمت کل</span>
-                                                <span> {{ total_price }} تومان</span>
+                                                <span> {{ order.total_price }} تومان</span>
                                             </li>
 
                                             <li class="order-total">
@@ -209,7 +253,7 @@
                                                     <div class="col-md-2 pl mt-5">
                                                         <div>
 
-                                                            <form method="post" action="{% url "PaymentsApp:PayZarinPallView" order.id %}">
+                                                            <form method="post" action="{% url "PaymentsApp:PayZarinPallView" order.id%}">
                                                                 {% csrf_token %}
                                                                 <button type="submit" class="btn btn-primary btn-lg">تسویه
                                                                 حساب</button>

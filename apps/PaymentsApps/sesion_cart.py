@@ -30,6 +30,11 @@ class Cart:
 
         return total
 
+    def check(self):
+
+        if self.cart.items():
+            return True
+
     def add(self,event,count):
 
         if event.id not in self.cart:
@@ -47,6 +52,13 @@ class Cart:
     def remove(self,request):
 
         del request.session["cart"]
+
+    def del_item(self,event):
+
+        if str(event.id) in self.cart:
+            del self.cart[str(event.id)]
+            self.save()
+
 
     def save(self):
         self.session.modified = True

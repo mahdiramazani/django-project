@@ -184,92 +184,126 @@
     <div class="d-block">
         <div class="main-row">
 
-            <section class="cart-home">
-                <div class="post-item-cart d-block order-2">
-                    <div class="content-page">
-                        <div class="cart-form">
-                            <form action="#" class="c-form">
-                                <table class="table-cart cart table table-borderless">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col" class="product-cart-name">نام رویداد</th>
-                                        <th scope="col" class="product-cart-price">قیمت</th>
+                <section class="cart-home">
+                    <div class="post-item-cart d-block order-2">
 
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    {% for item in cart %}
+                        <div class="content-page">
+                        {% if cart %}
+                            <div class="cart-form">
+                                <form action="#" class="c-form">
+                                    <table class="table-cart cart table table-borderless">
+                                        <thead>
                                         <tr>
+                                            <th scope="col" class="product-cart-name">نام رویداد</th>
+                                            <th scope="col" class="product-cart-price">قیمت</th>
 
-                                            <th scope="row" class="product-cart-name">
-                                                <div class="product-thumbnail-img">
-                                                    <a href="{{ item.events.get_absolut_url }}">
-                                                        <img src="{{ item.events.image.url }}">
-                                                    </a>
-                                                    <div class="product-remove">
-                                                        <a href="{{ item.events.get_absolut_url }}" class="remove">
-                                                            <i class="mdi mdi-close"></i>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        {% for item in cart %}
+                                            <tr>
+
+                                                <th scope="row" class="product-cart-name">
+                                                    <div class="product-thumbnail-img">
+
+                                                        <a href="{{ item.events.get_absolut_url }}">
+                                                            <img src="{{ item.events.image.url }}">
                                                         </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-title">
-                                                    <a href="{{ item.events.get_absolut_url }}">
-                                                        {{ item.title }}
-                                                    </a>
 
-                                                </div>
-                                            </th>
-                                            <td class="product-cart-price">
+                                                        <div class="product-remove">
+
+                                                            <a href="{% url "PaymentsApp:del-item-from-order" item.events.id %}" class="remove">
+                                                                <i class="mdi mdi-close"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-title">
+                                                        <a href="{{ item.events.get_absolut_url }}">
+                                                            {{ item.title }}
+                                                        </a>
+
+                                                    </div>
+                                                </th>
+                                                <td class="product-cart-price">
                                                     <span class="amount">{{ item.price }}
                                                         <span>تومان</span>
                                                     </span>
-                                            </td>
+                                                </td>
 
 
+                                            </tr>
+                                        {% endfor %}
 
-                                        </tr>
-                                    {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </form>
+                                <div class="cart-collaterals">
+                                    <div class="totals d-block">
+                                        <h3 class="Total-cart-total">مجموع کل سبد خرید</h3>
+                                        <div class="checkout-summary">
+                                            <ul class="checkout-summary-summary">
+                                                <li class="cart-subtotal">
+                                                    <span class="amount">قیمت کل</span>
+                                                    <span> {{ total_price }} تومان</span>
+                                                </li>
 
-                                    </tbody>
-                                </table>
-                            </form>
-                            <div class="cart-collaterals">
-                                <div class="totals d-block">
-                                    <h3 class="Total-cart-total">مجموع کل سبد خرید</h3>
-                                    <div class="checkout-summary">
-                                        <ul class="checkout-summary-summary">
-                                            <li class="cart-subtotal">
-                                                <span class="amount">قیمت کل</span>
-                                                <span> {{ total_price }} تومان</span>
-                                            </li>
+                                                <li class="order-total">
+                                                    <span class="amount">قیمت نهایی با مالیات بر ارزش افزوده</span>
+                                                    <span> {{ total_price }} تومان</span>
+                                                </li>
+                                                <li class="discount-code">
+                                                    <div class=" align-items-center">
 
-                                            <li class="order-total">
-                                                <span class="amount">قیمت نهایی با مالیات بر ارزش افزوده</span>
-                                                <span> {{ total_price }} تومان</span>
-                                            </li>
-                                            <li class="discount-code">
-                                                <div class=" align-items-center">
+                                                        <div class="col-md-2 pl mt-5">
+                                                            <div>
 
-                                                    <div class="col-md-2 pl mt-5">
-                                                        <div>
-
-                                                            <form method="post" action="{% url "PaymentsApp:add-cart-to-order" %}">
-                                                                {% csrf_token %}
-                                                                <button type="submit" class="btn btn-primary btn-lg">تسویه
-                                                                حساب</button>
-                                                            </form>
+                                                                <form method="post"
+                                                                      action="{% url "PaymentsApp:add-cart-to-order" %}">
+                                                                    {% csrf_token %}
+                                                                    <button type="submit"
+                                                                            class="btn btn-primary btn-lg">ادامه خرید
+                                                                    </button>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="container-main">
+        <div class="d-block">
+            <div class="main-row">
+                <section class="cart-home">
+                    <div class="post-item-cart d-block order-2">
+                        <div class="content-page">
+                            <div class="cart-form">
+                                <div class="cart-empty text-center d-block">
+                                    <div class="cart-empty-img mb-4 mt-4">
+                                        <img src="{% static "assets/images/shopping-cart.png" %}">
+                                    </div>
+                                    <p class="cart-empty-title">سبد خرید شما در حال حاضر خالی است.</p>
+                                    <a href="{% url "UserPanelApp:userpanel" %}" class="btn account-btn btn-primary">ورود به حساب کاربری</a>
+                                    <div class="return-to-shop">
+                                        <a href="{% url "HomeApp:HomeApp" %}" class="backward btn btn-secondary">بازگشت به صفحه اصلی</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
+        </div>
+    </div>
+                        {% endif %}
+                        </div>
+                    </div>
+                </section>
+
         </div>
     </div>
 </div>

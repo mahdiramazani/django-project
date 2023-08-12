@@ -1,25 +1,28 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>اتاق اصناف سیرجان</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="{% static "events/css/main1.css" %}">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="{% static "events/icon/favicon-32x32.png" %}" sizes="32x32">
+    <link rel="apple-touch-icon" href="{% static "events/icon/favicon-32x32.png" %}">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Dmitry Volkov">
+
 
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css">
     <link href="{% static "css/all.min.css" %}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}">
     <link href="{% static "css/style001.css" %}" type="text/css" rel="stylesheet">
-
-    <link href="{% static "css/hircana.css" %}" type="text/css" rel="stylesheet">
-
-
-    <!-- plugin-------------------------------------->
-
-
-    <!-- main-style---------------------------------->
-    <link rel="stylesheet" href="{% static "assets/css/main.css" %}">
 
 </head>
 <body>
@@ -70,10 +73,9 @@
 
         <div class="col-lg-3 col-md-8 col-12 order-md-2 order-lg-3">
             <div class="top-search margin-search mt-md-5 mt-lg-4">
-                <form method="get" action="{% url "HomeApp:serach" %}">
-
-                    <input name="q" type="text" class="form-control" placeholder="جستو جو در همه اخبار">
-                    <button type="submit" class="bg-search">
+                <form method="get" action="https://netpen.ir/ordibehesht/search">
+                    <input name="serch" type="text" class="form-control" placeholder="جستو جو در همه اخبار">
+                    <button type="button" name="button" class="bg-search">
                         <i class="fa fa-search icon-header-color "></i>
                     </button>
                 </form>
@@ -84,6 +86,7 @@
     </div>
 
 </div>
+
 
 <nav class="navbar navbar-expand-lg bg-nav-color sticky-top header  mt-2 ">
     <div class="container">
@@ -124,7 +127,7 @@
 
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link  nav-text-color pb-3" href="{% url "EventsApp:EventApp" %}">رویداد </a>
+                    <a class="nav-link  nav-text-color pb-3">رویداد </a>
                     <ul class="dropdown-menu fade-up">
 
                         <li><a class="dropdown-item">دوره آموزشی</a></li>
@@ -184,14 +187,116 @@
     </div>
 </nav>
 
-<!--end menu-->
 
-{% block content %}
+<div class="container-fluid">
+    <div class="row row--grid">
 
-{% endblock %}
+        <!-- end breadcrumb -->
+
+        <!-- title -->
+        <div class="col-12">
+            <div class="main__title main__title--page">
+                <h1>اخبار</h1>
+            </div>
+        </div>
+        <!-- end title -->
+    </div>
+
+    <div class="row row--grid">
+        <div class="col-12">
 
 
-<!--begin footer-->
+            <div class="row row--grid">
+
+                {% for item in object_list %}
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="event" data-bg="{{ item.image.url }}">
+                        <a href="{{ item.get_absolut_url }}" class="event__ticket open-modal">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M9,10a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V11A1,1,0,0,0,9,10Zm12,1a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H3A1,1,0,0,0,2,6v4a1,1,0,0,0,1,1,1,1,0,0,1,0,2,1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V14a1,1,0,0,0-1-1,1,1,0,0,1,0-2ZM20,9.18a3,3,0,0,0,0,5.64V17H10a1,1,0,0,0-2,0H4V14.82A3,3,0,0,0,4,9.18V7H8a1,1,0,0,0,2,0H20Z"/>
+                            </svg>
+                            جزئیات</a>
+                        <span class="event__date">07 بهمن 1400</span>
+                        <span class="event__time">8:00 بعد از ظهر</span>
+                        <h3 class="event__title"><a href="{{ item.get_absolut_url }}">{{ item.title }}</a></h3>
+
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+
+            <div class="row row--grid">
+                <div class="col-12">
+                    <br>
+                    <br>
+                    <br>
+                    <nav aria-label="Page navigation example">
+                        {% if object_list.has_other_pages %}
+                        <ul class="pagination justify-content-center">
+                            {% if object_list.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="{% url "HomeApp:serach" %}?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" tabindex="-1">قبلی</a>
+                            </li>
+                             {% else %}
+                                <li class="page-item disabled">
+                                <a class="page-link" tabindex="-1">قبلی</a>
+                            </li>
+                            {% endif %}
+
+
+
+                            <li class="page-item"><a class="page-link" href="">صفحه {{ object_list.number }} از {{ object_list.paginator.num_pages }}</a></li>
+
+
+                        {% if object_list.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="{% url "HomeApp:serach" %}?page={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">بعدی</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        {% endif %}
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- partners -->
+    <div class="row">
+        <div class="col-12">
+            <div class="partners owl-carousel">
+                <a href="#" class="partners__img">
+                    <img src="img/partners/3docean-light-background.png" alt="">
+                </a>
+
+                <a href="#" class="partners__img">
+                    <img src="img/partners/activeden-light-background.png" alt="">
+                </a>
+
+                <a href="#" class="partners__img">
+                    <img src="img/partners/audiojungle-light-background.png" alt="">
+                </a>
+
+                <a href="#" class="partners__img">
+                    <img src="img/partners/codecanyon-light-background.png" alt="">
+                </a>
+
+                <a href="#" class="partners__img">
+                    <img src="img/partners/photodune-light-background.png" alt="">
+                </a>
+
+                <a href="#" class="partners__img">
+                    <img src="img/partners/themeforest-light-background.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- end partners -->
+</div>
+
 
 <section class="bg-color-gray ">
     <div class="container">
@@ -410,8 +515,6 @@
         </div>
     </div>
 </section>
-<!--end footer-->
-
 
 <div class="scrolltop" onclick="scroll_top()">
     <i class="fa fa-chevron-up arrow_icon" style="color: #333"></i>
@@ -435,7 +538,14 @@
 <script src="{% static "assets/js/vendor/jquery.jqZoom.js" %}"></script>
 <!-- main js---------------------------------------------------->
 <script src="{% static "assets/js/main.js" %}"></script>
+<script src="{% static "events/js/owl.carousel.min.js" %}"></script>
+<script src="{% static "events/js/jquery.magnific-popup.min.js" %}"></script>
+<script src="{% static "events/js/smooth-scrollbar.js" %}"></script>
+<script src="{% static "events/js/select2.min.js" %}"></script>
+<script src="{% static "events/js/slider-radio.js" %}"></script>
+<script src="{% static "events/js/jquery.inputmask.min.js" %}"></script>
+<script src="{% static "events/js/plyr.min.js" %}"></script>
+<script src="{% static "events/js/main.js" %}"></script>
 </body>
 
-<!-- Mirrored from netpen.ir/ordibehesht/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Apr 2023 06:53:40 GMT -->
 </html>

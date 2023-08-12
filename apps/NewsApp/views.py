@@ -44,3 +44,8 @@ class AllNewsView(ListView):
 
     template_name = "NewsApp/allNews.html"
     model = NewsModels
+
+class AllImageGalleryView(ListView):
+
+    template_name = "NewsApp/imageGalleriAll.html"
+    model = ImageGallery

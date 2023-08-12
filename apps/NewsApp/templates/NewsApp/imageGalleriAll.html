@@ -1,0 +1,550 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="{% static "events/css/main1.css" %}">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="{% static "events/icon/favicon-32x32.png" %}" sizes="32x32">
+    <link rel="apple-touch-icon" href="{% static "events/icon/favicon-32x32.png" %}">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Dmitry Volkov">
+
+
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "css/all.min.css" %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}">
+    <link href="{% static "css/style001.css" %}" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+
+<!--begin header -->
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <span class="header-border-top p-1" style="color: #5e5e5e">
+
+                 {{ date }}
+                <span class="mx-2 ">
+                    {{ time }}
+                </span>
+
+            </span>
+            <span>
+                <a class="header-btn-border">
+                    سیرجان
+                </a>
+            </span>
+
+
+        </div>
+    </div>
+</div>
+<!--end header -->
+
+
+<!--begin menu -->
+<div class="container">
+
+    <div class="row ">
+
+        <div class="col-lg-2 col-md-4 col-12 mt-sm-2 order-md-1 order-lg-1">
+            <div class="text-center">
+                <a href="{% url "HomeApp:HomeApp" %}">
+                    <img src="{% static "img/logoheder.png" %}" class="img-fluid ">
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-7 col-md-12 col-12 order-md-3 order-lg-2">
+            <div class="  ">
+                <img src="{% static "img/0110.jpg" %}" class="img-fluid mb-3">
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-8 col-12 order-md-2 order-lg-3">
+            <div class="top-search margin-search mt-md-5 mt-lg-4">
+                <form method="get" action="https://netpen.ir/ordibehesht/search">
+                    <input name="serch" type="text" class="form-control" placeholder="جستو جو در همه اخبار">
+                    <button type="button" name="button" class="bg-search">
+                        <i class="fa fa-search icon-header-color "></i>
+                    </button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<nav class="navbar navbar-expand-lg bg-nav-color sticky-top header  mt-2 ">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                <i class="fa fa-bars"></i>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="main_nav">
+            <ul class="navbar-nav pr-lg-0">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3" href="{% url "HomeApp:HomeApp" %}">صفحه اصلی</a>
+
+                </li>
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}">اتحادیه ها و کمیسیون
+                        ها</a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:List" %}"> اتحادیه ها</a></li>
+                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">لیست کمیسیون ها </a>
+                        </li>
+                        <li><a class="dropdown-item">اشیاء گم شده </a></li>
+                        <li><a class="dropdown-item">نیروکار </a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link  nav-text-color pb-3">هیئت رئیسه </a>
+                    <ul class="dropdown-menu fade-up">
+
+                        <li><a class="dropdown-item">اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
+                        <li><a class="dropdown-item">چارت سازمانی اتاق اصناف سیرجان </a></li>
+
+                    </ul>
+                </li>
+
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link  nav-text-color pb-3">رویداد </a>
+                    <ul class="dropdown-menu fade-up">
+
+                        <li><a class="dropdown-item">دوره آموزشی</a></li>
+                        <li><a class="dropdown-item">همایش </a></li>
+                        <li><a class="dropdown-item">سمینار</a></li>
+                        <li><a class="dropdown-item">جشنواره</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3"> قوانین و مقررات </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item">اخبار قوانین و مقررات</a></li>
+                        <li><a class="dropdown-item">قوانین نظام صنفی</a></li>
+                        <li><a class="dropdown-item">دستورالعمل ها</a></li>
+                        <li><a class="dropdown-item">دریافت فایل</a></li>
+                        <li><a class="dropdown-item">آیین نامه های اجرائی</a></li>
+                        <li><a class="dropdown-item">بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و
+                            اصناف</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3"> درباره ما </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item">تاریخچه</a></li>
+                        <li><a class="dropdown-item">گالری </a></li>
+                        <li><a class="dropdown-item">تماس با ما</a></li>
+
+                    </ul>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3">درگاه ملی مجوزها </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item" href="https://mojavez.ir"> ورود به درگاه ملی مجوزها</a></li>
+                        <li><a class="dropdown-item">اموزش درگاه ملی مجوزها </a></li>
+
+                    </ul>
+
+
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3">سامانه چارسو </a>
+                    <!--
+                                        <ul class="dropdown-menu fade-up">
+                                            <li><a class="dropdown-item" href="#">تاریخچه</a></li>
+                                            <li><a class="dropdown-item" href="#">تماس با ما </a></li>
+
+                                        </ul>
+                    -->
+                </li>
+
+
+            </ul>
+        </div> <!-- navbar-collapse.// -->
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row row--grid">
+
+        <!-- end breadcrumb -->
+
+        <!-- title -->
+        <div class="col-12">
+            <div class="main__title main__title--page">
+                <h1>گالری تصاویر</h1>
+            </div>
+        </div>
+        <!-- end title -->
+    </div>
+
+    <div class="row row--grid">
+        <div class="col-12">
+
+
+            <div class="row row--grid">
+
+                {% for item in object_list %}
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="event" data-bg="{{ item.image.url }}">
+                        <a href="{{ item.get_absolut_url }}" class="event__ticket open-modal">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M9,10a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V11A1,1,0,0,0,9,10Zm12,1a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H3A1,1,0,0,0,2,6v4a1,1,0,0,0,1,1,1,1,0,0,1,0,2,1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V14a1,1,0,0,0-1-1,1,1,0,0,1,0-2ZM20,9.18a3,3,0,0,0,0,5.64V17H10a1,1,0,0,0-2,0H4V14.82A3,3,0,0,0,4,9.18V7H8a1,1,0,0,0,2,0H20Z"/>
+                            </svg>
+                            جزئیات</a>
+                        <span class="event__date">07 بهمن 1400</span>
+                        <span class="event__time">8:00 بعد از ظهر</span>
+                        <h3 class="event__title"><a href="{{ item.get_absolut_url }}">{{ item.title }}</a></h3>
+
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+
+            <div class="row row--grid">
+                <div class="col-12">
+                    <br>
+                    <br>
+                    <br>
+                    <nav aria-label="Page navigation example">
+                        {% if is_paginated %}
+                        <ul class="pagination justify-content-center">
+                            {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="{% url "EventsApp:event-list" %}?page={{ page_obj.previous_page_number }}" tabindex="-1">قبلی</a>
+                            </li>
+                             {% else %}
+                                <li class="page-item disabled">
+                                <a class="page-link" tabindex="-1">قبلی</a>
+                            </li>
+                            {% endif %}
+
+
+
+                            <li class="page-item"><a class="page-link" href="#">صفحه {{ page_obj.number }} از {{ page_obj.paginator.num_pages }}</a></li>
+
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="{% url "EventsApp:event-list" %}?page={{ page_obj.next_page_number }}">بعدی</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        {% endif %}
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- partners -->
+    <div class="row">
+        <div class="col-12">
+            <div class="partners owl-carousel">
+                <a href="#" class="partners__img">
+                    <img src="img/partners/3docean-light-background.png" alt="">
+                </a>
+
+                <a href="#" class="partners__img">
+                    <img src="img/partners/activeden-light-background.png" alt="">
+                </a>
+
+                <a href="#" class="partners__img">
+                    <img src="img/partners/audiojungle-light-background.png" alt="">
+                </a>
+
+                <a href="#" class="partners__img">
+                    <img src="img/partners/codecanyon-light-background.png" alt="">
+                </a>
+
+                <a href="#" class="partners__img">
+                    <img src="img/partners/photodune-light-background.png" alt="">
+                </a>
+
+                <a href="#" class="partners__img">
+                    <img src="img/partners/themeforest-light-background.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- end partners -->
+</div>
+
+
+<section class="bg-color-gray ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-md-inline-block d-none">
+                <nav class="navbar navbar-expand-md navbar-dark ">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon d-none"></span>
+                    </button>
+
+                    <div class="navbar-brand d-none " href="#">
+                        <i class="fa fa-search mt-2 ml-2 red_social"></i>
+                    </div>
+
+                    <div class="collapse navbar-collapse">
+
+                    </div>
+
+                    <div class="navbar-brand d-none d-lg-inline-block ">
+
+                        <div class="top-search-footer ">
+                            <form method="get" action="https://netpen.ir/ordibehesht/search">
+                                <input name="serch" type="text" class="form-control" placeholder="جستجو">
+                                <button type="button" name="button" class="bg-search">
+                                    <i class="fa fa-search icon-header-color "></i>
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-md-inline-block d-none ">
+                <div class="row">
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            اتاق اصناف سیرجان
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    عناوین کل خبر
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    آرشیو
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    صدای مردم
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            بین الملل
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    بین الملل
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    ایران
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    خاور میانه
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            سیاسی
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    ورزشی
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    فوتبال و فوتسال
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    توپ و تور
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            اجتماعی
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    شهری
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    حوادث و انتظامی
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    رفاه و تعاون
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            اقتصادی
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    بانک و بیمه
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    بورس
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    صنعت، تجارتو کشاورزس
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2 mt-5">
+                        <a class="style-title-footer">
+                            فرهنگی هنری
+                        </a>
+                        <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    رادیو تلویزیون
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    سینما و تئاتر
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="hover-txt-footer">
+                                    موسیقی و هنر های تجسمی
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="border-top-footer">
+            <div class="row">
+
+                <div class="col-md-6 col-12 text-md-right text-center">
+
+                </div>
+
+                <div class="col-md-6 col-12 text-center ">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="bg-footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12  col-md-6">
+                    <div class="text-center text-md-right font_13 font-weight-bold">
+
+                        کلیه حقوق این سایت متعلق به اتاق اصناف سیرجان بوده و استفاده از مطالب آن با ذکر منبع بلامانع
+                        است.
+
+                    </div>
+                </div>
+
+                <div class="col-12  col-md-6">
+                    <div class="text-center text-md-left font_13 font-weight-bold mt-2 mt-md-0">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="scrolltop" onclick="scroll_top()">
+    <i class="fa fa-chevron-up arrow_icon" style="color: #333"></i>
+</div>
+
+
+<script src="{% static "js/jquery.2.1.0.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/popper.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/bootstrap.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/bootstrap.bundle.min.js" %}" type="text/javascript"></script>
+<script src="{% static "js/owl.carousel.js" %}"></script>
+<script src="{% static "js/js.js" %}" type="text/javascript"></script>
+
+
+<script src="{% static "assets/js/vendor/jquery-3.2.1.min.js" %}"></script>
+<script src="{% static "assets/js/vendor/bootstrap.js" %}"></script>
+<!-- plugin----------------------------------------------------->
+<script src="{% static "assets/js/vendor/owl.carousel.min.js" %}"></script>
+<script src="{% static "assets/js/vendor/jquery.countdown.js" %}"></script>
+<script src="{% static "assets/js/vendor/jquery.nice-select.min.js" %}"></script>
+<script src="{% static "assets/js/vendor/jquery.jqZoom.js" %}"></script>
+<!-- main js---------------------------------------------------->
+<script src="{% static "assets/js/main.js" %}"></script>
+<script src="{% static "events/js/owl.carousel.min.js" %}"></script>
+<script src="{% static "events/js/jquery.magnific-popup.min.js" %}"></script>
+<script src="{% static "events/js/smooth-scrollbar.js" %}"></script>
+<script src="{% static "events/js/select2.min.js" %}"></script>
+<script src="{% static "events/js/slider-radio.js" %}"></script>
+<script src="{% static "events/js/jquery.inputmask.min.js" %}"></script>
+<script src="{% static "events/js/plyr.min.js" %}"></script>
+<script src="{% static "events/js/main.js" %}"></script>
+</body>
+
+</html>

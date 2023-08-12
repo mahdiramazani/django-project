@@ -4,364 +4,372 @@
 
 {% block content %}
 
-<section>
-    <div class="container">
+    <section>
+        <div class="container">
 
 
-        <div class="row pb-5">
-            <div class="col-md-6 col-12 mt-3">
-                <div class="container-main">
-                    <div class="d-block">
-                        <div class="col-lg-12 col-xs-12 pr mb-4">
-                            <div class="slider-main-container d-block">
-                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="row pb-5">
+                <div class="col-md-6 col-12 mt-3">
+                    <div class="container-main">
+                        <div class="d-block">
+                            <div class="col-lg-12 col-xs-12 pr mb-4">
+                                <div class="slider-main-container d-block">
+                                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
-                                    <ol class="carousel-indicators">
-                                        {% for item in slider %}
-                                            {% if forloop.counter0 == 0 %}
-                                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}"
-                                                    class="active"></li>
-                                            {% else %}
-                                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}"></li>
-                                            {% endif %}
+                                        <ol class="carousel-indicators">
+                                            {% for item in slider %}
+                                                {% if forloop.counter0 == 0 %}
+                                                    <li data-target="#carouselExampleIndicators"
+                                                        data-slide-to="{{ forloop.counter0 }}"
+                                                        class="active"></li>
+                                                {% else %}
+                                                    <li data-target="#carouselExampleIndicators"
+                                                        data-slide-to="{{ forloop.counter0 }}"></li>
+                                                {% endif %}
 
-                                        {% endfor %}
-                                    </ol>
-                                    <div class="carousel-inner">
-{% for item in slider %}
-                                        {% if forloop.counter0 == 0 %}
-                                            <div class="carousel-item carousel-item-h4 active">
-                                                <img src="{{ item.image.url }}" class="d-block w-100 h-four-img"
-                                                     alt="...">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                    <a class="text text-light" href="{{ item.link }}">
-                                                        <h3>{{ item.title }}</h3></a>
-
-
-                                                </div>
-                                            </div>
-
-                                        {% else %}
-                                            <div class="carousel-item carousel-item-h4">
-                                                <img src="{{ item.image.url }}" class="d-block w-100 h-four-img"
-                                                     alt="...">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                    <a class="text text-light" href="{{ item.link }}">
-                                                        <h3>{{ item.title }}</h3></a>
+                                            {% endfor %}
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            {% for item in slider %}
+                                                {% if forloop.counter0 == 0 %}
+                                                    <div class="carousel-item carousel-item-h4 active">
+                                                        <img src="{{ item.image.url }}" class="d-block w-100 h-four-img"
+                                                             alt="...">
+                                                        <div class="carousel-caption d-none d-md-block">
+                                                            <a class="text text-light" href="{{ item.link }}">
+                                                                <h3>{{ item.title }}</h3></a>
 
 
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                        {% endfor %}
+                                                        </div>
+                                                    </div>
 
+                                                {% else %}
+                                                    <div class="carousel-item carousel-item-h4">
+                                                        <img src="{{ item.image.url }}" class="d-block w-100 h-four-img"
+                                                             alt="...">
+                                                        <div class="carousel-caption d-none d-md-block">
+                                                            <a class="text text-light" href="{{ item.link }}">
+                                                                <h3>{{ item.title }}</h3></a>
+
+
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                           data-slide="prev">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                                <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                            </svg>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                           data-slide="next">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                            </svg>
+                                            <span class="sr-only">Next</span>
+                                        </a>
                                     </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                                       data-slide="prev">
-                                        <span class="fa fa-angle-left" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                                       data-slide="next">
-                                        <span class="fa fa-angle-right" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-            </div>
 
+                <div class="col-md-6 col-12">
+                    <div class="row">
 
-            <div class="col-md-6 col-12">
-                <div class="row">
-
-                    {% for item in head_news %}
-                        <div class="col-12">
-                            <div class="style-text mt-3">
-                                <div class="row">
-                                    <div class="col-md-6 col-5">
-                                        <a href="{{ item.get_absolut_url }}"
-                                           class="img-top-news-2 slider-main-container">
-                                            <img src="{{ item.image.url }}" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-6 col-7 py-2">
-                                        <a href="{{ item.get_absolut_url }}" class="text-p">
-                                            <div class="circle-title"></div>
-                                            <p class="font_13 style-tittle line-height-text">
-                                                {{ item.title }}
+                        {% for item in head_news %}
+                            <div class="col-12">
+                                <div class="style-text mt-3">
+                                    <div class="row">
+                                        <div class="col-md-6 col-5">
+                                            <a href="{{ item.get_absolut_url }}"
+                                               class="img-top-news-2 slider-main-container">
+                                                <img src="{{ item.image.url }}" class="img-fluid">
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6 col-7 py-2">
+                                            <a href="{{ item.get_absolut_url }}" class="text-p">
+                                                <div class="circle-title"></div>
+                                                <p class="font_13 style-tittle line-height-text">
+                                                    {{ item.title }}
+                                                </p>
+                                            </a>
+                                            <p class="font_13 text-p line-height-text">
+                                                {{ item.show_title | safe }}
                                             </p>
-                                        </a>
-                                        <p class="font_13 text-p line-height-text">
-                                            {{ item.show_title | safe }}
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    {% endfor %}
+                        {% endfor %}
 
+                    </div>
                 </div>
             </div>
+
+
+            <!-- slider-main--------------------------->
+
         </div>
+    </section>
 
+    <section>
 
-        <!-- slider-main--------------------------->
-
-    </div>
-</section>
-
-<section>
-
-    <div class="bg-content pb-5">
-        <div class="container">
-            <div class="row">
-                <div class="mt-5">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div style="text-align: right">
+        <div class="bg-content pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="mt-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div style="text-align: right">
                                     <span class="color-ax-rooz font_20">
 هیئت رئیسه اتاق اصناف سیرجان
 </span>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-6">
-                                    <div style="text-align: left">
-                                        <a href="{% url "GuildRoomApp:MemberOfUnionList" %}">
-                                            <span class="color-pic font_15">مشاهده همه </span>
-                                        </a>
+                                    <div class="col-6">
+                                        <div style="text-align: left">
+                                            <a href="{% url "GuildRoomApp:MemberOfUnionList" %}">
+                                                <span class="color-pic font_15">مشاهده همه </span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
+                        <div class="row">
 
-                        {% for item in Guid %}
-                            <div class="col-md-3 col-12">
-                                <div class="row">
-                                    <div class="col-12 mt-3">
-                                        <div class="style-text">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <a href="#" class="img-news-teldio">
-                                                        {% if item.image %}
-                                                            <img src="{{ item.image.url }}" class="img-fluid w-100">
-                                                        {% else %}
-                                                            <img src="{% static "img/user.png" %}"
-                                                                 class="img-fluid w-100">
-                                                        {% endif %}
-                                                    </a>
-
-                                                </div>
-                                                <div class="col-12  mt-3">
-
-                                                    <a href="#">
-                                                        <div class="circle-title"></div>
-
-                                                        <p class=" text-p font_14 mb-1 style-tittle line-height-text">
-                                                            {{ item.fullname }} - {{ item.post }}
-                                                        </p>
-
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <br>
-                            </div>
-
-
-                        {% endfor %}
-
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-12 col-12 pb-2">
-                    <div class="row">
-
-                        {% for item in body_news|slice:"0:15" %}
-                            <div class="col-12">
-                                <div class="border-bottom py-3">
+                            {% for item in Guid %}
+                                <div class="col-md-3 col-12">
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-12 mt-3">
                                             <div class="style-text">
                                                 <div class="row">
-                                                    <div class="col-md-3 col-4 pl-0">
-                                                        <a href="{{ item.get_absolut_url }}"
-                                                           class="img-news-bartar">
-                                                            <img src="{{ item.image.url }}" class="img-fluid">
+                                                    <div class="col-12">
+                                                        <a href="#" class="img-news-teldio">
+                                                            {% if item.image %}
+                                                                <img src="{{ item.image.url }}" class="img-fluid w-100">
+                                                            {% else %}
+                                                                <img src="{% static "img/user.png" %}"
+                                                                     class="img-fluid w-100">
+                                                            {% endif %}
+                                                        </a>
+
+                                                    </div>
+                                                    <div class="col-12  mt-3">
+
+                                                        <a href="#">
+                                                            <div class="circle-title"></div>
+
+                                                            <p class=" text-p font_14 mb-1 style-tittle line-height-text">
+                                                                {{ item.fullname }} - {{ item.post }}
+                                                            </p>
+
                                                         </a>
                                                     </div>
-                                                    <div class="col-md-9 col-8 mt-2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                </div>
 
-                                                        <a href="{{ item.get_absolut_url }}">
-                                                            <p class="style-tittle text-p font_13 mb-1 line-height-text">
-                                                                {{ item.title }}
+
+                            {% endfor %}
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-12 pb-2">
+                        <div class="row">
+
+                            {% for item in body_news|slice:"0:15" %}
+                                <div class="col-12">
+                                    <div class="border-bottom py-3">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="style-text">
+                                                    <div class="row">
+                                                        <div class="col-md-3 col-4 pl-0">
+                                                            <a href="{{ item.get_absolut_url }}"
+                                                               class="img-news-bartar">
+                                                                <img src="{{ item.image.url }}" class="img-fluid">
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-9 col-8 mt-2">
+
+                                                            <a href="{{ item.get_absolut_url }}">
+                                                                <p class="style-tittle text-p font_13 mb-1 line-height-text">
+                                                                    {{ item.title }}
+                                                                </p>
+                                                            </a>
+                                                            <p class="text-p font_13 line-height-text">
+                                                                {{ item.show_title | safe }}
                                                             </p>
-                                                        </a>
-                                                        <p class="text-p font_13 line-height-text">
-                                                            {{ item.show_title | safe }}
-                                                        </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        {% endfor %}
+                            {% endfor %}
 
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-12">
+                    <div class="col-lg-6 col-12">
 
-                    <div class="row">
-                        <div class="col-md-6 col-12">
-                            <div class="sticky-top col_z_index">
-                                <div class="list-group">
-
-
-                                    <a class="list-group-item list-group-item-action active" data-toggle="tab"
-                                       href="#home" style="text-align: center">پربازدیدترین ها</a>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <div class="sticky-top col_z_index">
+                                    <div class="list-group">
 
 
-                                    <!-- Tab panes -->
-                                    <div class="tab-content">
-                                        <div class="tab-pane  active " id="home">
-                                            {% for item in must_view_news %}
+                                        <a class="list-group-item list-group-item-action active" data-toggle="tab"
+                                           href="#home" style="text-align: center">پربازدیدترین ها</a>
+
+
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div class="tab-pane  active " id="home">
+                                                {% for item in must_view_news %}
+                                                    <div class="px-3 pt-2 pb-1">
+                                                        <a href="{{ item.get_absolut_url }}">
+                                                            <div class="circle-titr"></div>
+                                                            <span class="font_12 color-text">
+                    {{ item.title }}
+                                            </span>
+                                                        </a>
+                                                    </div>
+                                                {% endfor %}
+
+                                                <hr>
+                                            </div>
+                                            <div class="tab-pane fade" id="menu1">
                                                 <div class="px-3 pt-2 pb-1">
-                                                    <a href="{{ item.get_absolut_url }}">
+                                                    <a href="show-news.html">
                                                         <div class="circle-titr"></div>
                                                         <span class="font_12 color-text">
-                    {{ item.title }}
+                                        اکتشافات مهم تاریخی که جهان را در حیرت فرو برد + تصاویر
                                             </span>
                                                     </a>
                                                 </div>
-                                            {% endfor %}
-
-                                            <hr>
-                                        </div>
-                                        <div class="tab-pane fade" id="menu1">
-                                            <div class="px-3 pt-2 pb-1">
-                                                <a href="show-news.html">
-                                                    <div class="circle-titr"></div>
-                                                    <span class="font_12 color-text">
-                                        اکتشافات مهم تاریخی که جهان را در حیرت فرو برد + تصاویر
-                                            </span>
-                                                </a>
-                                            </div>
-                                            <div class="px-3 pt-2 pb-1">
-                                                <a href="show-news.html">
-                                                    <div class="circle-titr"></div>
-                                                    <span class="font_12 color-text">
+                                                <div class="px-3 pt-2 pb-1">
+                                                    <a href="show-news.html">
+                                                        <div class="circle-titr"></div>
+                                                        <span class="font_12 color-text">
                                         شوخی کی روش با وزیر ورزش
                                             </span>
-                                                </a>
-                                            </div>
-                                            <div class="px-3 pt-2 pb-1">
-                                                <a href="show-news.html">
-                                                    <div class="circle-titr"></div>
-                                                    <span class="font_12 color-text">
+                                                    </a>
+                                                </div>
+                                                <div class="px-3 pt-2 pb-1">
+                                                    <a href="show-news.html">
+                                                        <div class="circle-titr"></div>
+                                                        <span class="font_12 color-text">
                                         پاسخ امیرعبداللهیان به اظهارات مداخله جویانه وزیر خارجه آلمان
                                             </span>
-                                                </a>
-                                            </div>
-                                            <div class="px-3 pt-2 pb-1">
-                                                <a href="show-news.html">
-                                                    <div class="circle-titr"></div>
-                                                    <span class="font_12 color-text">
+                                                    </a>
+                                                </div>
+                                                <div class="px-3 pt-2 pb-1">
+                                                    <a href="show-news.html">
+                                                        <div class="circle-titr"></div>
+                                                        <span class="font_12 color-text">
                                         آیا شما دنبال راضی نگه داشتن دیگران هستید؟
                                             </span>
-                                                </a>
-                                            </div>
-                                            <div class="px-3 pt-2 pb-1">
-                                                <a href="show-news.html">
-                                                    <div class="circle-titr"></div>
-                                                    <span class="font_12 color-text">
+                                                    </a>
+                                                </div>
+                                                <div class="px-3 pt-2 pb-1">
+                                                    <a href="show-news.html">
+                                                        <div class="circle-titr"></div>
+                                                        <span class="font_12 color-text">
                                         علت فوت نسرین قادری مسمومیت ناشی از مصرف متانول است
                                             </span>
-                                                </a>
-                                            </div>
-                                            <div class="px-3 pt-2 pb-1">
-                                                <a href="show-news.html">
-                                                    <div class="circle-titr"></div>
-                                                    <span class="font_12 color-text">
+                                                    </a>
+                                                </div>
+                                                <div class="px-3 pt-2 pb-1">
+                                                    <a href="show-news.html">
+                                                        <div class="circle-titr"></div>
+                                                        <span class="font_12 color-text">
                                         آیا شما دنبال راضی نگه داشتن دیگران هستید؟
                                             </span>
-                                                </a>
-                                            </div>
-                                            <div class="px-3 pt-2 pb-1">
-                                                <a href="show-news.html">
-                                                    <div class="circle-titr"></div>
-                                                    <span class="font_12 color-text">
+                                                    </a>
+                                                </div>
+                                                <div class="px-3 pt-2 pb-1">
+                                                    <a href="show-news.html">
+                                                        <div class="circle-titr"></div>
+                                                        <span class="font_12 color-text">
                                         علت فوت نسرین قادری مسمومیت ناشی از مصرف متانول است
                                             </span>
-                                                </a>
-                                            </div>
-                                            <div class="px-3 pt-2 pb-1">
-                                                <a href="show-news.html">
-                                                    <div class="circle-titr"></div>
-                                                    <span class="font_12 color-text">
+                                                    </a>
+                                                </div>
+                                                <div class="px-3 pt-2 pb-1">
+                                                    <a href="show-news.html">
+                                                        <div class="circle-titr"></div>
+                                                        <span class="font_12 color-text">
                                         شوخی کی روش با وزیر ورزش
                                             </span>
-                                                </a>
-                                            </div>
-                                            <div class="px-3 pt-2 pb-1">
-                                                <a href="show-news.html">
-                                                    <div class="circle-titr"></div>
-                                                    <span class="font_12 color-text">
+                                                    </a>
+                                                </div>
+                                                <div class="px-3 pt-2 pb-1">
+                                                    <a href="show-news.html">
+                                                        <div class="circle-titr"></div>
+                                                        <span class="font_12 color-text">
                                         پاسخ امیرعبداللهیان به اظهارات مداخله جویانه وزیر خارجه آلمان
                                             </span>
-                                                </a>
-                                            </div>
-                                            <div class="px-3 pt-2 pb-1">
-                                                <a href="show-news.html">
-                                                    <div class="circle-titr"></div>
-                                                    <span class="font_12 color-text">
+                                                    </a>
+                                                </div>
+                                                <div class="px-3 pt-2 pb-1">
+                                                    <a href="show-news.html">
+                                                        <div class="circle-titr"></div>
+                                                        <span class="font_12 color-text">
                                         آیا شما دنبال راضی نگه داشتن دیگران هستید؟
                                             </span>
-                                                </a>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
-
                             </div>
-                        </div>
 
-                        <div class="col-md-6 col-12">
-                            <div class="sticky-top col_z_index">
-                                <div class="bg-style-title">
-                                    <div class="text-p">
-                                        <div class="circle-title2"></div>
-                                        <span class="font_10 style-tittle ">
+                            <div class="col-md-6 col-12">
+                                <div class="sticky-top col_z_index">
+                                    <div class="bg-style-title">
+                                        <div class="text-p">
+                                            <div class="circle-title2"></div>
+                                            <span class="font_10 style-tittle ">
                                         لینک های مفید
                                     </span>
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="col-12 d-md-inline-block d-none">
-                                        <a href="#">
-                                            <img src="{% static "img/4122_202.jpg" %}"
-                                                 class="img-fluid mt-3 text-center w-100">
-                                        </a>
+                                        </div>
                                     </div>
 
-                                    <div class="col-12">
-                                        <div class="bg-darkgray gray-relative">
+
+                                    <div class="row">
+                                        <div class="col-12 d-md-inline-block d-none">
+                                            <a href="#">
+                                                <img src="{% static "img/4122_202.jpg" %}"
+                                                     class="img-fluid mt-3 text-center w-100">
+                                            </a>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="bg-darkgray gray-relative">
 
                                         <span class="mt-3 font_13 pos-abs">
                                             <span class="float-left pl-5" style="color: #fff">
@@ -373,9 +381,10 @@
                                             </span>
                                         </span>
 
-                                            <a href="#" class="style-enter">
-                                                وارد شوید
-                                            </a>
+                                                <a href="#" class="style-enter">
+                                                    وارد شوید
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -383,55 +392,164 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-            <div class="bg-white-content ">
-                <div class="p-3">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="bg-video">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div style="text-align: right">
-                                            <span class="color-teldio font_15">اخبار اتحادیه ها</span>
+                <div class="bg-white-content ">
+                    <div class="p-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="bg-video">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div style="text-align: right">
+                                                <span class="color-teldio font_15">اخبار اتحادیه ها</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <div style="text-align: left">
+                                                <a href="{% url "NewsApp:AllNews" %}">
+                                                    <span class="color-video font_15">مشاهده همه</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <div class="col-6">
-                                        <div style="text-align: left">
-                                            <a href="{% url "NewsApp:AllNews" %}">
-                                                <span class="color-video font_15">مشاهده همه</span>
-                                            </a>
+                        <div class="row">
+                            <div class="col-lg-6 order-2">
+                                {% for item in Guild_news|slice:"0:3" %}
+                                    <div class="row">
+                                        <div class="col-12 mt-3">
+                                            <div class="style-text">
+                                                <div class="row">
+                                                    <div class="col-4 pl-0">
+                                                        <a href="{{ item.get_absolut_url }}" class="img-news-teldio">
+                                                            <img src="{{ item.image.url }}"
+                                                                 class="img-fluid">
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-8 mt-3">
+                                                        <a href="{{ item.get_absolut_url }}">
+                                                            <p class=" text-p font_16 mb-1">
+                                                                {{ item.title }}
+                                                            </p>
+                                                        </a>
+                                                        <p class="text-p font_13 mt-3">
+
+                                                            {{ item.pub_date|jformat:"%Y/%m/%d" }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+                            <div class="col-lg-6 order-1">
+                                <div class="row">
+                                    <div class="col-12 mt-3">
+                                        <div class="style-text">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-6 col-12">
+                                                    <a href="{{ last_Guild_news.get_absolut_url }}"
+                                                       class="img-news-teldio">
+                                                        <img src="{{ last_Guild_news.image.url }}"
+                                                             class="img-fluid">
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-12 col-md-6 col-12 mt-3">
+                                                    <a href="{{ last_Guild_news.get_absolut_url }}">
+                                                        <div class="circle-title"></div>
+                                                        <p class=" text-p font_16 mb-1 style-tittle">
+                                                            {{ last_Guild_news.title }}
+                                                        </p>
+                                                    </a>
+                                                    <p class="text-p font_13 mt-2" style="color: #000">
+                                                        {{ last_Guild_news.show_title | safe }}
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
+                <div class="mt-5">
+                    <div class="border-bottom ">
+                        <div class="p-3">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div style="text-align: right">
+                                        <span class="font_15 bg-resane">گالری عکس</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div style="text-align: left">
+                                        <a href="{% url "NewsApp:all-image-gallery" %}">
+                                            <span class="font_15" style="color: #e00000">مشاهده همه </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
-                        <div class="col-lg-6 order-2">
-                            {% for item in Guild_news|slice:"0:3" %}
+                        <div class="col-lg-6 col-12">
+                            <div class="row">
+                                <div class="col-12 mt-3">
+                                    <div class="style-text">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-6 col-12">
+                                                <a href="{{ last_image_gallery.get_absolut_url }}"
+                                                   class="img-news-teldio">
+                                                    <img src="{{ last_image_gallery.image.url }}" class="img-fluid">
+                                                </a>
+
+                                            </div>
+                                            <div class="col-lg-12 col-md-6 col-12 mt-3">
+                                                <a href="{{ last_image_gallery.get_absolut_url }}">
+                                                    <div class="circle-title"></div>
+
+                                                    <p class=" text-p font_16 mb-1 style-tittle">
+                                                        {{ last_image_gallery.title }}
+                                                    </p>
+                                                </a>
+                                                <p class="text-p font_13" style="color: #000">
+                                                    {{ last_image_gallery.show_title | safe }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            {% for item in image_gallery %}
                                 <div class="row">
                                     <div class="col-12 mt-3">
                                         <div class="style-text">
                                             <div class="row">
                                                 <div class="col-4 pl-0">
                                                     <a href="{{ item.get_absolut_url }}" class="img-news-teldio">
-                                                        <img src="{{ item.image.url }}"
-                                                             class="img-fluid">
+                                                        <img src="{{ item.image.url }}" class="img-fluid">
                                                     </a>
                                                 </div>
                                                 <div class="col-8 mt-3">
                                                     <a href="{{ item.get_absolut_url }}">
-                                                        <p class=" text-p font_16 mb-1">
+                                                        <p class=" text-p font_16 mb-1 line-height-text">
                                                             {{ item.title }}
                                                         </p>
                                                     </a>
                                                     <p class="text-p font_13 mt-3">
-
-                                                        {{ item.pub_date|jformat:"%Y/%m/%d" }}
+                                                        {{ item.created |jformat:"%Y/%m/%d" }}
                                                     </p>
                                                 </div>
                                             </div>
@@ -441,123 +559,13 @@
                             {% endfor %}
 
                         </div>
-                        <div class="col-lg-6 order-1">
-                            <div class="row">
-                                <div class="col-12 mt-3">
-                                    <div class="style-text">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-6 col-12">
-                                                <a href="{{ last_Guild_news.get_absolut_url }}"
-                                                   class="img-news-teldio">
-                                                    <img src="{{ last_Guild_news.image.url }}"
-                                                         class="img-fluid">
-                                                </a>
-                                            </div>
-                                            <div class="col-lg-12 col-md-6 col-12 mt-3">
-                                                <a href="{{ last_Guild_news.get_absolut_url }}">
-                                                    <div class="circle-title"></div>
-                                                    <p class=" text-p font_16 mb-1 style-tittle">
-                                                        {{ last_Guild_news.title }}
-                                                    </p>
-                                                </a>
-                                                <p class="text-p font_13 mt-2" style="color: #000">
-                                                    {{ last_Guild_news.show_title | safe }}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
+
+
             </div>
-
-            <div class="mt-5">
-                <div class="border-bottom ">
-                    <div class="p-3">
-                        <div class="row">
-                            <div class="col-6">
-                                <div style="text-align: right">
-                                    <span class="font_15 bg-resane">گالری عکس</span>
-                                </div>
-                            </div>
-
-                            <div class="col-6">
-                                <div style="text-align: left">
-                                    <a href="{% url "NewsApp:all-image-gallery" %}">
-                                        <span class="font_15" style="color: #e00000">مشاهده همه </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-12">
-                        <div class="row">
-                            <div class="col-12 mt-3">
-                                <div class="style-text">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-6 col-12">
-                                            <a href="{{ last_image_gallery.get_absolut_url }}"
-                                               class="img-news-teldio">
-                                                <img src="{{ last_image_gallery.image.url }}" class="img-fluid">
-                                            </a>
-
-                                        </div>
-                                        <div class="col-lg-12 col-md-6 col-12 mt-3">
-                                            <a href="{{ last_image_gallery.get_absolut_url }}">
-                                                <div class="circle-title"></div>
-
-                                                <p class=" text-p font_16 mb-1 style-tittle">
-                                                    {{ last_image_gallery.title }}
-                                                </p>
-                                            </a>
-                                            <p class="text-p font_13" style="color: #000">
-                                                {{ last_image_gallery.show_title | safe }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-12">
-                        {% for item in image_gallery %}
-                            <div class="row">
-                                <div class="col-12 mt-3">
-                                    <div class="style-text">
-                                        <div class="row">
-                                            <div class="col-4 pl-0">
-                                                <a href="{{ item.get_absolut_url }}" class="img-news-teldio">
-                                                    <img src="{{ item.image.url }}" class="img-fluid">
-                                                </a>
-                                            </div>
-                                            <div class="col-8 mt-3">
-                                                <a href="{{ item.get_absolut_url }}">
-                                                    <p class=" text-p font_16 mb-1 line-height-text">
-                                                        {{ item.title }}
-                                                    </p>
-                                                </a>
-                                                <p class="text-p font_13 mt-3">
-                                                    {{ item.created |jformat:"%Y/%m/%d" }}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-
-                    </div>
-                </div>
-            </div>
-
-
         </div>
-    </div>
-</section>
-<!--end content-->
+    </section>
+    <!--end content-->
 
 {% endblock %}

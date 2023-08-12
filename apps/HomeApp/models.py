@@ -1,5 +1,6 @@
 from django.db import models
 from jalali_date.utils import jalali_convert
+
 class ViewHomeModels(models.Model):
 
     view=models.IntegerField()
@@ -16,3 +17,4 @@ class ViewHomeModels(models.Model):
 
         verbose_name="تعداد بازدید"
         verbose_name_plural="تعداد بازدید ها"
+

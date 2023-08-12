@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from apps.NewsApp.models import NewsModels,ImageGallery
+from apps.NewsApp.models import NewsModels,ImageGallery,SliderModel
 from apps.GuildRoomApp.models import GuildRoomModel
 from apps.AcountApp.models import User
 from .models import ViewHomeModels
 from django.utils import timezone
+
 import datetime
 from datetime import date
 class HomeAppView(TemplateView):
@@ -33,6 +34,8 @@ class HomeAppView(TemplateView):
         context["last_image_gallery"]=ImageGallery.objects.all().last()
         context["image_gallery"] = ImageGallery.objects.all()
         context["must_view_news"]=NewsModels.objects.filter(view__gt=10)
+        context["slider"]=SliderModel.objects.all()
+        print(context["slider"])
 
 
         return context

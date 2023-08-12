@@ -6,6 +6,20 @@ from django.utils.text import slugify
 from django.urls import reverse
 from django_jalali.db import models as jmodels
 
+
+class SliderModel(models.Model):
+    image=models.FileField(upload_to="images/slider",verbose_name="تصویر")
+    title=models.CharField(max_length=200,verbose_name="مقدمه")
+    link=models.CharField(max_length=200,verbose_name="لینک")
+
+    def __str__(self):
+
+        return self.title
+
+    class Meta:
+        verbose_name="اسلایدر"
+        verbose_name_plural="اسلایدرها"
+
 class Category(models.Model):
     name=models.CharField(max_length=50,
                           verbose_name="نام دسته بندی")

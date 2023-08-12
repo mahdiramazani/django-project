@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.views.generic import TemplateView,View
 from .forms import EditProfileForm
 from django.urls import reverse
-
+from apps.PaymentsApps.models import OrderShop
 class UserPanelView(TemplateView):
 
     template_name = "UserPanelApp/profile.html"
@@ -27,3 +27,9 @@ class EditProfile(View):
 
 
 
+class OrderProfileView(View):
+
+    def get(self,request):
+        order=OrderShop.objects.filter(user=request.user)
+
+        return render(request,"UserPanelApp/profile-order.html",{"order":order})

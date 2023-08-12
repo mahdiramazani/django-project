@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import NewsModels,Category,Comment,ImageGallery
+from .models import NewsModels,Category,Comment,ImageGallery,SliderModel
 from . import forms
 
 admin.site.register(ImageGallery)
-
+admin.site.register(SliderModel)
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):

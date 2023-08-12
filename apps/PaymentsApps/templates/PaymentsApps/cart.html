@@ -267,13 +267,11 @@
                                                                 </form>
                                                                     {% else %}
 
-                                                                    <form method="post"
-                                                                      action="{% url "AcountApp:register" %}?next_page={% url "PaymentsApp:add-cart-to-order" %}">
-                                                                    {% csrf_token %}
-                                                                    <button type="submit"
+
+                                                                    <a onclick="alert_login()"
                                                                             class="btn btn-primary btn-lg">ادامه خرید
-                                                                    </button>
-                                                                </form>
+                                                                    </a>
+
 
                                                                 {% endif %}
                                                             </div>
@@ -570,5 +568,16 @@
 <script src="{% static "assets/js/vendor/jquery.nice-select.min.js" %}"></script>
 <!-- main js---------------------------------------------------->
 <script src="{% static "assets/js/main.js" %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function alert_login(){
+        Swal.fire({
+  icon: 'error',
+  title: 'خطا...',
+  text: 'برای تکمیل خرید باید وارد حساب کاربری خود شوید!',
+  footer: '<a href="{% url "AcountApp:login" %}">وارد حساب کاربری خود شوید</a>'
+})
+    }
+</script>
 
 </html>

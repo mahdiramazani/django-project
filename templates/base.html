@@ -37,9 +37,15 @@
 
             </span>
             <span>
+                {% if request.user.is_authenticated %}
                 <a href="{% url "UserPanelApp:userpanel" %}" class="header-btn-border">
                     ناحیه کاربری
                 </a>
+                    {% else %}
+                    <a href="{% url "AcountApp:login" %}" class="header-btn-border">
+                    ناحیه کاربری
+                </a>
+                {% endif %}
             </span>
 
 
@@ -105,18 +111,18 @@
                         ها</a>
                     <ul class="dropdown-menu fade-up">
                         <li><a class="dropdown-item" href="{% url "GuildRoomApp:List" %}"> اتحادیه ها</a></li>
-                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">لیست کمیسیون ها </a>
+                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}"> کمیسیون ها </a>
                         </li>
-                        <li><a class="dropdown-item">اشیاء گم شده </a></li>
-                        <li><a class="dropdown-item">نیروکار </a></li>
+                        <li><a href="{% url "ContactByMeappd:Lost-Precious" %}" class="dropdown-item">اشیاء گم شده </a></li>
+                        <li><a href="{% url "ContactByMeappd:work-force" %}" class="dropdown-item">نیروکار </a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link  nav-text-color pb-3">هیئت رئیسه </a>
+                    <a href="{% url "GuildRoomApp:MemberOfUnionList" %}" class="nav-link  nav-text-color pb-3">هیئت رئیسه </a>
                     <ul class="dropdown-menu fade-up">
 
-                        <li><a class="dropdown-item">اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
+                        <li><a href="{% url "GuildRoomApp:MemberOfUnionList" %}" class="dropdown-item">اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
                         <li><a class="dropdown-item">چارت سازمانی اتاق اصناف سیرجان </a></li>
 
                     </ul>
@@ -125,13 +131,7 @@
 
                 <li class="nav-item dropdown ">
                     <a class="nav-link  nav-text-color pb-3" href="{% url "EventsApp:EventApp" %}">رویداد </a>
-                    <ul class="dropdown-menu fade-up">
 
-                        <li><a class="dropdown-item">دوره آموزشی</a></li>
-                        <li><a class="dropdown-item">همایش </a></li>
-                        <li><a class="dropdown-item">سمینار</a></li>
-                        <li><a class="dropdown-item">جشنواره</a></li>
-                    </ul>
                 </li>
 
                 <li class="nav-item dropdown ">

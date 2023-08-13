@@ -60,7 +60,7 @@ class WorkView(View):
 
     def get(self,request):
 
-        work=LostPrecious.objects.filter(is_publish=True)
+        work=Work_Force.objects.filter(is_publish=True)
 
         return render(request,"ContactByMeapp/work.html",{"work":work})
 
@@ -69,11 +69,13 @@ class WorkView(View):
         fullname=request.POST.get("fullname")
         phone=request.POST.get("phone")
         body=request.POST.get("body")
+        number_register=request.POST.get("number_register")
 
         if fullname and phone and body:
             Work_Force.objects.create(fullname=fullname,
                                         phone=phone,
-                                        body=body)
+                                        body=body,
+                                      number_register=number_register)
 
             return render(request, "ContactByMeapp/work.html")
 

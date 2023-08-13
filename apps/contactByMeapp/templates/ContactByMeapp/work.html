@@ -200,6 +200,18 @@
                             <div class="contact-us-row contact-us-row--align-top">
 
                                 <label for="#" class="form-field-container">
+                                    <div class="form-field-label">شخص یا اتحادیه</div>
+                                    <div class="custom-select-ui">
+                                        <select class="right" id="select">
+                                            <option>-- انتخاب موضوع --</option>
+                                            <option>شخص عادی(جوینده کار)</option>
+                                            <option value="7th">اتحادیه</option>
+                                        </select>
+
+                                    </div>
+                                </label>
+
+                                <label for="#" class="form-field-container">
                                     <div class="form-field-label">نام و نام خانوادگی*</div>
                                     <div class="form-field-frame">
                                         <input name="fullname" required type="text" placeholder=""
@@ -218,10 +230,20 @@
                                 </label>
                             </div>
                             <div class="contact-us-row contact-us-row--align-bottom">
+
+                                <label for="#" class="form-field-container">
+                                    <div class="form-field-label">شماره ثبت(اتحادیه ها)</div>
+                                    <div class="form-field-frame">
+                                        <input id="textbox" name="number_register" type="number" placeholder=""
+                                               class="form-field  form-control">
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="contact-us-row contact-us-row--align-bottom">
                                 <label for="#" class="form-field-container w-100">
                                     <div class="form-field-label">متن پیام*</div>
                                     <div class="form-field-frame">
-                                        <textarea required  name="body" type="text" placeholder=""
+                                        <textarea required name="body" type="text" placeholder=""
                                                   class="form-field js-input-field form-control"></textarea>
                                     </div>
                                 </label>
@@ -237,12 +259,11 @@
                             <p class="box-title text text-bold">نیروی کار:</p>
 
 
-
                             <div class="">
                                 {% if work %}
-                                    {% for item in lost %}
-                                    <p>{{ item.body }} - {{ item.phone }}</p>
-                                {% endfor %}
+                                    {% for item in work %}
+                                        <p>{{ item.body }} - {{ item.phone }}</p>
+                                    {% endfor %}
                                 {% endif %}
 
 
@@ -509,6 +530,16 @@
 <script src="{% static "assets/js/main.js" %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    $(document).ready(function () {
+        $('#textbox').hide();
+    });
+
+    $('select').on('change', function () {
+        if (this.value == '7th') {
+            $('#textbox').show();
+        }
+    });
+
     function alert_login() {
         Swal.fire({
             icon: 'error',

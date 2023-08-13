@@ -1,0 +1,53 @@
+{% load static %}
+<div class="col-lg-3 col-md-3 col-xs-12 pr">
+                            <div class="sidebar-profile sidebar-navigation">
+                                <section class="profile-box">
+                                    <header class="profile-box-header-inline">
+                                        {% if request.user.image %}
+                                        <div class="profile-avatar user-avatar profile-img">
+                                            <img src="{{ request.user.image.url }}">
+                                        </div>
+                                            {% else %}
+                                            <div class="profile-avatar user-avatar profile-img">
+                                            <img src="{% static "assets/images/man.png" %}">
+                                        </div>
+                                        {% endif %}
+                                    </header>
+                                    <footer class="profile-box-content-footer">
+                                        <span class="profile-box-nameuser">{{ request.user.fullname }}</span>
+                                        <span class="profile-box-registery-date">عضویت در سایت {{ request.user.created | timesince }} پیش</span>
+                                        <span class="profile-box-phone">شماره همراه : {{ request.user.phone }}</span>
+                                        <div class="profile-box-tabs">
+                                            <a href="{% url "AcountApp:LogOut" %}" class="profile-box-tab-sign-out"><i
+                                                    class="mdi mdi-logout-variant"></i>خروج از حساب</a>
+                                        </div>
+                                    </footer>
+                                </section>
+                                <section class="profile-box">
+                                    <ul class="profile-account-navs">
+                                        <li class="profile-account-nav-item navigation-link-dashboard">
+
+                                            <a href="{% url "UserPanelApp:userpanel" %}" class="{% if request.resolver_match.url_name == "userpanel" %}active{% endif %}"><i class="mdi mdi-account-outline"></i>
+                                                پروفایل
+                                            </a>
+                                        </li>
+                                        <li class="profile-account-nav-item navigation-link-dashboard">
+                                            <a href="{% url "UserPanelApp:order-profile" %}" class="{% if request.resolver_match.url_name == "order-profile" %}active{% endif %}"><i class="mdi mdi-cart"></i>
+                                                همه سفارش ها
+                                            </a>
+                                        </li>
+                                        <li class="profile-account-nav-item navigation-link-dashboard">
+                                            <a href="{% url "UserPanelApp:pass-change" %}" class=""><i class="mdi mdi-textbox-password"></i>
+                                                تفییر رمز عبور
+                                            </a>
+                                        </li>
+
+                                        <li class="profile-account-nav-item navigation-link-dashboard">
+                                            <a href="{% url "UserPanelApp:edit-panel" %}" class="{% if request.resolver_match.url_name == "edit-panel" %}active{% endif %}"><i class="mdi mdi-tooltip-text-outline"></i>
+                                                اطلاعات حساب
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>

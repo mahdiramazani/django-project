@@ -38,6 +38,9 @@ class Work_Force(models.Model):
     phone=models.CharField(max_length=100,verbose_name="شماره تلفن")
     body=models.TextField(verbose_name="متن پیام")
     is_publish=models.BooleanField(default=False,verbose_name="منتشر شود؟")
+    number_register=models.CharField(max_length=50,
+                                     null=True,blank=True,
+                                     verbose_name="شماره ثبت اتحادیه")
 
     def __str__(self):
 

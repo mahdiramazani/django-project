@@ -197,10 +197,8 @@
 
                 {% for item in slider_page %}
                     <div class="hero__slide" data-bg="{{ item.image.url }}">
-                        <h1 class="hero__title">برچسب ضبط و رادیو اینترنتی</h1>
-                        <p class="hero__text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-                            طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
-                            شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+                        <h1 class="hero__title">{{ item.title }}</h1>
+                        <p class="hero__text">{{ item.get_jalali_date }}</p>
                         <div class="hero__btns">
                             <a href="#" class="hero__btn hero__btn--red">خرید</a>
                             <a href="{{ item.get_absolut_url }}" class="hero__btn">بیشتر بخوان</a>

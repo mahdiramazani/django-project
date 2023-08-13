@@ -1,9 +1,9 @@
 from django.db import models
 from apps.AcountApp.models import User
 from ckeditor.fields import RichTextField
-from django.utils.text import slugify
 from django.urls import reverse
-from django_jalali.db import models as jmodels
+from jalali_date.utils import jalali_convert
+
 CATEGORYEvent=(
     ("رویداد","رویداد"),
     ("همایش","همایش"),
@@ -22,6 +22,7 @@ class EventsModel(models.Model):
     short=models.TextField(
         verbose_name="خلاصه توضیحات رویداد"
     )
+    location=models.CharField(max_length=50,verbose_name="مکان رویداد")
     body=RichTextField(verbose_name="توضیحات کلی رویداد")
     image=models.FileField(upload_to="images/events/",verbose_name="تصویر")
     categoryevent=models.CharField(max_length=100,
@@ -64,6 +65,13 @@ class EventsModel(models.Model):
 
 
         return reverse("EventsApp:EventDetail",kwargs={"pk":self.id})
+
+
+    def get_jalali_date(self):
+
+        date=jalali_convert(self.the_date_of_the_event)
+
+        return date
 
 
 

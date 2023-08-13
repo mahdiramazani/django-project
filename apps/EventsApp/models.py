@@ -43,7 +43,11 @@ class EventsModel(models.Model):
     users=models.ManyToManyField(User,related_name="event_user",
                                  null=True,blank=True,
                                  verbose_name="کاربران رویداد")
+    def get_price(self):
 
+        price=f"{self.price_event:,}"
+
+        return price
     def is_can_register(self):
         if (self.end_of_register > self.start_register):
 

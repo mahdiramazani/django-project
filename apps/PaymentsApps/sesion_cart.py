@@ -22,6 +22,8 @@ class Cart:
 
             yield item
 
+
+
     def total(self):
         cart=self.cart.copy()
         total=0
@@ -45,9 +47,7 @@ class Cart:
                 "price":event.price_event,
             }
             self.save()
-        # else:
-        #     self.cart[event.id]["count"]+=count
-        #     self.save()
+
 
     def remove(self,request):
 

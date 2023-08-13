@@ -14,7 +14,7 @@ class CartView(View):
 
         if cart.check():
 
-            return render(request,"PaymentsApps/cart.html",{"cart":cart,"total_price":cart.total()})
+            return render(request,"PaymentsApps/cart.html",{"cart":cart,"total_price":f"{cart.total():,}"})
         else:
             return render(request, "PaymentsApps/cart.html")
 
@@ -33,6 +33,8 @@ class DelFromCartView(View):
         cart.del_item(event)
         return redirect("PaymentsApp:Cart")
 
+
+
 class AddCartTOOrder(View):
     def post(self,request):
         cart=Cart(request)
@@ -42,6 +44,8 @@ class AddCartTOOrder(View):
             for item in cart:
                 order.event.add(EventsModel.objects.get(id=item["id"]))
             # cart.remove(self.request)
+            order.total_price=cart.total()
+            order.save()
             return redirect(reverse("PaymentsApp:send-to-zarin", kwargs={"pk": order.id}))
         else:
             order = OrderShop.objects.create(user=user,total_price=cart.total())
@@ -96,25 +100,29 @@ class PayZarinPallView(View):
         request.session["order_id"]=order.id
         cart=Cart(request)
         cart.remove(self.request)
-        req_data = {
-            "merchant_id": MERCHANT,
-            "amount": order.total_price,
-            "callback_url": CallbackURL,
-            "description": description,
-            "metadata": {"mobile": order.user.phone}
-        }
-        req_header = {"accept": "application/json",
-                      "content-type": "application/json'"}
-        req = requests.post(url=ZP_API_REQUEST, data=json.dumps(
-            req_data), headers=req_header)
-        authority = req.json()['data']['authority']
-        if len(req.json()['errors']) == 0:
-            return redirect(ZP_API_STARTPAY.format(authority=authority))
-        else:
-            e_code = req.json()['errors']['code']
-            e_message = req.json()['errors']['message']
-            return HttpResponse(f"Error code: {e_code}, Error Message: {e_message}")
 
+        if order.total_price != 0:
+            req_data = {
+                "merchant_id": MERCHANT,
+                "amount": order.total_price,
+                "callback_url": CallbackURL,
+                "description": description,
+                "metadata": {"mobile": order.user.phone}
+            }
+            req_header = {"accept": "application/json",
+                        "content-type": "application/json'"}
+            req = requests.post(url=ZP_API_REQUEST, data=json.dumps(
+                req_data), headers=req_header)
+            authority = req.json()['data']['authority']
+            if len(req.json()['errors']) == 0:
+                return redirect(ZP_API_STARTPAY.format(authority=authority))
+            else:
+                e_code = req.json()['errors']['code']
+                e_message = req.json()['errors']['message']
+                return HttpResponse(f"Error code: {e_code}, Error Message: {e_message}")
+
+        else:
+            pass
 
 
 class VerifyView(View):

@@ -1,7 +1,6 @@
 from django.db import models
 from apps.AcountApp.models import User
 from apps.EventsApp.models import EventsModel
-from django.urls import reverse
 from django_jalali.db import models as jmodels
 
 class OrderShop(models.Model):
@@ -17,6 +16,15 @@ class OrderShop(models.Model):
     total_price=models.IntegerField(verbose_name="قیمت")
     pay_date=models.DateTimeField(null=True,blank=True
     ,verbose_name="تاریخ پرداخت")
+
+    def get_price(self):
+
+        price=f"{self.total_price:,}"
+
+        return price
+
+    def __str__(self):
+        return self.user.fullname
 
 
     class Meta:

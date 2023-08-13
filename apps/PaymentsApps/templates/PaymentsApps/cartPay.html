@@ -222,7 +222,7 @@
                                                 </div>
                                             </th>
                                             <td class="product-cart-price">
-                                                    <span class="amount">{{ item.price_event }}
+                                                    <span class="amount">{{ item.get_price }}
                                                         <span>تومان</span>
                                                     </span>
                                             </td>
@@ -242,12 +242,12 @@
                                         <ul class="checkout-summary-summary">
                                             <li class="cart-subtotal">
                                                 <span class="amount">قیمت کل</span>
-                                                <span> {{ order.total_price }} تومان</span>
+                                                <span> {{ order.get_price }} تومان</span>
                                             </li>
 
                                             <li class="order-total">
                                                 <span class="amount">قیمت نهایی با مالیات بر ارزش افزوده</span>
-                                                <span> {{ order.total_price }} تومان</span>
+                                                <span> {{ order.get_price }} تومان</span>
                                             </li>
                                             <li class="discount-code">
                                                 <div class=" align-items-center">

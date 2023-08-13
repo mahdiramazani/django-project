@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static "assets/css/vendor/font-awesome.min.css" %}">
     <link rel="stylesheet" href="{% static "assets/css/vendor/materialdesignicons.css" %}">
     <!-- plugin-------------------------------------->
-    <link rel="stylesheet" href="{% static "assets/css/vendor/bootstrap.css" %}">
+
     <link rel="stylesheet" href="{% static "assets/css/vendor/owl.carousel.min.css" %}">
     <link rel="stylesheet" href="{% static "assets/css/vendor/noUISlider.min.css" %}">
     <link rel="stylesheet" href="{% static "assets/css/vendor/nice-select.css" %}">
@@ -60,7 +60,7 @@
         <div class="col-lg-2 col-md-4 col-12 mt-sm-2 order-md-1 order-lg-1">
             <div class="text-center">
                 <a href="{% url "HomeApp:HomeApp" %}">
-                    <img src="{% static "img/logoheder.png" %}" class="img-fluid "  >
+                    <img src="{% static "img/logoheder.png" %}" class="img-fluid ">
                 </a>
             </div>
         </div>
@@ -87,7 +87,8 @@
 
 <nav class="navbar navbar-expand-lg bg-nav-color sticky-top header  mt-2 ">
     <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
                 <i class="fa fa-bars"></i>
             </span>
@@ -95,17 +96,19 @@
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav pr-lg-0">
                 <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="{% url "HomeApp:HomeApp" %}" >صفحه اصلی</a>
+                    <a class="nav-link nav-text-color pb-3" href="{% url "HomeApp:HomeApp" %}">صفحه اصلی</a>
 
                 </li>
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}" >اتحادیه ها و کمیسیون ها</a>
+                    <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}">اتحادیه ها و کمیسیون
+                        ها</a>
                     <ul class="dropdown-menu fade-up">
                         <li><a class="dropdown-item" href="{% url "GuildRoomApp:List" %}"> اتحادیه ها</a></li>
-                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">لیست کمیسیون ها </a></li>
-                        <li><a class="dropdown-item" >اشیاء گم شده </a></li>
-						 <li><a class="dropdown-item" >نیروکار </a></li>
+                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">لیست کمیسیون ها </a>
+                        </li>
+                        <li><a class="dropdown-item">اشیاء گم شده </a></li>
+                        <li><a class="dropdown-item">نیروکار </a></li>
                     </ul>
                 </li>
 
@@ -113,8 +116,8 @@
                     <a class="nav-link  nav-text-color pb-3">هیئت رئیسه </a>
                     <ul class="dropdown-menu fade-up">
 
-                        <li><a class="dropdown-item" >اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
-                        <li><a class="dropdown-item" >چارت سازمانی اتاق اصناف سیرجان </a></li>
+                        <li><a class="dropdown-item">اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
+                        <li><a class="dropdown-item">چارت سازمانی اتاق اصناف سیرجان </a></li>
 
                     </ul>
                 </li>
@@ -124,55 +127,50 @@
                     <a class="nav-link  nav-text-color pb-3">رویداد </a>
                     <ul class="dropdown-menu fade-up">
 
-                        <li><a class="dropdown-item" >دوره آموزشی</a></li>
-                        <li><a class="dropdown-item" >همایش </a></li>
-						 <li><a class="dropdown-item" >سمینار</a></li>
-						 <li><a class="dropdown-item" >جشنواره</a></li>
+                        <li><a class="dropdown-item">دوره آموزشی</a></li>
+                        <li><a class="dropdown-item">همایش </a></li>
+                        <li><a class="dropdown-item">سمینار</a></li>
+                        <li><a class="dropdown-item">جشنواره</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3"> قوانین و مقررات  </a>
+                    <a class="nav-link nav-text-color pb-3"> قوانین و مقررات </a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" >اخبار قوانین و مقررات</a></li>
-                        <li><a class="dropdown-item" >قوانین نظام صنفی</a></li>
-                        <li><a class="dropdown-item" >دستورالعمل ها</a></li>
-						<li><a class="dropdown-item" >دریافت فایل</a></li>
-                        <li><a class="dropdown-item" >آیین نامه های اجرائی</a></li>
-                        <li><a class="dropdown-item" >بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و اصناف</a></li>
+                        <li><a class="dropdown-item">اخبار قوانین و مقررات</a></li>
+                        <li><a class="dropdown-item">قوانین نظام صنفی</a></li>
+                        <li><a class="dropdown-item">دستورالعمل ها</a></li>
+                        <li><a class="dropdown-item">دریافت فایل</a></li>
+                        <li><a class="dropdown-item">آیین نامه های اجرائی</a></li>
+                        <li><a class="dropdown-item">بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و
+                            اصناف</a></li>
                     </ul>
                 </li>
-
 
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" > درباره ما </a>
+                    <a class="nav-link nav-text-color pb-3"> درباره ما </a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" >تاریخچه</a></li>
-                        <li><a class="dropdown-item" >گالری </a></li>
-						  <li><a class="dropdown-item" >تماس با ما</a></li>
+                        <li><a class="dropdown-item">تاریخچه</a></li>
+                        <li><a class="dropdown-item">گالری </a></li>
+                        <li><a class="dropdown-item">تماس با ما</a></li>
 
                     </ul>
                 </li>
-				  <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" >درگاه ملی مجوزها  </a>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3">درگاه ملی مجوزها </a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="https://mojavez.ir">  ورود به درگاه ملی مجوزها</a></li>
+                        <li><a class="dropdown-item" href="https://mojavez.ir"> ورود به درگاه ملی مجوزها</a></li>
                         <li><a class="dropdown-item">اموزش درگاه ملی مجوزها </a></li>
 
                     </ul>
 
 
                 </li>
-				   <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" >سامانه چارسو </a>
-<!--
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#">تاریخچه</a></li>
-                        <li><a class="dropdown-item" href="#">تماس با ما </a></li>
-
-                    </ul>
--->
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3">سامانه چارسو </a>
+                    <!--
+                    -->
                 </li>
 
             </ul>
@@ -182,118 +180,83 @@
 
 
 <div class="container-main">
-        <div class="d-block">
-            <section class="profile-home">
-                <div class="col-lg">
-                    <div class="post-item-profile order-1 d-block">
-                        <div class="col-lg-3 col-md-3 col-xs-12 pr">
-                            <div class="sidebar-profile sidebar-navigation">
-                                <section class="profile-box">
-                                    <header class="profile-box-header-inline">
-                                        <div class="profile-avatar user-avatar profile-img">
-                                            {% if request.user.image %}
-                                             <img src="{{ request.user.image.url }}">
-                                            {% else %}
+    <div class="col-12">
+        <div id="content">
+            <div class="contact-us">
+                <div class="col-lg-9 col-md-9 col-xs-12 mx-auto">
+                    <div class="contact-us-section">
+                        <div class="box-header">
 
-                                                <img src="{% static "assets/images/man.png "%}">
-                                            {% endif %}
-                                        </div>
-                                    </header>
-                                    <footer class="profile-box-content-footer">
-                                        <span class="profile-box-nameuser">{{ request.user.fullname }}</span>
-                                        <span class="profile-box-registery-date"></span>
-                                        <span class="profile-box-phone">شماره همراه : {{ request.user.phone }}</span>
-                                        <div class="profile-box-tabs">
-                                            <a href="{% url "AcountApp:LogOut" %}" class="profile-box-tab-sign-out"><i
-                                                    class="mdi mdi-logout-variant"></i>خروج از حساب</a>
-                                        </div>
-                                    </footer>
-                                </section>
-                                <section class="profile-box">
-                                    <ul class="profile-account-navs">
-                                        <li class="profile-account-nav-item navigation-link-dashboard">
-                                            <a href="#" class=""><i class="mdi mdi-account-outline"></i>
-                                                پروفایل
-                                            </a>
-                                        </li>
-                                        <li class="profile-account-nav-item navigation-link-dashboard">
-                                            <a href="#" class="active"><i class="mdi mdi-cart"></i>
-                                                همه سفارش ها
-                                            </a>
-                                        </li>
-                                        <li class="profile-account-nav-item navigation-link-dashboard">
-                                            <a href="#" class=""><i class="mdi mdi-heart"></i>
-                                                لیست علاقه مندی
-                                            </a>
-                                        </li>
-                                        <li class="profile-account-nav-item navigation-link-dashboard">
-                                            <a href="#" class=""><i class="mdi mdi-map-outline"></i>
-                                                آدرس ها
-                                            </a>
-                                        </li>
-                                        <li class="profile-account-nav-item navigation-link-dashboard">
-                                            <a href="#" class=""><i class="mdi mdi-email-open-outline"></i>
-                                                نظرات
-                                            </a>
-                                        </li>
-                                        <li class="profile-account-nav-item navigation-link-dashboard">
-                                            <a href="#" class=""><i class="mdi mdi-tooltip-text-outline"></i>
-                                                اطلاعات حساب
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </section>
-                            </div>
+
+                            <button id="Mybtn" class="btn btn-primary"><span
+                                    class="box-title">ثبت اطلاعات اشیا گمشده</span></button>
+
+
                         </div>
-                        <div class="col-lg-9 col-md-9 col-xs-12 pl">
-                            <div class="profile-content">
-                                <div class="profile-stats">
-                                    <div class="table-orders">
 
-                                        <table class="table table-profile-orders">
-                                            <thead class="thead-light">
-                                                <tr>
+                        <form id="MyForm" method="post"
+                              class="contact-us-form">
+                            {% csrf_token %}
+                            <div class="contact-us-row contact-us-row--align-top">
 
-                                                    <th scope="col">تاریخ ثبت سفارش</th>
-                                                    <th scope="col">وضعیت</th>
-                                                    <th scope="col">مجموع</th>
-                                                    <th scope="col">جزئیات</th>
-
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            {% for item in order %}
-                                                <tr>
-
-                                                    <td>{{ item.create |jformat:"%Y/%m/%d" }}</td>
-                                                    {% if item.is_pay %}
-                                                    <td class="Waiting text-success">پرداخت شده</td>
-                                                        {% else %}
-                                                        <td class="Waiting text-danger">پرداخت نشده</td>
-                                                    {% endif %}
-                                                    <td class="totla">
-                                                        <span class="amount">{{ item.get_price }}
-                                                            <span>تومان</span>
-                                                        </span>
-                                                    </td>
-                                                <td class="order-code"><a href="{% url "UserPanelApp:order-detail" item.id %}">مشاهده</a></td>
-
-                                                </tr>
-                                            {% endfor %}
-                                            </tbody>
-                                        </table>
-
-
+                                <label for="#" class="form-field-container">
+                                    <div class="form-field-label">نام و نام خانوادگی*</div>
+                                    <div class="form-field-frame">
+                                        <input name="fullname" required type="text" placeholder=""
+                                               class="form-field js-input-field form-control">
                                     </div>
-                                </div>
+                                </label>
                             </div>
+                            <div class="contact-us-row contact-us-row--align-width">
+
+                                <label for="#" class="form-field-container">
+                                    <div class="form-field-label">تلفن تماس*</div>
+                                    <div class="form-field-frame">
+                                        <input name="phone" required type="number" placeholder=""
+                                               class="form-field js-input-field form-control">
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="contact-us-row contact-us-row--align-bottom">
+                                <label for="#" class="form-field-container w-100">
+                                    <div class="form-field-label">متن پیام*</div>
+                                    <div class="form-field-frame">
+                                        <textarea required  name="body" type="text" placeholder=""
+                                                  class="form-field js-input-field form-control"></textarea>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="contact-us-row contact-us-row-align-left text-left d-block pl-3">
+                                <button type="submit" class="btn btn-info js-contact-form-submit">
+                                    ثبت و ارسال
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="contact-us-row">
+                            <p class="box-title text text-bold">اشیا گمشده:</p>
+
+
+
+                            <div class="">
+                                {% if lost %}
+                                    {% for item in lost %}
+                                    <p>{{ item.body }} - {{ item.phone }}</p>
+                                {% endfor %}
+                                {% endif %}
+
+
+                            </div>
+
                         </div>
+
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
     </div>
-    <!-- profile------------------------------->
+</div>
+<!-- contact-us---------------------------->
 
 <!--begin footer-->
 
@@ -311,7 +274,7 @@
                         <i class="fa fa-search mt-2 ml-2 red_social"></i>
                     </div>
 
-                    <div class="collapse navbar-collapse" >
+                    <div class="collapse navbar-collapse">
 
                     </div>
 
@@ -339,132 +302,132 @@
             <div class="col-md-12 d-md-inline-block d-none ">
                 <div class="row">
                     <div class="col-2 mt-5">
-                        <a  class="style-title-footer">
+                        <a class="style-title-footer">
                             اتاق اصناف سیرجان
                         </a>
                         <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     عناوین کل خبر
                                 </a>
                             </li>
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     آرشیو
                                 </a>
                             </li>
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     صدای مردم
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-2 mt-5">
-                        <a  class="style-title-footer">
+                        <a class="style-title-footer">
                             بین الملل
                         </a>
                         <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     بین الملل
                                 </a>
                             </li>
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     ایران
                                 </a>
                             </li>
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     خاور میانه
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-2 mt-5">
-                        <a  class="style-title-footer">
+                        <a class="style-title-footer">
                             سیاسی
                         </a>
                         <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     ورزشی
                                 </a>
                             </li>
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     فوتبال و فوتسال
                                 </a>
                             </li>
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     توپ و تور
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-2 mt-5">
-                        <a  class="style-title-footer">
+                        <a class="style-title-footer">
                             اجتماعی
                         </a>
                         <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     شهری
                                 </a>
                             </li>
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     حوادث و انتظامی
                                 </a>
                             </li>
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     رفاه و تعاون
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-2 mt-5">
-                        <a  class="style-title-footer">
+                        <a class="style-title-footer">
                             اقتصادی
                         </a>
                         <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     بانک و بیمه
                                 </a>
                             </li>
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     بورس
                                 </a>
                             </li>
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     صنعت، تجارتو کشاورزس
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-2 mt-5">
-                        <a  class="style-title-footer">
+                        <a class="style-title-footer">
                             فرهنگی هنری
                         </a>
                         <ul class="px-0 mt-2 line-height-footer" style="list-style: none">
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     رادیو تلویزیون
                                 </a>
                             </li>
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     سینما و تئاتر
                                 </a>
                             </li>
                             <li class="">
-                                <a  class="hover-txt-footer">
+                                <a class="hover-txt-footer">
                                     موسیقی و هنر های تجسمی
                                 </a>
                             </li>
@@ -498,14 +461,14 @@
                 <div class="col-12  col-md-6">
                     <div class="text-center text-md-right font_13 font-weight-bold">
 
-                        کلیه حقوق این سایت متعلق به اتاق اصناف سیرجان بوده و استفاده از مطالب آن با ذکر منبع بلامانع است.
+                        کلیه حقوق این سایت متعلق به اتاق اصناف سیرجان بوده و استفاده از مطالب آن با ذکر منبع بلامانع
+                        است.
 
                     </div>
                 </div>
 
                 <div class="col-12  col-md-6">
                     <div class="text-center text-md-left font_13 font-weight-bold mt-2 mt-md-0">
-
 
 
                     </div>
@@ -515,7 +478,6 @@
     </div>
 </section>
 <!--end footer-->
-
 
 
 <div class="scrolltop" onclick="scroll_top()">
@@ -545,4 +507,24 @@
 <script src="{% static "assets/js/vendor/jquery.nice-select.min.js" %}"></script>
 <!-- main js---------------------------------------------------->
 <script src="{% static "assets/js/main.js" %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function alert_login() {
+        Swal.fire({
+            icon: 'error',
+            title: 'خطا...',
+            text: 'برای تکمیل خرید باید وارد حساب کاربری خود شوید!',
+            footer: '<a href="{% url "AcountApp:login" %}">وارد حساب کاربری خود شوید</a>'
+        })
+    }
+</script>
 
+<script>
+    $(document).ready(function () {
+        $('#Mybtn').click(function () {
+            $('#MyForm').toggle(500);
+        });
+    });
+</script>
+
+</html>

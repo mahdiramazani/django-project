@@ -254,30 +254,30 @@
                                             <thead class="thead-light">
                                                 <tr>
 
-                                                    <th scope="col">تاریخ ثبت سفارش</th>
-                                                    <th scope="col">وضعیت</th>
-                                                    <th scope="col">مجموع</th>
-                                                    <th scope="col">جزئیات</th>
+                                                    <th scope="col">عنوان</th>
+                                                    <th scope="col">زمان برگذاری</th>
+                                                    <th scope="col">قیمت</th>
+                                                    <th scope="col">دسته بندی</th>
 
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            {% for item in order %}
+                                            {% for item in order.event.all %}
                                                 <tr>
 
-                                                    <td>{{ item.create |jformat:"%Y/%m/%d" }}</td>
-                                                    {% if item.is_pay %}
-                                                    <td class="Waiting text-success">پرداخت شده</td>
+                                                    <td>{{ item.title }}</td>
+                                                    {% if item.is_can_register %}
+                                                    <td class="Waiting text-success">{{ item.the_date_of_the_event | timeuntil }} دیگر </td>
                                                         {% else %}
-                                                        <td class="Waiting text-danger">پرداخت نشده</td>
-                                                    {% endif %}
+                                                        <td class="Waiting text-danger">برگزار شده</td>
+                                                        {% endif %}
                                                     <td class="totla">
                                                         <span class="amount">{{ item.get_price }}
                                                             <span>تومان</span>
                                                         </span>
                                                     </td>
-                                                <td class="order-code"><a href="{% url "UserPanelApp:order-detail" item.id %}">مشاهده</a></td>
-
+                                                <td class="order-code">{{ item.categoryevent }}</td>
+ 
                                                 </tr>
                                             {% endfor %}
                                             </tbody>

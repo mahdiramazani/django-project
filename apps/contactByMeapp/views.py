@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.views.generic import TemplateView,View
-from .  models import ContactUs
+from .  models import ContactUs,LostPrecious,Work_Force
 
 
 class contactByMeView(View):
@@ -31,3 +31,50 @@ class contactByMeView(View):
         return render(request,"ContactByMeapp/conatctbyme.html")
 
 
+
+class LostPreciousView(View):
+
+    def get(self,request):
+
+        lost=LostPrecious.objects.filter(is_publish=True)
+
+        return render(request,"ContactByMeapp/LostPrecious.html",{"lost":lost})
+
+
+    def post(self,request):
+        fullname=request.POST.get("fullname")
+        phone=request.POST.get("phone")
+        body=request.POST.get("body")
+
+        if fullname and phone and body:
+            LostPrecious.objects.create(fullname=fullname,
+                                        phone=phone,
+                                        body=body)
+
+            return render(request, "ContactByMeapp/LostPrecious.html")
+
+        return render(request,"ContactByMeapp/LostPrecious.html")
+
+
+class WorkView(View):
+
+    def get(self,request):
+
+        work=LostPrecious.objects.filter(is_publish=True)
+
+        return render(request,"ContactByMeapp/work.html",{"work":work})
+
+
+    def post(self,request):
+        fullname=request.POST.get("fullname")
+        phone=request.POST.get("phone")
+        body=request.POST.get("body")
+
+        if fullname and phone and body:
+            Work_Force.objects.create(fullname=fullname,
+                                        phone=phone,
+                                        body=body)
+
+            return render(request, "ContactByMeapp/work.html")
+
+        return render(request,"ContactByMeapp/work.html")

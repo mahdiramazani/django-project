@@ -33,3 +33,10 @@ class OrderProfileView(View):
         order=OrderShop.objects.filter(user=request.user)
 
         return render(request,"UserPanelApp/profile-order.html",{"order":order})
+
+class OrderProfileDetail(View):
+
+    def get(self,request,pk):
+        order=OrderShop.objects.get(id=pk)
+
+        return render(request,"UserPanelApp/order_detail.html",{"order":order})

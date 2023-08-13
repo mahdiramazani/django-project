@@ -219,7 +219,9 @@
                                                         </span>
                                                     </td>
                                                 <td class="order-code"><a href="{% url "UserPanelApp:order-detail" item.id %}">مشاهده</a></td>
-
+                                                {% if item.is_pay == False %}
+                                                <td class="order-code"><a href="{% url "PaymentsApp:send-to-zarin" item.id %}">پرداخت</a></td>
+                                                {% endif %}
                                                 </tr>
                                             {% endfor %}
                                             </tbody>

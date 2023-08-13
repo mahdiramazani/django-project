@@ -99,12 +99,14 @@ class PayZarinPallView(View):
         order=OrderShop.objects.get(id=pk,user=request.user)
         request.session["order_id"]=order.id
         cart=Cart(request)
-        cart.remove(self.request)
+
+
+        total_price=(order.total_price)*10
 
         if order.total_price != 0:
             req_data = {
                 "merchant_id": MERCHANT,
-                "amount": int(order.total_price)*10,
+                "amount": total_price,
                 "callback_url": CallbackURL,
                 "description": description,
                 "metadata": {"mobile": order.user.phone}
@@ -132,8 +134,6 @@ class VerifyView(View):
         order_id = request.session.get("order_id")
         order=OrderShop.objects.get(id=order_id)
 
-        del request.session["order_id"]
-
         t_authority = request.GET['Authority']
         if request.GET.get('Status') == 'OK':
             req_header = {"accept": "application/json",
@@ -146,32 +146,40 @@ class VerifyView(View):
             req = requests.post(url=ZP_API_VERIFY, data=json.dumps(req_data), headers=req_header)
             if len(req.json()['errors']) == 0:
                 t_status = req.json()['data']['code']
+            #==============================================================
                 if t_status == 100:
+                    cart=Cart(request)
+                    cart.remove(self.request)
                     order.is_pay=True
                     order.pay_date(timezone.now())
+
 
                     for item in order.event.all():
                         event=item
                         event.users.add(request.user)
+                        event.capacity+=1
                         event.save()
                     order.save()
 
+                    del request.session["order_id"]
                     return redirect("/")
 
                 #=============================================================
 
                 elif t_status == 101:
 
-                    return redirect("/")
+                    return redirect("EventsApp:event-list")
 
                 else:
                     return HttpResponse('Transaction failed.\nStatus: ' + str(
                         req.json()['data']['message']
                     ))
             else:
+
                 e_code = req.json()['errors']['code']
                 e_message = req.json()['errors']['message']
                 return HttpResponse(f"Error code: {e_code}, Error Message: {e_message}")
         else:
-            return redirect("/")
+
+            return redirect("EventsApp:event-list")
 

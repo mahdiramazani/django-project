@@ -104,7 +104,7 @@ class PayZarinPallView(View):
         if order.total_price != 0:
             req_data = {
                 "merchant_id": MERCHANT,
-                "amount": order.total_price,
+                "amount": int(order.total_price)*10,
                 "callback_url": CallbackURL,
                 "description": description,
                 "metadata": {"mobile": order.user.phone}
@@ -131,6 +131,7 @@ class VerifyView(View):
         t_status = request.GET.get('Status')
         order_id = request.session.get("order_id")
         order=OrderShop.objects.get(id=order_id)
+
         del request.session["order_id"]
 
         t_authority = request.GET['Authority']
@@ -139,7 +140,7 @@ class VerifyView(View):
                           "content-type": "application/json'"}
             req_data = {
                 "merchant_id": MERCHANT,
-                "amount": order.total_price,
+                "amount": int(order.total_price)*10,
                 "authority": t_authority
             }
             req = requests.post(url=ZP_API_VERIFY, data=json.dumps(req_data), headers=req_header)

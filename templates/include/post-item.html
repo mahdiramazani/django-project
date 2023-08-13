@@ -15,7 +15,7 @@
                                     </header>
                                     <footer class="profile-box-content-footer">
                                         <span class="profile-box-nameuser">{{ request.user.fullname }}</span>
-                                        <span class="profile-box-registery-date">عضویت در سایت {{ request.user.created | timesince }} پیش</span>
+                                        <span class="profile-box-registery-date">{{ request.user.post }}</span>
                                         <span class="profile-box-phone">شماره همراه : {{ request.user.phone }}</span>
                                         <div class="profile-box-tabs">
                                             <a href="{% url "AcountApp:LogOut" %}" class="profile-box-tab-sign-out"><i

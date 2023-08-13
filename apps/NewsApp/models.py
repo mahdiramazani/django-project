@@ -6,6 +6,8 @@ from django.utils.text import slugify
 from django.urls import reverse
 from django_jalali.db import models as jmodels
 
+from jalali_date.utils import jalali_convert
+
 
 class SliderModel(models.Model):
     image=models.FileField(upload_to="images/slider",verbose_name="تصویر")
@@ -53,7 +55,7 @@ class NewsModels(models.Model):
                           null=True,
                           blank=True,
                           verbose_name="اسلاگ:این قسمت پر نشود!")
-    pub_date=jmodels.jDateTimeField(auto_now_add=True)
+    pub_date=models.DateTimeField(auto_now_add=True)
     view=models.IntegerField(default=0,
                              null=True,
                              blank=True,
@@ -85,6 +87,12 @@ class NewsModels(models.Model):
 
 
         return reverse("NewsApp:detail_news",args=[self.id])
+
+    def get_jalali_date(self):
+
+        date=jalali_convert(self.pub_date)
+
+        return date
 
     class Meta:
         verbose_name="خبر"
@@ -130,7 +138,7 @@ class ImageGallery(models.Model):
                             null=True,
                             blank=True,
                             verbose_name="اسلاگ:این قسمت پر نشود!")
-    created=jmodels.jDateTimeField(auto_now_add=True)
+    created=models.DateTimeField(auto_now_add=True)
 
 
     def save(self,**kwargs):
@@ -148,6 +156,12 @@ class ImageGallery(models.Model):
 
 
         return reverse("NewsApp:image_gallery",args=[self.id])
+
+    def get_jalali_date(self):
+
+        date=jalali_convert(self.created)
+
+        return date
 
     class Meta:
 

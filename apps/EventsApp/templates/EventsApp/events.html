@@ -200,7 +200,11 @@
                         <h1 class="hero__title">{{ item.title }}</h1>
                         <p class="hero__text">{{ item.get_jalali_date }}</p>
                         <div class="hero__btns">
-                            <a href="#" class="hero__btn hero__btn--red">خرید</a>
+                            <form method="post" action="{% url "PaymentsApp:add-cart" item.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="hero__btn hero__btn--red">خرید</button>
+                            </form>
+
                             <a href="{{ item.get_absolut_url }}" class="hero__btn">بیشتر بخوان</a>
                         </div>
                     </div>
@@ -244,10 +248,11 @@
                     <div class="album__cover">
                         <img src="{{ item.image.url }}" alt="">
                         <a href="{{ item.get_absolut_url }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-</svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-eye" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                            </svg>
                         </a>
 
                     </div>
@@ -287,15 +292,21 @@
 
                         {% for item in future_events %}
                             <div class="event" data-bg="{{ item.image.url }}">
-                                <a href="#modal-ticket" class="event__ticket open-modal">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+
+                                <form method="post" action="{% url "PaymentsApp:add-cart" item.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="event__ticket">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                         <path d="M9,10a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V11A1,1,0,0,0,9,10Zm12,1a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H3A1,1,0,0,0,2,6v4a1,1,0,0,0,1,1,1,1,0,0,1,0,2,1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V14a1,1,0,0,0-1-1,1,1,0,0,1,0-2ZM20,9.18a3,3,0,0,0,0,5.64V17H10a1,1,0,0,0-2,0H4V14.82A3,3,0,0,0,4,9.18V7H8a1,1,0,0,0,2,0H20Z"/>
                                     </svg>
-                                    خرید بلیط</a>
-                                <span class="event__date">07 بهمن 1400</span>
-                                <span class="event__time">8:00 بعد از ظهر</span>
-                                <h3 class="event__title"><a href="{{ item.get_absolut_url }}">لورم ایپسوم</a></h3>
-                                <p class="event__address">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                                        خرید بلیط
+                                    </button>
+                                </form>
+
+
+                                <span class="event__time">{{ item.get_jalali_date }}</span>
+                                <h3 class="event__title"><a href="{{ item.get_absolut_url }}">{{ item.title }}</a></h3>
+                                <p class="event__address">{{ item.short }}</p>
                             </div>
                         {% endfor %}
 

@@ -5,12 +5,13 @@ from django.urls import reverse
 from apps.PaymentsApps.models import OrderShop
 from apps.AcountApp.models import User
 from django.contrib.auth import login
+from .mixin import CheckLoginRequiredMixin
 
-class UserPanelView(TemplateView):
+class UserPanelView(CheckLoginRequiredMixin,TemplateView):
 
     template_name = "UserPanelApp/profile.html"
 
-class EditProfile(View):
+class EditProfile(CheckLoginRequiredMixin,View):
 
 
     def post(self,request):
@@ -30,14 +31,14 @@ class EditProfile(View):
 
 
 
-class OrderProfileView(View):
+class OrderProfileView(CheckLoginRequiredMixin,View):
 
     def get(self,request):
         order=OrderShop.objects.filter(user=request.user)
 
         return render(request,"UserPanelApp/profile-order.html",{"order":order})
 
-class OrderProfileDetail(View):
+class OrderProfileDetail(CheckLoginRequiredMixin,View):
 
     def get(self,request,pk):
         order=OrderShop.objects.get(id=pk)
@@ -45,7 +46,7 @@ class OrderProfileDetail(View):
         return render(request,"UserPanelApp/order_detail.html",{"order":order})
 
 
-class ChangePasswordView(View):
+class ChangePasswordView(CheckLoginRequiredMixin,View):
 
     def get(self,request):
 

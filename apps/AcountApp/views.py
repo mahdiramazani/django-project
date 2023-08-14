@@ -5,10 +5,11 @@ from django.contrib.auth import login,logout,authenticate
 import random
 import requests
 import ghasedakpack
+from .mixin import CheckLoginMixinMixin
 sms = ghasedakpack.Ghasedak("8c1451922c0369b92a8da38aeb7d7b1e75db540b751dc9e30aa5abf61ad9dce7")
 
 
-class LoginView(View):
+class LoginView(CheckLoginMixinMixin,View):
 
     def get(self,request):
 
@@ -34,7 +35,7 @@ class LoginView(View):
 
         return render(request,"AcountApp/login.html")
 
-class RegisterView(View):
+class RegisterView(CheckLoginMixinMixin,View):
 
     def get(self,request):
 
@@ -77,12 +78,12 @@ class RegisterView(View):
         return render(request,"AcountApp/register.html")
 
 
-class LogOutView(View):
+class LogOutView(CheckLoginMixinMixin,View):
     def get(self,request):
         logout(request)
         return redirect('/')
 
-class ForgetPassView(View):
+class ForgetPassView(CheckLoginMixinMixin,View):
 
     def post(self,request):
         phone=request.POST.get("phone")
@@ -110,7 +111,7 @@ class ForgetPassView(View):
         return render(request,"AcountApp/forgetpass.html")
 
 
-class PassForgetOtp(View):
+class PassForgetOtp(CheckLoginMixinMixin,View):
 
     def get(self,request):
         phone = request.session.get("phone_forget")
@@ -165,7 +166,7 @@ class PassForgetOtp(View):
         return render(request, "AcountApp/otpforgetpass.html")
 
 
-class ChangePassView(View):
+class ChangePassView(CheckLoginMixinMixin,View):
     def get(self,request):
 
         return render(request,"AcountApp/changePass.html")
@@ -197,10 +198,10 @@ class ChangePassView(View):
         return render(request,"AcountApp/changePass.html")
 
 
-class PassChangeComplateView(TemplateView):
+class PassChangeComplateView(CheckLoginMixinMixin,TemplateView):
     template_name = "AcountApp/complate_pass_change.html"
 
-class OtpView(View):
+class OtpView(CheckLoginMixinMixin,View):
 
     def get(self,request):
         phone = request.session.get("phone")

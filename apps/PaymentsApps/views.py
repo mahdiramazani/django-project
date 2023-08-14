@@ -6,6 +6,7 @@ from apps.PaymentsApps.sesion_cart import Cart
 from apps.PaymentsApps.models import OrderShop
 from django.urls import reverse
 from django.utils import timezone
+from apps.UserPanelApp.mixin import CheckLoginRequiredMixin
 
 class CartView(View):
 
@@ -35,7 +36,7 @@ class DelFromCartView(View):
 
 
 
-class AddCartTOOrder(View):
+class AddCartTOOrder(CheckLoginRequiredMixin,View):
     def post(self,request):
         cart=Cart(request)
         user=request.user
@@ -55,7 +56,7 @@ class AddCartTOOrder(View):
             return redirect(reverse("PaymentsApp:send-to-zarin", kwargs={"pk":order.id}))
 
 
-class SendToZarinpallView(View):
+class SendToZarinpallView(CheckLoginRequiredMixin,View):
 
     def get(self,request,pk):
         order=OrderShop.objects.get(id=pk)
@@ -65,7 +66,7 @@ class SendToZarinpallView(View):
         else:
             return render(request, "PaymentsApps/cartPay.html")
 
-class DelFromOrder(View):
+class DelFromOrder(CheckLoginRequiredMixin,View):
 
     def get(self,request,pk):
 
@@ -92,7 +93,7 @@ phone = '09011612090'
 CallbackURL = 'http://127.0.0.1:8000/cart/verify/'
 
 
-class PayZarinPallView(View):
+class PayZarinPallView(CheckLoginRequiredMixin,View):
 
     def post(self,request,pk):
 
@@ -127,7 +128,7 @@ class PayZarinPallView(View):
             pass
 
 
-class VerifyView(View):
+class VerifyView(CheckLoginRequiredMixin,View):
 
     def get(self, request):
         t_status = request.GET.get('Status')

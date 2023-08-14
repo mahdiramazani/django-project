@@ -1,32 +1,4 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>اتاق اصناف سیرجان</title>
-
-    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css">
-    <link href="{% static "css/all.min.css" %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}">
-    <link href="{% static "css/style001.css" %}" type="text/css" rel="stylesheet">
-
-    <link href="{% static "css/hircana.css" %}" type="text/css" rel="stylesheet">
-
-
-
-    <!-- plugin-------------------------------------->
-
-
-
-
-    <!-- main-style---------------------------------->
-    <link rel="stylesheet" href="{% static "assets/css/main.css" %}">
-
-</head>
-<body >
-<!--begin header -->
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -39,17 +11,21 @@
 
             </span>
             <span>
-                <a class="header-btn-border">
-                    سیرجان
+                {% if request.user.is_authenticated %}
+                <a href="{% url "UserPanelApp:userpanel" %}" class="header-btn-border">
+                    ناحیه کاربری
                 </a>
+                    {% else %}
+                    <a href="{% url "AcountApp:login" %}" class="header-btn-border">
+                    ناحیه کاربری
+                </a>
+                {% endif %}
             </span>
 
 
         </div>
     </div>
 </div>
-<!--end header -->
-
 
 
 
@@ -61,7 +37,7 @@
         <div class="col-lg-2 col-md-4 col-12 mt-sm-2 order-md-1 order-lg-1">
             <div class="text-center">
                 <a href="{% url "HomeApp:HomeApp" %}">
-                    <img src="{% static "img/logoheder.png" %}" class="img-fluid "  >
+                    <img src="{% static "img/logoheder.png" %}" class="img-fluid ">
                 </a>
             </div>
         </div>
@@ -74,9 +50,10 @@
 
         <div class="col-lg-3 col-md-8 col-12 order-md-2 order-lg-3">
             <div class="top-search margin-search mt-md-5 mt-lg-4">
-                <form method="get" action="https://netpen.ir/ordibehesht/search">
-                    <input name="serch" type="text" class="form-control" placeholder="جستو جو در همه اخبار">
-                    <button type="button" name="button" class="bg-search">
+                <form method="get" action="{% url "HomeApp:serach" %}">
+
+                    <input name="q"  required type="text" class="form-control" placeholder="جستو جو در همه اخبار">
+                    <button type="submit" class="bg-search">
                         <i class="fa fa-search icon-header-color "></i>
                     </button>
                 </form>
@@ -90,7 +67,8 @@
 
 <nav class="navbar navbar-expand-lg bg-nav-color sticky-top header  mt-2 ">
     <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
                 <i class="fa fa-bars"></i>
             </span>
@@ -98,93 +76,86 @@
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav pr-lg-0">
                 <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="{% url "HomeApp:HomeApp" %}" >صفحه اصلی</a>
+                    <a class="nav-link nav-text-color pb-3" href="{% url "HomeApp:HomeApp" %}">صفحه اصلی</a>
 
                 </li>
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}" >اتحادیه ها و کمیسیون ها</a>
+                    <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}">اتحادیه ها و کمیسیون
+                        ها</a>
                     <ul class="dropdown-menu fade-up">
                         <li><a class="dropdown-item" href="{% url "GuildRoomApp:List" %}"> اتحادیه ها</a></li>
-                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">لیست کمیسیون ها </a></li>
-                        <li><a class="dropdown-item" >اشیاء گم شده </a></li>
-						 <li><a class="dropdown-item" >نیروکار </a></li>
+                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}"> کمیسیون ها </a>
+                        </li>
+                        <li><a href="{% url "ContactByMeappd:Lost-Precious" %}" class="dropdown-item">اشیاء گم شده </a></li>
+                        <li><a href="{% url "ContactByMeappd:work-force" %}" class="dropdown-item">نیروکار </a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link  nav-text-color pb-3">هیئت رئیسه </a>
+                    <a href="{% url "GuildRoomApp:MemberOfUnionList" %}" class="nav-link  nav-text-color pb-3">هیئت رئیسه </a>
                     <ul class="dropdown-menu fade-up">
 
-                        <li><a class="dropdown-item" >اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
-                        <li><a class="dropdown-item" >چارت سازمانی اتاق اصناف سیرجان </a></li>
+                        <li><a href="{% url "GuildRoomApp:MemberOfUnionList" %}" class="dropdown-item">اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
+                        <li><a class="dropdown-item">چارت سازمانی اتاق اصناف سیرجان </a></li>
 
                     </ul>
                 </li>
 
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link  nav-text-color pb-3">رویداد </a>
-                    <ul class="dropdown-menu fade-up">
+                    <a class="nav-link  nav-text-color pb-3" href="{% url "EventsApp:EventApp" %}">رویداد </a>
 
-                        <li><a class="dropdown-item" >دوره آموزشی</a></li>
-                        <li><a class="dropdown-item" >همایش </a></li>
-						 <li><a class="dropdown-item" >سمینار</a></li>
-						 <li><a class="dropdown-item" >جشنواره</a></li>
-                    </ul>
                 </li>
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3"> قوانین و مقررات  </a>
+                    <a class="nav-link nav-text-color pb-3" href="{% url "RulesApp:Rules" %}"> قوانین و مقررات </a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" >اخبار قوانین و مقررات</a></li>
-                        <li><a class="dropdown-item" >قوانین نظام صنفی</a></li>
-                        <li><a class="dropdown-item" >دستورالعمل ها</a></li>
-						<li><a class="dropdown-item" >دریافت فایل</a></li>
-                        <li><a class="dropdown-item" >آیین نامه های اجرائی</a></li>
-                        <li><a class="dropdown-item" >بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و اصناف</a></li>
+                        <li><a class="dropdown-item">اخبار قوانین و مقررات</a></li>
+                        <li><a class="dropdown-item" href="{% url "RulesApp:rule-senf" %}">قوانین نظام صنفی</a></li>
+                        <li><a class="dropdown-item">دستورالعمل ها</a></li>
+                        <li><a class="dropdown-item" href="{% url "RulesApp:Rules" %}">دریافت فایل</a></li>
+                        <li><a class="dropdown-item">آیین نامه های اجرائی</a></li>
+                        <li><a class="dropdown-item">بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و
+                            اصناف</a></li>
                     </ul>
                 </li>
-
 
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" > درباره ما </a>
+                    <a href="{% url "AboutUsApp:About" %}" class="nav-link nav-text-color pb-3"> درباره ما </a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" >تاریخچه</a></li>
-                        <li><a class="dropdown-item" >گالری </a></li>
-						  <li><a class="dropdown-item" >تماس با ما</a></li>
+                        <li><a class="dropdown-item">تاریخچه</a></li>
+                        <li><a class="dropdown-item">گالری </a></li>
+                        <li><a href="{% url "ContactByMeappd:conatctByMeView" %}" class="dropdown-item">تماس با ما</a></li>
 
                     </ul>
                 </li>
-				  <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" >درگاه ملی مجوزها  </a>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3">درگاه ملی مجوزها </a>
                     <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="https://mojavez.ir">  ورود به درگاه ملی مجوزها</a></li>
+                        <li><a class="dropdown-item" href="https://mojavez.ir"> ورود به درگاه ملی مجوزها</a></li>
                         <li><a class="dropdown-item">اموزش درگاه ملی مجوزها </a></li>
 
                     </ul>
 
 
                 </li>
-				   <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" >سامانه چارسو </a>
-<!--
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="#">تاریخچه</a></li>
-                        <li><a class="dropdown-item" href="#">تماس با ما </a></li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link nav-text-color pb-3">سامانه چارسو </a>
+                    <!--
+                                        <ul class="dropdown-menu fade-up">
+                                            <li><a class="dropdown-item" href="#">تاریخچه</a></li>
+                                            <li><a class="dropdown-item" href="#">تماس با ما </a></li>
 
-                    </ul>
--->
+                                        </ul>
+                    -->
                 </li>
-
-
-
-
-
 
 
             </ul>
         </div> <!-- navbar-collapse.// -->
     </div>
 </nav>
+
+<!--end menu-->

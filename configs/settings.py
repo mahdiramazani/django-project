@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "apps.contactByMeapp.apps.ContactbymeappConfig",
     "apps.PaymentsApps.apps.PaymentsappsConfig",
     "apps.RulesApp.apps.RulesappConfig",
+    "apps.AboutUsApp.apps.AboutusappConfig",
     "ckeditor",
     "django_jalali",
     "storages",
@@ -156,7 +157,7 @@ CKEDITOR_CONFIGS = {
     },
 }
 
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_ACCESS_KEY_ID = '3eaeed4f-d47a-4ee0-b649-672e1a004ddd'
 AWS_SECRET_ACCESS_KEY = '833a78c8372f1d3458f5a6d8e5857ab4ebb7abae1e8315807db7f2b6900165f6'

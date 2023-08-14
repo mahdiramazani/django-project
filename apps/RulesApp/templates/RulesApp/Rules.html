@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+  <div class="row justify-content-md-center">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><a class="text-dark text-bold font-weight-bold">#</a></th>
+      <th scope="col"><a class="text-dark text-bold font-weight-bold">دسته بندی</a></th>
+      <th scope="col"><a class="text-dark text-bold font-weight-bold">عنوان</a></th>
+      <th scope="col"><a class="text-dark text-bold font-weight-bold">مشاهده</a></th>
+      <th scope="col"><a class="text-dark text-bold font-weight-bold">دانلود فایل pdf</a></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in object_list %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ item.category }}</td>
+      <td>{{ item.title }}</td>
+      <td><a href="{{ item.get_absolut_url }}" class="text-success text-bold font-weight-bold">نمایش</a></td>
+      <td><a href="{{ item.file.url }}" class="text-primary text-bold font-weight-bold">دانلود</a></td>
+    </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+  </div>
+    </div>
+{% endblock %}

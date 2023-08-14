@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>اتاق اصناف سیرجان</title>
-
+    <link rel="icon" type="image/png" href="{% static "img/logoheder.png" %}" sizes="32x32">
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css">
     <link href="{% static "css/all.min.css" %}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}">
@@ -56,7 +56,7 @@
         </div>
     </div>
 </div>
-<!--end header -->
+
 
 
 <!--begin menu -->
@@ -139,12 +139,12 @@
                 </li>
 
                 <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3"> قوانین و مقررات </a>
+                    <a class="nav-link nav-text-color pb-3" href="{% url "RulesApp:Rules" %}"> قوانین و مقررات </a>
                     <ul class="dropdown-menu fade-up">
                         <li><a class="dropdown-item">اخبار قوانین و مقررات</a></li>
-                        <li><a class="dropdown-item">قوانین نظام صنفی</a></li>
+                        <li><a class="dropdown-item" href="{% url "RulesApp:rule-senf" %}">قوانین نظام صنفی</a></li>
                         <li><a class="dropdown-item">دستورالعمل ها</a></li>
-                        <li><a class="dropdown-item">دریافت فایل</a></li>
+                        <li><a class="dropdown-item" href="{% url "RulesApp:Rules" %}">دریافت فایل</a></li>
                         <li><a class="dropdown-item">آیین نامه های اجرائی</a></li>
                         <li><a class="dropdown-item">بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و
                             اصناف</a></li>
@@ -403,7 +403,7 @@
         </div>
     </div>
 </section>
-<!--end footer-->
+
 
 
 <div class="scrolltop" onclick="scroll_top()">

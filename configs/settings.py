@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "apps.EventsApp.apps.EventsappConfig",
     "apps.contactByMeapp.apps.ContactbymeappConfig",
     "apps.PaymentsApps.apps.PaymentsappsConfig",
+    "apps.RulesApp.apps.RulesappConfig",
     "ckeditor",
     "django_jalali",
     "storages",

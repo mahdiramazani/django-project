@@ -57,3 +57,5 @@ class SearchView(View):
             object_list = paginator.page(paginator.num_pages)
 
         return render(request,"HomeApp/search.html",{"object_list":object_list})
+
+

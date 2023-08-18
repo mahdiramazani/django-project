@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import GuildRoomModel,CommissionsModel
 from . import forms
 
-
+admin.site.site_header = 'مدیریت وبسایت اتاق اصناف سیرجان'
 admin.site.register(GuildRoomModel)
 admin.site.register(CommissionsModel)
 # @admin.register(GuildRoomModel)

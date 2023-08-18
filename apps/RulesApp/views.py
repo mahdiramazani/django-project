@@ -20,3 +20,21 @@ class RulesSenf(ListView):
         qs=super().get_queryset()
 
         return qs.filter(category="قانون نظام صنفی")
+
+class InstructionsViews(ListView):
+    template_name = "RulesApp/instructions.html"
+    model = RulesModel
+
+    def get_queryset(self):
+        qs=super().get_queryset()
+
+        return qs.filter(category="دستورالعمل های اجرایی")
+
+class RegulationsViews(ListView):
+    template_name = "RulesApp/regulations.html"
+    model = RulesModel
+
+    def get_queryset(self):
+        qs=super().get_queryset()
+
+        return qs.filter(category="آئین نامه اجرایی")

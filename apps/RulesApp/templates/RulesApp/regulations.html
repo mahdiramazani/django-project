@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+
+
+
+  <div class="row justify-content-md-center">
+
+  <div class="col col-lg-2">
+
+    </div>
+    <div class="col-md-auto">
+
+        <br>
+        <br>
+        <br>
+     <h2 class="text text-center font-weight-bold">آیین نامه های اجرایی</h2>
+        <br>
+
+    </div>
+    <div class="col col-lg-2">
+
+    </div>
+<table class="table table-striped">
+
+  <tbody>
+  {% for item in object_list %}
+    <tr>
+
+
+      <td><a href="{{ item.get_absolut_url }}" class="text-primary text-bold font-weight-bold">
+
+          -- {{ item.title }}</a></td>
+
+    </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+  </div>
+    </div>
+{% endblock %}

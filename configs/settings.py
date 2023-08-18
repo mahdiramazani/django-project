@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     "ckeditor",
     "django_jalali",
     "storages",
-
+    "admin_persian"
 
 ]
 

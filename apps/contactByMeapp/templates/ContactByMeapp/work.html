@@ -100,7 +100,7 @@
                                 <label for="#" class="form-field-container w-100">
                                     <div class="form-field-label">متن پیام*</div>
                                     <div class="form-field-frame">
-                                        <textarea required name="body" type="text" placeholder=""
+                                        <textarea required name="body" type="text" placeholder="لطفا اطلاعات دقیق  خود را با جزئیات وارد کنید"
                                                   class="form-field js-input-field form-control"></textarea>
                                     </div>
                                 </label>
@@ -112,21 +112,51 @@
                             </div>
                         </form>
 
-                        <div class="contact-us-row">
-                            <p class="box-title text text-bold">نیروی کار:</p>
+                         <div class="bg-white-content ">
+                    <div class="p-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="bg-video">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div style="text-align: right">
+                                                <span class="color-teldio font_15">نیروی کار</span>
+                                            </div>
+                                        </div>
 
 
-                            <div class="">
-                                {% if work %}
-                                    {% for item in work %}
-                                        <p>{{ item.body }} - {{ item.phone }}</p>
-                                    {% endfor %}
-                                {% endif %}
-
-
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
+
+                        <div class="row">
+
+                            <div class="col-lg-6 order-1">
+                                <div class="row">
+                                    <div class="col-12 mt-3">
+                                        <div class="style-text">
+                                            <div class="row">
+
+                                                <div class="col-lg-12 col-md-6 col-12 mt-3">
+                                                {% for item in work %}
+                                                    <a>
+                                                        <div class="circle-title"></div>
+                                                        <p class=" text-p font_16 mb-1 style-tittle">
+                                                            {{ item.body }} - {{ item.phone }}
+                                                        </p>
+                                                    </a>
+                                                {% endfor %}
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                     </div>
                 </div>

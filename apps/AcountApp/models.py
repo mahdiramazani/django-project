@@ -57,7 +57,7 @@ class User(AbstractBaseUser):
     image=models.FileField(upload_to="users/images",null=True,blank=True,
                            verbose_name="عکس")
     is_publishing_news=models.BooleanField(default=False,verbose_name="اجازه ارسال اخبار دارد؟")
-    guild_member=models.BooleanField(default=False,verbose_name="عضو اتاق اصناف است؟")
+    guild_member=models.BooleanField(default=False,verbose_name="عضو اتحادیه")
     post = models.CharField(choices=POST_CHOICES,
                             null=True, blank=True,
                             max_length=50,
@@ -69,7 +69,7 @@ class User(AbstractBaseUser):
                                            verbose_name="عضو کمیسیون می باشد؟")
     board_of_directors=models.BooleanField(default=False,
                                            verbose_name="عضو هیئت رئیسه می باشد؟")
-    created=jmodels.jDateTimeField(auto_now_add=True)
+    created=models.DateTimeField(auto_now_add=True)
     bio=RichTextField(null=True,blank=True,
                       verbose_name="بیوگرافی")
 

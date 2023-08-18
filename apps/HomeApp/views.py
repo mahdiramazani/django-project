@@ -18,8 +18,6 @@ class HomeAppView(TemplateView):
         if ViewHomeModels.objects.filter(
                 createdDate__range=(timezone.now()-timezone.timedelta(days=1),timezone.now()+timezone.timedelta(days=20))).exists():
 
-
-
             ViewHomeModels.objects.create(view=0,createdDate=timezone.now())
         else:
             ViewHomeModels.objects.create(view=0,createdDate=timezone.now())

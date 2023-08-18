@@ -27,8 +27,8 @@ class GuildRoomModel(models.Model):
 
     class Meta:
 
-        verbose_name="اتاق اصناف"
-        verbose_name_plural="اتاق اصناف"
+        verbose_name="اتحادیه"
+        verbose_name_plural="اتحادیه ها"
 
 
 class CommissionsModel(models.Model):

@@ -4,7 +4,7 @@ from jalali_date.utils import jalali_convert
 class ViewHomeModels(models.Model):
 
     view=models.IntegerField()
-    createdDate=models.DateTimeField()
+    createdDate=models.DateTimeField(auto_now_add=True)
 
 
     def __str__(self):

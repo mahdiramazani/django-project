@@ -12,10 +12,10 @@
             </span>
             <span>
                 {% if request.user.is_authenticated %}
-                <a href="{% url "UserPanelApp:userpanel" %}" class="header-btn-border">
+                    <a href="{% url "UserPanelApp:userpanel" %}" class="header-btn-border">
                     ناحیه کاربری
                 </a>
-                    {% else %}
+                {% else %}
                     <a href="{% url "AcountApp:login" %}" class="header-btn-border">
                     ناحیه کاربری
                 </a>
@@ -26,7 +26,6 @@
         </div>
     </div>
 </div>
-
 
 
 <!--begin menu -->
@@ -52,7 +51,7 @@
             <div class="top-search margin-search mt-md-5 mt-lg-4">
                 <form method="get" action="{% url "HomeApp:serach" %}">
 
-                    <input name="q"  required type="text" class="form-control" placeholder="جستو جو در همه اخبار">
+                    <input name="q" required type="text" class="form-control" placeholder="جستو جو در همه اخبار">
                     <button type="submit" class="bg-search">
                         <i class="fa fa-search icon-header-color "></i>
                     </button>
@@ -75,81 +74,111 @@
         </button>
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav pr-lg-0">
-                <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="{% url "HomeApp:HomeApp" %}">صفحه اصلی</a>
-
-                </li>
-
-                <li class="nav-item dropdown ">
-                    <a class="nav-link  nav-text-color pb-3" href="{% url "GuildRoomApp:List" %}">اتحادیه ها و کمیسیون
-                        ها</a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:List" %}"> اتحادیه ها</a></li>
-                        <li><a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}"> کمیسیون ها </a>
-                        </li>
-                        <li><a href="{% url "ContactByMeappd:Lost-Precious" %}" class="dropdown-item">اشیاء گم شده </a></li>
-                        <li><a href="{% url "ContactByMeappd:work-force" %}" class="dropdown-item">نیروکار </a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown ">
-                    <a href="{% url "GuildRoomApp:MemberOfUnionList" %}" class="nav-link  nav-text-color pb-3">هیئت رئیسه </a>
-                    <ul class="dropdown-menu fade-up">
-
-                        <li><a href="{% url "GuildRoomApp:MemberOfUnionList" %}" class="dropdown-item">اعضای هیئت رئیسه اتاق اصناف سیرجان</a></li>
-                        <li><a class="dropdown-item">چارت سازمانی اتاق اصناف سیرجان </a></li>
-
-                    </ul>
-                </li>
 
 
-                <li class="nav-item dropdown ">
-                    <a class="nav-link  nav-text-color pb-3" href="{% url "EventsApp:EventApp" %}">رویداد </a>
-                </li>
+                <div class="dropdown show">
+                    <a class="btn  text text-dark" href="{% url "HomeApp:HomeApp" %}">
+                        صفحه اصلی
+                    </a>
+                </div>
 
-                <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3" href="{% url "RulesApp:Rules" %}"> قوانین و مقررات </a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item">اخبار قوانین و مقررات</a></li>
-                        <li><a class="dropdown-item" href="{% url "RulesApp:rule-senf" %}">قوانین نظام صنفی</a></li>
-                        <li><a href="{% url "RulesApp:instructions" %}" class="dropdown-item">دستورالعمل ها</a></li>
-                        <li><a class="dropdown-item" href="{% url "RulesApp:Rules" %}">دریافت فایل</a></li>
-                        <li><a href="{% url "RulesApp:Regulations" %}" class="dropdown-item">آیین نامه های اجرائی</a></li>
-                        <li><a class="dropdown-item">بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و
-                            اصناف</a></li>
-                    </ul>
-                </li>
-
-
-                <li class="nav-item dropdown ">
-                    <a href="{% url "AboutUsApp:About" %}" class="nav-link nav-text-color pb-3"> درباره ما </a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item">تاریخچه</a></li>
-                        <li><a class="dropdown-item">گالری </a></li>
-                        <li><a href="{% url "ContactByMeappd:conatctByMeView" %}" class="dropdown-item">تماس با ما</a></li>
-
-                    </ul>
-                </li>
-                <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3">درگاه ملی مجوزها </a>
-                    <ul class="dropdown-menu fade-up">
-                        <li><a class="dropdown-item" href="https://mojavez.ir"> ورود به درگاه ملی مجوزها</a></li>
-                        <li><a class="dropdown-item">اموزش درگاه ملی مجوزها </a></li>
-
-                    </ul>
+                <div class="dropdown show">
+                    <a class="btn dropdown-toggle text text-dark" href="{% url "GuildRoomApp:List" %}" role="button"
+                       id="dropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        اتحادیه ها و کمیسیون ها
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="{% url "GuildRoomApp:List" %}">اتحادیه ها</a>
+                        <a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">کمیسیون ها</a>
+                        <a class="dropdown-item" href="{% url "ContactByMeappd:Lost-Precious" %}">اشیاء گم شده</a>
+                        <a class="dropdown-item" href="{% url "ContactByMeappd:work-force" %}">نیروکار</a>
+                    </div>
+                </div>
 
 
-                </li>
-                <li class="nav-item dropdown ">
-                    <a class="nav-link nav-text-color pb-3">سامانه چارسو </a>
-                    <!--
-                                        <ul class="dropdown-menu fade-up">
-                                            <li><a class="dropdown-item" href="#">تاریخچه</a></li>
-                                            <li><a class="dropdown-item" href="#">تماس با ما </a></li>
+                <div class="dropdown show">
+                    <a class="btn dropdown-toggle text text-dark" href="{% url "GuildRoomApp:List" %}" role="button"
+                       id="dropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        هیئت رئیسه
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="{% url "GuildRoomApp:MemberOfUnionList" %}">اعضای هیئت رئیسه
+                            اتاق اصناف سیرجان</a>
+                        <a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}">چارت سازمانی اتاق اصناف
+                            سیرجان</a>
 
-                                        </ul>
-                    -->
-                </li>
+                    </div>
+                </div>
+
+
+                <div class="dropdown show">
+                    <a class="btn  text text-dark" href="{% url "EventsApp:EventApp" %}">
+                        رویداد
+                    </a>
+                </div>
+
+
+
+                <div class="dropdown show">
+                    <a class="btn dropdown-toggle text text-dark" role="button"
+                       id="dropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        قوانین و مقررات
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="{% url "GuildRoomApp:MemberOfUnionList" %}">اخبار قوانین و مقررات</a>
+                        <a class="dropdown-item" href="{% url "RulesApp:rule-senf" %}">قوانین نظام صنفی</a>
+                        <a class="dropdown-item" href="{% url "RulesApp:instructions" %}">دستورالعمل ها</a>
+                        <a class="dropdown-item" href="{% url "RulesApp:Rules" %}">دریافت فایل</a>
+                        <a class="dropdown-item" href="{% url "RulesApp:Regulations" %}"> آیین نامه های اجرائی</a>
+                        <a class="dropdown-item" href="{% url "GuildRoomApp:Comision-list" %}"> بخشودگی جرایم بیمه کارفرمایان واحدهای تولیدی ، صنعتی و خدماتی و
+                            اصناف</a>
+
+                    </div>
+                </div>
+
+
+
+
+                  <div class="dropdown show">
+                    <a class="btn dropdown-toggle text text-dark" role="button"
+                       id="dropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        درباره ما
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="{% url "AboutUsApp:About" %}">درباره ما</a>
+                        <a class="dropdown-item" href="{% url "GuildRoomApp:MemberOfUnionList" %}">تاریخچه</a>
+                        <a class="dropdown-item" href="{% url "RulesApp:rule-senf" %}">گالری</a>
+                        <a class="dropdown-item" href="{% url "ContactByMeappd:conatctByMeView" %}">تماس با ما</a>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="dropdown show">
+                    <a class="btn dropdown-toggle text text-dark" role="button"
+                       id="dropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        درگاه ملی مجوزها
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="https://mojavez.ir">ورود به درگاه ملی مجوزها</a>
+                        <a class="dropdown-item" >اموزش درگاه ملی مجوزها</a>
+
+                    </div>
+                </div>
+
+
+                <div class="dropdown show">
+                    <a class="btn  text text-dark">
+                        سامانه چارسو
+                    </a>
+                </div>
 
 
             </ul>

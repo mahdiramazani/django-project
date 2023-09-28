@@ -97,6 +97,7 @@ class NewsModels(models.Model):
     class Meta:
         verbose_name="خبر"
         verbose_name_plural="اخبار"
+        ordering=("-pub_date",)
 
 
 class Comment(models.Model):

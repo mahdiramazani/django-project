@@ -160,7 +160,7 @@
                                             <div class="style-text">
                                                 <div class="row">
                                                     <div class="col-md-12 col-sm-15 col-xs-1">
-                                                        <a href="#" class="img-news-teldio">
+                                                        <a href="{% url "GuildRoomApp:MemberOfUnionList" %}" class="img-news-teldio">
                                                             {% if item.image %}
                                                                 <img src="{{ item.image.url }}" class="img-fluid w-100">
                                                             {% else %}
@@ -172,7 +172,7 @@
                                                     </div>
                                                     <div class="col-12  mt-3">
 
-                                                        <a href="#">
+                                                        <a href="{% url "GuildRoomApp:MemberOfUnionList" %}">
                                                             <div class="circle-title"></div>
 
                                                             <p class=" text-p font_14 mb-1 style-tittle line-height-text">

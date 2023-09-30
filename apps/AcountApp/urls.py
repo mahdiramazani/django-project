@@ -10,6 +10,6 @@ urlpatterns=[
     path("check-otc-forget-pass/",views.PassForgetOtp.as_view(),name="check-otc-forget-pass"),
     path("chnage-pass/",views.ChangePassView.as_view(),name="change-pass"),
     path("pass-change-complate/",views.PassChangeComplateView.as_view(),name="complate-pass-cjange"),
-    path("user-detail/",views.UserDetailView.as_view(),name="UserDetail"),
+    path("user-detail/<int:pk>/",views.UserDetailView.as_view(),name="UserDetail"),
     path("otp/",views.OtpView.as_view(),name="OTP")
 ]

@@ -263,6 +263,10 @@ class OtpView(CheckLoginMixinMixin,View):
 
                 return render(request, "AcountApp/otp.html",context)
 
-class UserDetailView(TemplateView):
-    template_name = "AcountApp/userdetail.html"
+class UserDetailView(View):
+
+    def get(self,request,pk):
+
+        return render(request,"AcountApp/userdetail.html")
+
 

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     "apps.AboutUsApp.apps.AboutusappConfig",
     "apps.supervisionApp.apps.SupervisionappConfig",
     "apps.CharsooApp.apps.CharsooappConfig",
+
     "ckeditor",
     "django_jalali",
     "storages",

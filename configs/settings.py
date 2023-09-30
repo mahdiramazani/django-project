@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "apps.RulesApp.apps.RulesappConfig",
     "apps.AboutUsApp.apps.AboutusappConfig",
     "apps.supervisionApp.apps.SupervisionappConfig",
+    "apps.CharsooApp.apps.CharsooappConfig",
     "ckeditor",
     "django_jalali",
     "storages",

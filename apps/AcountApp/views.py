@@ -78,10 +78,13 @@ class RegisterView(CheckLoginMixinMixin,View):
         return render(request,"AcountApp/register.html")
 
 
-class LogOutView(CheckLoginMixinMixin,View):
+class LogOutView(View):
     def get(self,request):
-        logout(request)
-        return redirect('/')
+
+        if request.user.is_authenticated:
+
+            logout(request)
+            return redirect('/')
 
 class ForgetPassView(CheckLoginMixinMixin,View):
 

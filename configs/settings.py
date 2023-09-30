@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "apps.PaymentsApps.apps.PaymentsappsConfig",
     "apps.RulesApp.apps.RulesappConfig",
     "apps.AboutUsApp.apps.AboutusappConfig",
+    "apps.supervisionApp.apps.SupervisionappConfig"
     "ckeditor",
     "django_jalali",
     "storages",

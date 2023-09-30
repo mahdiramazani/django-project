@@ -14,7 +14,7 @@
                 <!-- item -->
                     {% for item in object_list %}
                     <div class="member">
-                        <div class="member-img-box">
+                        <div  class="member-img-box">
 
                                 {% if item.image %}
                                     <a href="{% url "AcountApp:UserDetail" item.id %}">
@@ -29,7 +29,7 @@
                             <div class="member-overlay"></div>
                         </div>
 
-                    <a href="{% url "AcountApp:UserDetail" item.id %}">
+                    <a href="{% url "AcountApp:UserDetail" item.id %}" class="text text-dark">
                         <p>{{ item.fullname }}-{{ item.post }}</p>
                     </a>
 

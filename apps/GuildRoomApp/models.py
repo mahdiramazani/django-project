@@ -57,3 +57,6 @@ class CommissionsModel(models.Model):
 
         verbose_name="کمیسیون"
         verbose_name_plural="کمیسیون ها"
+
+
+

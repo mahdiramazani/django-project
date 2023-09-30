@@ -31,5 +31,6 @@ urlpatterns = [
                   path("contact-us/",include("apps.contactByMeapp.urls")),
                   path("cart/",include("apps.PaymentsApps.urls")),
                   path("rules/",include("apps.RulesApp.urls")),
-                  path("about-us/",include("apps.AboutUsApp.urls"))
+                  path("about-us/",include("apps.AboutUsApp.urls")),
+                  path("supervision/",include("apps.supervisionApp"))
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

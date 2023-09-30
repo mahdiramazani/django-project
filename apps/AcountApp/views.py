@@ -266,7 +266,8 @@ class OtpView(CheckLoginMixinMixin,View):
 class UserDetailView(View):
 
     def get(self,request,pk):
+        user=User.objects.get(id=pk)
 
-        return render(request,"AcountApp/userdetail.html")
+        return render(request,"AcountApp/userdetail.html",{"user":user})
 
 

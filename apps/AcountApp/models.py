@@ -58,6 +58,7 @@ class User(AbstractBaseUser):
                            verbose_name="عکس")
     is_publishing_news=models.BooleanField(default=False,verbose_name="اجازه ارسال اخبار دارد؟")
     guild_member=models.BooleanField(default=False,verbose_name="عضو اتحادیه")
+    is_supervision=models.BooleanField(default=False,verbose_name="عضو نظارت و بازرسی")
     post = models.CharField(choices=POST_CHOICES,
                             null=True, blank=True,
                             max_length=50,

@@ -5,7 +5,7 @@ from django.shortcuts import reverse
 
 class Supervision(models.Model):
     name = models.CharField(max_length=50, verbose_name="نظارت و بازرسی")
-    user = models.ManyToManyField(User, limit_choices_to={"commissions_member": True},
+    user = models.ManyToManyField(User, limit_choices_to={"is_supervision": True},
                                   related_name="Supervision"
                                   , verbose_name="افراد")
     slug = models.SlugField(allow_unicode=True, null=True, blank=True)
@@ -16,7 +16,7 @@ class Supervision(models.Model):
         super().save(**kwargs)
 
     def get_absolut_url(self):
-        return reverse("GuildRoomApp:comision-detail", args=[self.id])
+        return reverse("supervisionApp:detail-Supervision", args=[self.id])
 
     def __str__(self):
         return self.name

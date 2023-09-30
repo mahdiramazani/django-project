@@ -526,7 +526,7 @@
 
                                         <div class="col-6">
                                             <div style="text-align: left">
-                                                <a href="{% url "NewsApp:AllNews" %}">
+                                                <a href="{% url "supervisionApp:All-Supervision" %}">
                                                     <span class="color-video font_15">مشاهده همه</span>
                                                 </a>
                                             </div>
@@ -538,7 +538,7 @@
 
                         <div class="row">
                             <div class="col-lg-6 order-2">
-                                {% for item in Guild_news|slice:"0:3" %}
+                                {% for item in supervision|slice:"0:3" %}
                                     <div class="row">
                                         <div class="col-12 mt-3">
                                             <div class="style-text">
@@ -573,21 +573,21 @@
                                         <div class="style-text">
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-6 col-12">
-                                                    <a href="{{ last_Guild_news.get_absolut_url }}"
+                                                    <a href="{{ last_supervision.get_absolut_url }}"
                                                        class="img-news-teldio">
-                                                        <img src="{{ last_Guild_news.image.url }}"
+                                                        <img src="{{ last_supervision.image.url }}"
                                                              class="img-fluid">
                                                     </a>
                                                 </div>
                                                 <div class="col-lg-12 col-md-6 col-12 mt-3">
-                                                    <a href="{{ last_Guild_news.get_absolut_url }}">
+                                                    <a href="{{ last_supervision.get_absolut_url }}">
                                                         <div class="circle-title"></div>
                                                         <p class=" text-p font_16 mb-1 style-tittle">
-                                                            {{ last_Guild_news.title }}
+                                                            {{ last_supervision.title }}
                                                         </p>
                                                     </a>
                                                     <p class="text-p font_13 mt-2" style="color: #000">
-                                                        {{ last_Guild_news.show_title | safe }}
+                                                        {{ last_supervision.show_title | safe }}
                                                     </p>
                                                 </div>
                                             </div>

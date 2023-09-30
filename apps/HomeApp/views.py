@@ -9,6 +9,7 @@ from django.utils import timezone
 from django.db.models import Q
 import datetime
 from datetime import date
+from apps.supervisionApp.models import Supervision
 class HomeAppView(TemplateView):
 
     template_name = "HomeApp/index.html"
@@ -34,6 +35,9 @@ class HomeAppView(TemplateView):
         context["image_gallery"] = ImageGallery.objects.all()
         context["must_view_news"]=NewsModels.objects.filter(view__gt=10)
         context["slider"]=SliderModel.objects.all()
+        context["supervision"]=NewsModels.objects.filter(Q(writer=None) and Q(writer_guild=None) and ~Q(supervision=None))
+        context["last_supervision"]=NewsModels.objects.filter(Q(writer=None) and Q(writer_guild=None) and ~Q(supervision=None)).last()
+
 
         return context
 

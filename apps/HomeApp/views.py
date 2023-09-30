@@ -25,7 +25,7 @@ class HomeAppView(TemplateView):
 
 
         context={}
-        context["head_news"]=NewsModels.objects.all()[0:2]
+        context["head_news"]=NewsModels.objects.filter(Q(writer=None) and ~Q(writer_guild=None) and Q(supervision=None))[0:2]
         context["last_news"]=NewsModels.objects.last()
         context["body_news"]=NewsModels.objects.all()
         context["Guid"]=User.objects.filter(board_of_directors=True)

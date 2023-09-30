@@ -38,7 +38,11 @@
                     <!-- article content -->
                     <div class="article__content">
                         <div class="article__artist">
+                            {% if user.image %}
                             <img src="{{ user.image.url }}" alt="">
+                                {% else %}
+                                <img src="{% static "img/user.png" %}">
+                            {% endif %}
                             <div>
                                 <h1>{{ user.fullname }}</h1>
                                 <span>{{ user.post }}</span>

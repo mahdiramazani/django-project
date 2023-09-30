@@ -17,8 +17,10 @@
                         <div class="member-img-box">
 
                                 {% if item.image %}
+                                    <a href="{% url "AcountApp:UserDetail" item.id %}">
                                     <img alt="{{ item.fullname }}" class="ui circular image"
                                      src="{{ item.image.url }}">
+                                    </a>
                             {% else %}
                                     <img alt="{{ item.fullname }}" class="ui circular image"
                                      src="{% static "img/user.png" %}">
@@ -26,7 +28,11 @@
 
                             <div class="member-overlay"></div>
                         </div>
+
+                    <a href="{% url "AcountApp:UserDetail" item.id %}">
                         <p>{{ item.fullname }}-{{ item.post }}</p>
+                    </a>
+
                     </div>
                 {% endfor %}
 

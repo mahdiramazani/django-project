@@ -5,7 +5,7 @@ from ckeditor.fields import RichTextField
 from django.utils.text import slugify
 from django.urls import reverse
 from django_jalali.db import models as jmodels
-
+from apps.supervisionApp.models import Supervision
 from jalali_date.utils import jalali_convert
 
 
@@ -47,6 +47,11 @@ class NewsModels(models.Model):
                                    null=True,
                                    blank=True,
                                    verbose_name="اتحادیه مربوطه")
+    supervision=models.ForeignKey(Supervision,
+                                  on_delete=models.CASCADE,
+                                  null=True,
+                                  blank=True,
+                                  verbose_name="نظارت و بازبایی مربوطه")
     title=models.CharField(max_length=50,
                            verbose_name="مقدمه")
     body=RichTextField(verbose_name="متن خبر")

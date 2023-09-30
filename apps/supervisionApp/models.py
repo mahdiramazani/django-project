@@ -24,3 +24,5 @@ class Supervision(models.Model):
     class Meta:
         verbose_name = "نظارت و بازرسی"
         verbose_name_plural = "نظارت و بازرسی"
+
+

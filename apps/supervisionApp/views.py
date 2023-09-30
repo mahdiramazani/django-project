@@ -8,7 +8,7 @@ class AllSupervision(ListView):
     template_name = "supervisionApp/all-supervisionApp.html"
 
 
-class DetailSupervision(DetailView,pk):
+class DetailSupervision(DetailView):
     model = Supervision
     template_name = "supervisionApp/supervision-detail.html"
 

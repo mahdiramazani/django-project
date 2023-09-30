@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="{% static "events/css/main.css" %}">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="{% static "events/icon/favicon-32x32.png" %}" sizes="32x32">
-    <link rel="apple-touch-icon" href="{% static "events/icon/favicon-32x32.png" %}">
+<link rel="icon" type="image/png" href="{% static "img/logoheder.png" %}" sizes="32x32">    <link rel="apple-touch-icon" href="{% static "events/icon/favicon-32x32.png" %}">
 
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -43,7 +42,7 @@
                             <div>
                                 <h1>{{ user.fullname }}</h1>
                                 <span>{{ user.post }}</span>
-                                <p>{{ user.bio }}</p>
+                                <p>{{ user.bio | safe }}</p>
                             </div>
                         </div>
 
@@ -51,7 +50,7 @@
                     </div>
                     <!-- end article content -->
 
-                
+
                     <!-- end share -->
                 </div>
             </div>

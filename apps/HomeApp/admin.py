@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ViewHomeModels,ZarinpallClass
+from .models import ViewHomeModels,ZarinpallClass,SendMessage
 from django.db.models.functions import TruncDay
 from django.db.models import Count
 from django.core.serializers.json import DjangoJSONEncoder
@@ -26,3 +26,4 @@ class WriterAdmin(admin.ModelAdmin):
 
 admin.site.register(ViewHomeModels, WriterAdmin)
 admin.site.register(ZarinpallClass)
+admin.site.register(SendMessage)

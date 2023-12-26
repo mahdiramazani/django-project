@@ -31,3 +31,22 @@ class ZarinpallClass(models.Model):
         verbose_name="لینک درگاه پرداخت زرین پال"
         verbose_name_plural="لینک درگاه پرداخت زرین پال"
 
+
+class SendMessage(models.Model):
+
+    text=models.TextField(
+        verbose_name="متن پیام را وارد کنید"
+    )
+
+
+    def __str__(self):
+
+
+        return self.text[:10]
+
+
+    class Meta:
+
+        verbose_name="ارسال پیام"
+        verbose_name_plural="ارسال پیام"
+

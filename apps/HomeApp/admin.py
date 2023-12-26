@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ViewHomeModels
+from .models import ViewHomeModels,ZarinpallClass
 from django.db.models.functions import TruncDay
 from django.db.models import Count
 from django.core.serializers.json import DjangoJSONEncoder
@@ -25,3 +25,4 @@ class WriterAdmin(admin.ModelAdmin):
         return super().changelist_view(request, extra_context=extra_context)
 
 admin.site.register(ViewHomeModels, WriterAdmin)
+admin.site.register(ZarinpallClass)

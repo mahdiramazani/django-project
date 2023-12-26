@@ -82,18 +82,21 @@ class DelFromOrder(CheckLoginRequiredMixin,View):
 
 import requests
 import json
-MERCHANT = "b3b73736-7999-4b64-b2e7-f14c42ee52a7"
+from apps.HomeApp.models import ZarinpallClass
+merchant=ZarinpallClass.objects.all().last()
+print("merchant: ",merchant.link)
+
+MERCHANT =merchant.link
 ZP_API_REQUEST = "https://api.zarinpal.com/pg/v4/payment/request.json"
 ZP_API_VERIFY = "https://api.zarinpal.com/pg/v4/payment/verify.json"
 ZP_API_STARTPAY = "https://www.zarinpal.com/pg/StartPay/{authority}"
 
 amount = 1000
 description = "توضیحات مربوط به تراکنش را در این قسمت وارد کنید"  # Required
-phone = '09011612090'
 CallbackURL = 'http://127.0.0.1:8000/cart/verify/'
 
 
-class PayZarinPallView(CheckLoginRequiredMixin,View):
+class PayZarinPallView(View):
 
     def post(self,request,pk):
 
@@ -116,6 +119,7 @@ class PayZarinPallView(CheckLoginRequiredMixin,View):
                         "content-type": "application/json'"}
             req = requests.post(url=ZP_API_REQUEST, data=json.dumps(
                 req_data), headers=req_header)
+
             authority = req.json()['data']['authority']
             if len(req.json()['errors']) == 0:
                 return redirect(ZP_API_STARTPAY.format(authority=authority))
@@ -128,7 +132,7 @@ class PayZarinPallView(CheckLoginRequiredMixin,View):
             pass
 
 
-class VerifyView(CheckLoginRequiredMixin,View):
+class VerifyView(View):
 
     def get(self, request):
         t_status = request.GET.get('Status')

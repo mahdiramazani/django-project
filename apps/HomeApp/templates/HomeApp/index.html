@@ -127,7 +127,7 @@
 
         <div class="bg-content pb-5">
             <div class="container">
-                <div class="row">
+                <div class="m-0 row">
                     <div class="mt-5">
                         <div class="row">
                             <div class="col-12">
@@ -160,7 +160,8 @@
                                             <div class="style-text">
                                                 <div class="row">
                                                     <div class="col-md-12 col-sm-15 col-xs-1">
-                                                        <a href="{% url "AcountApp:UserDetail" item.id %}" class="img-news-teldio">
+                                                        <a href="{% url "AcountApp:UserDetail" item.id %}"
+                                                           class="img-news-teldio">
                                                             {% if item.image %}
                                                                 <img src="{{ item.image.url }}" class="img-fluid w-100">
                                                             {% else %}
@@ -399,14 +400,14 @@
                                             </span>
                                         </span>
                                                 {% if request.user.is_authenticated %}
-                                                <a href="{% url "UserPanelApp:userpanel" %}" class="style-enter">
-                                                    وارد شوید
-                                                </a>
+                                                    <a href="{% url "UserPanelApp:userpanel" %}" class="style-enter">
+                                                        وارد شوید
+                                                    </a>
                                                 {% else %}
 
-                                                <a href="{% url "UserPanelApp:userpanel" %}" class="style-enter">
-                                                    وارد شوید
-                                                </a>
+                                                    <a href="{% url "UserPanelApp:userpanel" %}" class="style-enter">
+                                                        وارد شوید
+                                                    </a>
                                                 {% endif %}
                                             </div>
                                         </div>
@@ -416,9 +417,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
 
 
                 <div class="bg-white-content ">
@@ -508,11 +506,11 @@
                     </div>
                 </div>
 
-            <br>
-            <br>
-            <br>
+                <br>
+                <br>
+                <br>
 
-            <div class="bg-white-content ">
+                <div class="bg-white-content ">
                     <div class="p-3">
                         <div class="row">
                             <div class="col-12">

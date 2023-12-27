@@ -6,7 +6,7 @@ import random
 import requests
 import ghasedakpack
 from .mixin import CheckLoginMixinMixin
-sms = ghasedakpack.Ghasedak("8c1451922c0369b92a8da38aeb7d7b1e75db540b751dc9e30aa5abf61ad9dce7")
+sms = ghasedakpack.Ghasedak("091fd79dad29615b1b1ca22a91beac3c83db83baba36b25e28ef054650d7d71e")
 
 
 class LoginView(CheckLoginMixinMixin,View):
@@ -70,7 +70,7 @@ class RegisterView(CheckLoginMixinMixin,View):
 
                     sms.verification(
                         {'receptor': phone,
-                         'type': '1', 'template': 'TipHub',
+                         'type': '1', 'template': 'registersms',
                          'param1':code})
 
                     return redirect("AcountApp:OTP")
@@ -102,7 +102,7 @@ class ForgetPassView(CheckLoginMixinMixin,View):
 
             sms.verification(
                 {'receptor': phone,
-                 'type': '1', 'template': 'TipHub',
+                 'type': '1', 'template': 'registersms',
                  'param1': code})
 
             return redirect("AcountApp:check-otc-forget-pass")
@@ -128,8 +128,7 @@ class PassForgetOtp(CheckLoginMixinMixin,View):
         phone = request.session.get("phone_forget")
         code = request.session.get("code_forget")
 
-        del request.session['phone_forget']
-        del request.session['code_forget']
+
 
         c_1 = request.POST.get("c_1")
         c_2 = request.POST.get("c_2")
@@ -151,19 +150,29 @@ class PassForgetOtp(CheckLoginMixinMixin,View):
                         request.session["chnage_pass_phone"]=otp.phone
                         otp.delete()
 
+                        del request.session['phone_forget']
+                        del request.session['code_forget']
+
                         return redirect("AcountApp:change-pass")
+
 
                     else:
                         otp.delete()
+                        del request.session['phone_forget']
+                        del request.session['code_forget']
                         context["error"].append("کد وارد شده فاقد اعتبار است")
                         return render(request, "AcountApp/otpforgetpass.html", context)
                 else:
                     otp.delete()
                     context["error"].append("کد وارد شده فاقد اعتبار است")
+                    del request.session['phone_forget']
+                    del request.session['code_forget']
                     return render(request, "AcountApp/otpforgetpass.html", context)
 
             else:
-                context["error"].append("کد وارد شده فاقد اعتبار است")
+                del request.session['phone_forget']
+                del request.session['code_forget']
+                context["error"].append("کد وارد شده اشتباه است")
                 return render(request, "AcountApp/otpforgetpass.html",context)
 
         return render(request, "AcountApp/otpforgetpass.html")
@@ -247,6 +256,7 @@ class OtpView(CheckLoginMixinMixin,View):
                         user.set_password(otp.password)
                         user.save()
                         otp.delete()
+                        login(request,user)
                         return redirect("/")
 
                     else:

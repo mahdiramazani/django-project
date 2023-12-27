@@ -61,3 +61,7 @@ class SearchView(View):
         return render(request,"HomeApp/search.html",{"object_list":object_list})
 
 
+
+class MojavezView(TemplateView):
+
+    template_name = "HomeApp/mojavez.html"

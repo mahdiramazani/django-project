@@ -1,7 +1,16 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,View
+from .models import CharsooModel
+
+class CharsooView(View):
+
+    def get(self,request):
+
+        images=CharsooModel.objects.all()
 
 
-class CharsooView(TemplateView):
+        return render(request,"CharsooApp/standard.html",context={
+            "images":images
+        })
 
-    template_name = "CharsooApp/standard.html"
+

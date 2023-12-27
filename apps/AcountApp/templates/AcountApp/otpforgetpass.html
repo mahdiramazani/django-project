@@ -23,6 +23,78 @@
 
 {% include "include/header.html" %}
 
+<div class="container">
+    <div class="row">
+        <div class="col-lg">
+            <section class="page-account-box">
+                <div class="col-lg-6 col-md-6 col-xs-12 mx-auto">
+                    <div class="ds-userlogin">
+                        <a href="#" class="account-box-logo">digismart</a>
+                        <div class="account-box">
+                            <div class="Login-to-account mt-4">
+                                <div class="account-box-content">
+                                    {% if error %}
+                                        {% for e in error %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ e }}
+                                    </div>
+                                        {% endfor %}
+                                    {% endif %}
+
+                                    <div class="message-light">
+                                        <div class="alert alert-primary">
+                                            برای شماره همراه {{ phone }} کد تایید ارسال گردید
+                                            <div class="form-edit-number">
+                                                <a href="{% url "AcountApp:forgetPass" %}" class="edit-number-link">ویرایش
+                                                    شماره</a>
+                                            </div>
+                                        </div>
+                                        <div class="account-box-verify-content">
+                                            <div class="form-account">
+                                                <div class="form-account-title">کد فعال سازی پیامک شده را وارد کنید
+                                                </div>
+                                                <div class="form-account-row">
+                                                    <div class="lines-number-input">
+                                                        <form method="post">
+                                                            {% csrf_token %}
+                                                            <input type="text" required class="line-number-account"
+                                                                   maxlength="1" name="c_1">
+                                                            <input type="text" required class="line-number-account"
+                                                                   maxlength="1" name="c_2">
+                                                            <input type="text" required class="line-number-account"
+                                                                   maxlength="1" name="c_3">
+
+                                                            <input type="text" required class="line-number-account"
+                                                                   maxlength="1" name="c_4">
+
+
+                                                            <div class="account-footer">
+                                                                <div class="account-footer">
+                                                                    <div class="form-row-account">
+                                                                        <button class="btn btn-primary btn-login">
+                                                                            ثبت‌ نام در اتاق اصناف سیرجان
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
 
 {% include "include/footer.html" %}
 

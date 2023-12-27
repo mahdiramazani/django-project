@@ -81,7 +81,7 @@ class NewsModels(models.Model):
     def show_title(self):
 
 
-        return f"{self.body[:50]}..."
+        return f"{self.body[:20]}..."
 
 
     def __str__(self):

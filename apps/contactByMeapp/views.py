@@ -45,11 +45,13 @@ class LostPreciousView(View):
         fullname=request.POST.get("fullname")
         phone=request.POST.get("phone")
         body=request.POST.get("body")
+        image=request.FILES.get("image")
 
         if fullname and phone and body:
             LostPrecious.objects.create(fullname=fullname,
                                         phone=phone,
-                                        body=body)
+                                        body=body,
+                                        image=image)
 
             return render(request, "ContactByMeapp/LostPrecious.html")
 

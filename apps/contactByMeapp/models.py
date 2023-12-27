@@ -19,6 +19,7 @@ class ContactUs(models.Model):
 class LostPrecious(models.Model):
     fullname=models.CharField(max_length=50,verbose_name="نام و نام خانوادگی")
     phone=models.CharField(max_length=100,verbose_name="شماره تلفن")
+    image=models.FileField(upload_to="lost/images")
     body=models.TextField(verbose_name="متن پیام")
     is_publish=models.BooleanField(default=False,verbose_name="منتشر شود؟")
 

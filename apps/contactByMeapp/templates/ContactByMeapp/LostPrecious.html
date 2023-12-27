@@ -51,7 +51,7 @@
                         </div>
 
                         <form id="MyForm" method="post"
-                              class="contact-us-form">
+                              class="contact-us-form" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="contact-us-row contact-us-row--align-top">
 
@@ -73,6 +73,16 @@
                                     </div>
                                 </label>
                             </div>
+
+                            <div class="contact-us-row contact-us-row--align-bottom">
+                                <label for="#" class="form-field-container w-100">
+                                    <div class="form-field-label">تصویر</div>
+                                    <div class="form-field-frame">
+                                       <input type="file" name="image">
+                                    </div>
+                                </label>
+                            </div>
+
                             <div class="contact-us-row contact-us-row--align-bottom">
                                 <label for="#" class="form-field-container w-100">
                                     <div class="form-field-label">متن پیام*</div>

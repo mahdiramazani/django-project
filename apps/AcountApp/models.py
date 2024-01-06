@@ -112,7 +112,7 @@ class OtpClass(models.Model):
     fullname=models.CharField(max_length=50,null=True)
     password=models.CharField(max_length=60,blank=True)
     code=models.CharField(max_length=15)
-    expiration_date=models.DateTimeField(default=timezone.now()+timezone.timedelta(minutes=5))
+    expiration_date=models.DateTimeField()
 
     def is_expiration_date(self):
 
@@ -130,7 +130,7 @@ class OtpClass(models.Model):
 class PasswordResetTokenOtp(models.Model):
     phone=models.CharField(max_length=15)
     token=models.CharField(max_length=50)
-    expiration_date = models.DateTimeField(default=timezone.now() + timezone.timedelta(minutes=5))
+    expiration_date = models.DateTimeField()
 
 
     def is_expiration_date(self):

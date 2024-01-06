@@ -16,6 +16,8 @@ class HomeAppView(TemplateView):
 
     def get_context_data(self, **kwargs):
 
+
+
         if ViewHomeModels.objects.filter(
                 createdDate__range=(timezone.now()-timezone.timedelta(days=1),timezone.now()+timezone.timedelta(days=20))).exists():
 

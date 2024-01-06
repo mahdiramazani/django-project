@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.shortcuts import render,redirect
 from django.views.generic import TemplateView,View
 from apps.AcountApp.models import User,OtpClass,PasswordResetTokenOtp
@@ -63,7 +64,7 @@ class RegisterView(CheckLoginMixinMixin,View):
                 else:
                     code=random.randint(1000,9999)
                     OtpClass.objects.create(phone=phone,code=code,
-                                            fullname=fullname,password=pass2)
+                                            fullname=fullname,password=pass2,expiration_date=timezone.now()+timezone.timedelta(minutes=5))
 
                     request.session["code"]=code
                     request.session["phone"]=phone
@@ -95,7 +96,7 @@ class ForgetPassView(CheckLoginMixinMixin,View):
         if User.objects.filter(phone=phone).exists():
 
             code=random.randint(1000,9999)
-            OtpClass.objects.create(phone=phone,code=code)
+            OtpClass.objects.create(phone=phone,code=code,expiration_date=timezone.now()+timezone.timedelta(minutes=5))
 
             request.session["phone_forget"]=phone
             request.session["code_forget"]=code
